@@ -55,7 +55,7 @@ class B{
 			e.printStackTrace();
 			// TODO: handle exception
 		}
-		System.out.println("当前线程名:"+Thread.currentThread().getName()+" 企图调用B实例的last()方法");
+		System.out.println("当前线程名:"+Thread.currentThread().getName()+" 企图调用A实例的last()方法");
 		a.last();
 	}
 	public synchronized void last() {
