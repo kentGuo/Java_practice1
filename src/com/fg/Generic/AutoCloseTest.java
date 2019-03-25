@@ -9,12 +9,12 @@ import java.io.PrintStream;
 public class AutoCloseTest {
 	public static void main(String[] args) throws IOException {
 		try(
-				//声明，初始化两个可关闭的资源
-				//try语句会自动关闭这两个资源
+				//澹版槑锛屽垵濮嬪寲涓や釜鍙叧闂殑璧勬簮
+				//try璇彞浼氳嚜鍔ㄥ叧闂繖涓や釜璧勬簮
 				BufferedReader br=new BufferedReader(new FileReader("G://Mt.java"));
 				PrintStream ps=new PrintStream(new FileOutputStream("a.txt")))
 		{
-		//使用两个资源
+		//浣跨敤涓や釜璧勬簮
 			System.out.println(br.readLine());
 			ps.println("aaaa");
 		}

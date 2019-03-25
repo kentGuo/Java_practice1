@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class ConnMySQL {
 	public static void main(String[] args) {
 		/**
-		 * 1.¼ÓÔØÇı¶¯,Ê¹ÓÃ·´ÉäÖªÊ¶
+		 * 1.åŠ è½½é©±åŠ¨,ä½¿ç”¨åå°„çŸ¥è¯†
 		 */
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -19,24 +19,24 @@ public class ConnMySQL {
 		}
 		try (
 			/**
-			 * 2.Ê¹ÓÃDriverManager»ñÈ¡Êı¾İ¿âÁ¬½Ó ÆäÖĞ·µ»ØµÄConnection¾Í´ú±íÁËJava³ÌĞòºÍÊı¾İ¿âÁ¬½Ó
-			 * ²»Í¬Êı¾İ¿âµÄURLĞ´·¨ĞèÒª²éÇı¶¯ÎÄµµ,ÓÃ»§Ãû,ÃÜÂë
+			 * 2.ä½¿ç”¨DriverManagerè·å–æ•°æ®åº“è¿æ¥ å…¶ä¸­è¿”å›çš„Connectionå°±ä»£è¡¨äº†Javaç¨‹åºå’Œæ•°æ®åº“è¿æ¥
+			 * ä¸åŒæ•°æ®åº“çš„URLå†™æ³•éœ€è¦æŸ¥é©±åŠ¨æ–‡æ¡£,ç”¨æˆ·å,å¯†ç 
 			 */
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/javac", "root", "root");
 			/**
-			 * 3.Ê¹ÓÃConnectionÀ´´´½¨Ò»¸öStatement¶ÔÏó
+			 * 3.ä½¿ç”¨Connectionæ¥åˆ›å»ºä¸€ä¸ªStatementå¯¹è±¡
 			 */
 			Statement stmt = conn.createStatement();
 			/**
-			 * 4.Ö´ĞĞSQLÓï¾ä StatementÓĞÈıÖÖÖ´ĞĞSQLÓï¾äµÄ·½·¨: (1) execute()¿ÉÖ´ĞĞÈÎºÎSQLÓï¾ä-·µ»ØÒ»¸öBoolean¶ÔÏó
-			 * Èç¹ûÖ´ĞĞºóµÚÒ»¸ö½á¹ûÊÇResultSet,Ôò·µ»Øtrue,·ñÔò·µ»Øfalse (2)executeQuery()Ö´ĞĞselectÓï¾ä-·µ»Ø²éÑ¯µ½µÄ½á¹û¼¯
-			 * (3)executeUpdate()ÓÃÓÚÖ´ĞĞDMLÓï¾ä-·µ»ØÒ»¸öÕûÊı ´ú±í±»SQLÓï¾äÓ°ÏìµÄ¼ÇÂ¼ÌõÊı
+			 * 4.æ‰§è¡ŒSQLè¯­å¥ Statementæœ‰ä¸‰ç§æ‰§è¡ŒSQLè¯­å¥çš„æ–¹æ³•: (1) execute()å¯æ‰§è¡Œä»»ä½•SQLè¯­å¥-è¿”å›ä¸€ä¸ªBooleanå¯¹è±¡
+			 * å¦‚æœæ‰§è¡Œåç¬¬ä¸€ä¸ªç»“æœæ˜¯ResultSet,åˆ™è¿”å›true,å¦åˆ™è¿”å›false (2)executeQuery()æ‰§è¡Œselectè¯­å¥-è¿”å›æŸ¥è¯¢åˆ°çš„ç»“æœé›†
+			 * (3)executeUpdate()ç”¨äºæ‰§è¡ŒDMLè¯­å¥-è¿”å›ä¸€ä¸ªæ•´æ•° ä»£è¡¨è¢«SQLè¯­å¥å½±å“çš„è®°å½•æ¡æ•°
 			 */
 			ResultSet rs = stmt.executeQuery("select s.*,teacher_name" + " from student_table2 s,teacher_table2 t"
 					+ " where t.teacher_id=s.java_teacher")){
 			/**
-			 * ResultSetÓĞÒ»ÏµÁĞµÄgetXXX(ÁĞË÷Òı|ÁĞÃû)·½·¨,ÓÃÓÚ»ñÈ¡¼ÇÂ¼Ö¸Õë Ö¸ÏòĞĞ,ÌØ¶¨ÁĞµÄÖµ,²»¶ÏµØÊ¹ÓÃnext()½«¼ÇÂ¼Ö¸ÕëÏÂÒÆÒ»ĞĞ
-			 * Èç¹ûÒÆ¶¯Ö®ºó¼ÇÂ¼Ö¸ÕëÒÀÈ»Ö¸ÏòÓĞĞ§ĞĞ,Ôònext()·½·¨·µ»Øtrue
+			 * ResultSetæœ‰ä¸€ç³»åˆ—çš„getXXX(åˆ—ç´¢å¼•|åˆ—å)æ–¹æ³•,ç”¨äºè·å–è®°å½•æŒ‡é’ˆ æŒ‡å‘è¡Œ,ç‰¹å®šåˆ—çš„å€¼,ä¸æ–­åœ°ä½¿ç”¨next()å°†è®°å½•æŒ‡é’ˆä¸‹ç§»ä¸€è¡Œ
+			 * å¦‚æœç§»åŠ¨ä¹‹åè®°å½•æŒ‡é’ˆä¾ç„¶æŒ‡å‘æœ‰æ•ˆè¡Œ,åˆ™next()æ–¹æ³•è¿”å›true
 			 */
 			while (rs.next()) {
 				System.out.println(

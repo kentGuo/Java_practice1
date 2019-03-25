@@ -10,7 +10,7 @@ public class Person3 implements Serializable{
 	public Person3(String name,int age) {
 		this.age=age;
 		this.name=name;
-		System.out.println("ÓĞ²ÎÊıµÄ¹¹ÔìÆ÷");
+		System.out.println("æœ‰å‚æ•°çš„æ„é€ å™¨");
 	}
 	public String getName() {
 		return name;
@@ -24,7 +24,7 @@ public class Person3 implements Serializable{
 	public void setAge(int age) {
 		this.age = age;
 	}
-	//ÖØĞ´writeReplace·½·¨,³ÌĞòÔÚĞòÁĞ»¯¸Ã¶ÔÏóÖ®Ç°,ÏÈµ÷ÓÃ¸Ã·½·¨
+	//é‡å†™writeReplaceæ–¹æ³•,ç¨‹åºåœ¨åºåˆ—åŒ–è¯¥å¯¹è±¡ä¹‹å‰,å…ˆè°ƒç”¨è¯¥æ–¹æ³•
 	private Object writeReplace() throws ObjectStreamException{
 		ArrayList<Object> list=new ArrayList<Object>();
 		list.add(name);

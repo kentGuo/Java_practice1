@@ -18,28 +18,28 @@ public class CachedRowSetTest {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 		Class.forName(driver);
 	}
 	public CachedRowSet query(String sql) throws Exception{
-		//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+		//è·å–æ•°æ®åº“è¿æ¥
 		Connection conn=DriverManager.getConnection(url, user, pass);
 		Statement stmt=conn.createStatement();
 		ResultSet rs=stmt.executeQuery(sql);
-		//Ê¹ÓÃRowSetProvider´´½¨RowSetFactory
+		//ä½¿ç”¨RowSetProvideråˆ›å»ºRowSetFactory
 		RowSetFactory factory=RowSetProvider.newFactory();
-		//´´½¨Ä¬ÈÏµÄCachedRowSetÊµÀı
+		//åˆ›å»ºé»˜è®¤çš„CachedRowSetå®ä¾‹
 		CachedRowSet cachedRs=factory.createCachedRowSet();
-		//Ê¹ÓÃResultSet×°ÌîRowSet
+		//ä½¿ç”¨ResultSetè£…å¡«RowSet
 		cachedRs.populate(rs);
-		//¹Ø±Õ×ÊÔ´
+		//å…³é—­èµ„æº
 		rs.close();
 		stmt.close();
 		conn.close();
@@ -50,21 +50,21 @@ public class CachedRowSetTest {
 		ct.initParam("mysql.ini");
 		CachedRowSet rs=ct.query("select * from student_table2");
 		rs.afterLast();
-		//ÏòÇ°¹ö¶¯½á¹û¼¯
+		//å‘å‰æ»šåŠ¨ç»“æœé›†
 		while(rs.previous()) {
 			System.out.println(rs.getString(1)+"\t"
 		+rs.getString(2)+"\t"+
 		rs.getString(3));
 			if(rs.getInt("student_id")==4) {
-				//ĞŞ¸ÄÖ¸¶¨¼ÇÂ¼ĞĞ
+				//ä¿®æ”¹æŒ‡å®šè®°å½•è¡Œ
 				rs.updateString("student_name", "KKKK");
 				rs.updateRow();
 			}
 		}
-		//ÖØĞÂ»ñÈ¡Êı¾İ¿âÁ¬½Ó
+		//é‡æ–°è·å–æ•°æ®åº“è¿æ¥
 		Connection conn=DriverManager.getConnection(ct.url, ct.user, ct.pass);
 	conn.setAutoCommit(false);
-	//°Ñ¶ÔRowSetËù×öµÄĞŞ¸ÄÍ¬²½µ½µ×²ãÊı¾İÁĞ
+	//æŠŠå¯¹RowSetæ‰€åšçš„ä¿®æ”¹åŒæ­¥åˆ°åº•å±‚æ•°æ®åˆ—
 	rs.acceptChanges(conn);
 	}
 }

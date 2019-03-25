@@ -5,18 +5,18 @@ import java.io.IOException;
 
 public class FileInputStreamTest {
 	public static void main(String[] args) throws IOException {
-		// ´´½¨×Ö½ÚÊäÈëÁ÷
+		// åˆ›å»ºå­—èŠ‚è¾“å…¥æµ
 		FileInputStream fis = new FileInputStream(".\\src\\com\\fg\\IO\\FileInputStreamTest.java");
-		// ´´½¨Ò»¸ö³¤¶ÈÎª1024µÄÖñÍ²
+		// åˆ›å»ºä¸€ä¸ªé•¿åº¦ä¸º1024çš„ç«¹ç­’
 		byte[] bbuf = new byte[1024];
-		// ÓÃÓÚ±£´æÊµ¼Ê¶ÁÈ¡µÄ×Ö½ÚÊý
+		// ç”¨äºŽä¿å­˜å®žé™…è¯»å–çš„å­—èŠ‚æ•°
 		int hasRead = 0;
-		// Ê¹ÓÃÑ­»·À´ÖØ¸´ ¶ÁÈ¡ µÄ¹ý³Ì
+		// ä½¿ç”¨å¾ªçŽ¯æ¥é‡å¤ è¯»å– çš„è¿‡ç¨‹
 		while ((hasRead = fis.read(bbuf)) > 0) {
-			// È¡³ö¶ÁÈ¡µÄ×Ö½Ú,½«×Ö½ÚÊý×é×ª»»³É×Ö·û´®ÊäÈë
+			// å–å‡ºè¯»å–çš„å­—èŠ‚,å°†å­—èŠ‚æ•°ç»„è½¬æ¢æˆå­—ç¬¦ä¸²è¾“å…¥
 			System.out.println(new String(bbuf, 0, hasRead));
 		}
-		// ¹Ø±ÕÁ÷
+		// å…³é—­æµ
 		fis.close();
 	}
 }

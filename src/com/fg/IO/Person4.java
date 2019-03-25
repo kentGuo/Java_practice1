@@ -11,8 +11,8 @@ public class Person4 implements Externalizable{
 	public Person4(String name,int age) {
 		this.name=name;
 		this.age=age;
-		System.out.println("ÓĞ²ÎÊıµÄ¹¹ÔìÆ÷");
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
+		System.out.println("æœ‰å‚æ•°çš„æ„é€ å™¨");
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 	}
 	
 	public String getName() {
@@ -33,7 +33,7 @@ public class Person4 implements Externalizable{
 
 	@Override
 	public void readExternal(ObjectInput arg0) throws IOException, ClassNotFoundException {
-		// ½«¶ÁÈ¡µÄ×Ö·û´®·´×ªºó¸³¸øname Field
+		// å°†è¯»å–çš„å­—ç¬¦ä¸²åè½¬åèµ‹ç»™name Field
 		this.name=((StringBuffer)arg0.readObject()).reverse().toString();
 		this.age=arg0.readInt();
 		
@@ -41,7 +41,7 @@ public class Person4 implements Externalizable{
 
 	@Override
 	public void writeExternal(ObjectOutput arg0) throws IOException {
-		// ½«name FieldÖµ·´×ªºóĞ´Èë¶ş½øÖÆÁ÷
+		// å°†name Fieldå€¼åè½¬åå†™å…¥äºŒè¿›åˆ¶æµ
 		arg0.writeObject(new StringBuffer(name).reverse());
 		arg0.writeInt(age);
 	}

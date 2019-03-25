@@ -12,7 +12,7 @@ class R1 implements Comparable<Object>{
 	public String toString() {
 		return "R[count:"+count+"]";
 	}
-	//¸ù¾İcountÀ´ÅĞ¶ÏÁ½¸ö¶ÔÏóÊÇ·ñÏàµÈ
+	//æ ¹æ®countæ¥åˆ¤æ–­ä¸¤ä¸ªå¯¹è±¡æ˜¯å¦ç›¸ç­‰
 	@Override
 	public boolean equals(Object obj) {
 		if(this==obj) return true;
@@ -22,7 +22,7 @@ class R1 implements Comparable<Object>{
 		}
 		return false;
 	}
-	//¸ù¾İcountÊôĞÔÖµÀ´ÅĞ¶ÏÁ½¸ö¶ÔÏóµÄ´óĞ¡
+	//æ ¹æ®countå±æ€§å€¼æ¥åˆ¤æ–­ä¸¤ä¸ªå¯¹è±¡çš„å¤§å°
 	@Override
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
@@ -42,15 +42,15 @@ public class TreeMapTest {
 			System.out.println(o);
 		}
 		System.out.println(tm);
-		//·µ»ØTreeMapµÄ¶Ô¸öEntry¶ÔÏó
+		//è¿”å›TreeMapçš„å¯¹ä¸ªEntryå¯¹è±¡
 		System.out.println(tm.firstEntry());
-		//·µ»Ø¸ÃTreeMapµÄ×îºóÒ»¸ökeyÖµ
+		//è¿”å›è¯¥TreeMapçš„æœ€åä¸€ä¸ªkeyå€¼
 		System.out.println(tm.lastKey());
-		//·µ»Ø¸ÃTreeMapµÄ±ÈnewR1(2)´óµÄ×îĞ¡keyÖµ
+		//è¿”å›è¯¥TreeMapçš„æ¯”newR1(2)å¤§çš„æœ€å°keyå€¼
 		System.out.println(tm.higherKey(new R1(2)));
-		//·µ»Ø¸ÃTreeMapµÄ±ÈnewR1(2)Ğ¡µÄ×î´óµÄkey-value¶Ô
+		//è¿”å›è¯¥TreeMapçš„æ¯”newR1(2)å°çš„æœ€å¤§çš„key-valueå¯¹
 		System.out.println(tm.lowerKey(new R1(2)));
-		//·µ»Ø¸ÃTreeMapµÄ×ÓTreeMap
+		//è¿”å›è¯¥TreeMapçš„å­TreeMap
 		System.out.println(tm.subMap(new R1(-1), new R1(4)));
 	}
 }

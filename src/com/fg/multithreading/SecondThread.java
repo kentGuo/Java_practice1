@@ -1,13 +1,13 @@
 package com.fg.multithreading;
 
-//Í¨¹ıÊµÏÖRunnable½Ó¿ÚÀ´´´½¨Ïß³Ì
+//é€šè¿‡å®ç°Runnableæ¥å£æ¥åˆ›å»ºçº¿ç¨‹
 public class SecondThread implements Runnable{
 	private int i;
-	//run()·½·¨Í¬ÑùÊÇÏß³ÌÖ÷Ìå
+	//run()æ–¹æ³•åŒæ ·æ˜¯çº¿ç¨‹ä¸»ä½“
 	@Override
 	public void run() {
-		// µ±Ïß³ÌÊµÏÖRunable½Ó¿ÚÊ±
-		//Èç¹ûÏë»ñÈ¡µ±Ç°Ïß³Ì£¬Ö»ÄÜÊ¹ÓÃThread.currentThread()·½·¨
+		// å½“çº¿ç¨‹å®ç°Runableæ¥å£æ—¶
+		//å¦‚æœæƒ³è·å–å½“å‰çº¿ç¨‹ï¼Œåªèƒ½ä½¿ç”¨Thread.currentThread()æ–¹æ³•
 		for(;i<100;i++) {
 			System.out.println(Thread.currentThread().getName()+""+i);
 		}
@@ -17,9 +17,9 @@ public class SecondThread implements Runnable{
 			System.out.println(Thread.currentThread().getName()+""+i);
 			if(i==20) {
 				SecondThread st=new SecondThread();
-				//Í¨¹ınew Thread(target,name)·½·¨´´½¨ĞÂÏß³Ì
-				new Thread(st,"ĞÂÏß³Ì1").start();
-				new Thread(st,"ĞÂÏß³Ì2").start();
+				//é€šè¿‡new Thread(target,name)æ–¹æ³•åˆ›å»ºæ–°çº¿ç¨‹
+				new Thread(st,"æ–°çº¿ç¨‹1").start();
+				new Thread(st,"æ–°çº¿ç¨‹2").start();
 			}
 		}
 		

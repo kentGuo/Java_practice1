@@ -13,7 +13,7 @@ public class ExecuteDML {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
@@ -23,15 +23,15 @@ public class ExecuteDML {
 	}
 
 	public int insertData(String sql) throws Exception {
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 		Class.forName(driver);
 		try (
-				// »ñÈ¡Êı¾İ¿âÁ¬½Ó
+				// è·å–æ•°æ®åº“è¿æ¥
 				Connection conn = DriverManager.getConnection(url, user, pass);
-				// Ê¹ÓÃConnectionÀ´´´½¨Ò»¸öStatement¶ÔÏó
+				// ä½¿ç”¨Connectionæ¥åˆ›å»ºä¸€ä¸ªStatementå¯¹è±¡
 				Statement stmt = conn.createStatement()) 
 		{
-			// Ö´ĞĞDML,·µ»ØÊÜÓ°ÏìµÄ¼ÇÂ¼ÌõÊı
+			// æ‰§è¡ŒDML,è¿”å›å—å½±å“çš„è®°å½•æ¡æ•°
 			return stmt.executeUpdate(sql);
 			
 		}

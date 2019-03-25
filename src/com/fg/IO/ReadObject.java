@@ -6,12 +6,12 @@ import java.io.ObjectInputStream;
 public class ReadObject {
 	public static void main(String[] args) {
 		try (
-			//´´½¨Ò»¸öObjectInputStreamÊäÈëÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectInputStreamè¾“å…¥æµ
 				ObjectInputStream ois=new ObjectInputStream(new FileInputStream("object.txt"))
 			){
-			//´ÓÊäÈëÁ÷ÖĞ¶ÁÈ¡Ò»¸öJava¶ÔÏó,²¢½«ÆäÇ¿ÖÆÀàĞÍ×ª»»ÎªPersonÀà
+			//ä»è¾“å…¥æµä¸­è¯»å–ä¸€ä¸ªJavaå¯¹è±¡,å¹¶å°†å…¶å¼ºåˆ¶ç±»å‹è½¬æ¢ä¸ºPersonç±»
 			Person p=(Person)ois.readObject();
-			System.out.println("Ãû×ÖÎª:"+p.getName()+"ÄêÁäÎª:"+p.getAge());
+			System.out.println("åå­—ä¸º:"+p.getName()+"å¹´é¾„ä¸º:"+p.getAge());
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception

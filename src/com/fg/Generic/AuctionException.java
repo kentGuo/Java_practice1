@@ -5,9 +5,9 @@ public class AuctionException extends Exception{
 	 * from KentG
 	 */
 	private static final long serialVersionUID = 1L;
-	//无参数构造器
+	//鏃犲弬鏁版瀯閫犲櫒
 	public AuctionException(){}
-	//带一个字符串参数的构造器
+	//甯︿竴涓瓧绗︿覆鍙傛暟鐨勬瀯閫犲櫒
 	public AuctionException(String msg) {
 		super(msg);
 	}

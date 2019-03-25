@@ -6,28 +6,28 @@ import java.lang.reflect.Field;
 import javax.swing.AbstractButton;
 
 public class ActionListenerInstaller {
-	//´¦ÀíAnnotationµÄ·½·¨£¬ÆäÖĞobjÊÇ°üº¬AnnotationµÄ¶ÔÏó
+	//å¤„ç†Annotationçš„æ–¹æ³•ï¼Œå…¶ä¸­objæ˜¯åŒ…å«Annotationçš„å¯¹è±¡
 	public static void processAnnotations(Object o) {
 		try {
-			//»ñÈ¡o¶ÔÏóµÄÀà
+			//è·å–oå¯¹è±¡çš„ç±»
 			Class cl=o.getClass();
-			//»ñÈ¡Ö¸¶¨o¶ÔÏóµÄËùÓĞField,²¢±éÀúÃ¿¸öField
+			//è·å–æŒ‡å®šoå¯¹è±¡çš„æ‰€æœ‰Field,å¹¶éå†æ¯ä¸ªField
 			for(Field f:cl.getDeclaredFields()) {
-				//Ö¸¶¨FieldÉèÖÃ³É×ÔÓÉ·ÃÎÊ
+				//æŒ‡å®šFieldè®¾ç½®æˆè‡ªç”±è®¿é—®
 				f.setAccessible(true);
-				//»ñÈ¡Ö¸¶¨FieldÉÏActionListenerForÀàĞÍµÄAnnotation
+				//è·å–æŒ‡å®šFieldä¸ŠActionListenerForç±»å‹çš„Annotation
 				ActionListenerFor a=f.getAnnotation(ActionListenerFor.class);
-				//»ñÈ¡f FieldÊµ¼Ê¶ÔÓ¦µÄ¶ÔÏó
+				//è·å–f Fieldå®é™…å¯¹åº”çš„å¯¹è±¡
 				Object fo=f.get(o);
-				//Èç¹ûfÊÇAbstractButtonµÄÊÇ,ÇÒa²»Îªnull
+				//å¦‚æœfæ˜¯AbstractButtonçš„æ˜¯,ä¸”aä¸ä¸ºnull
 				if(a!=null&&fo!=null&&fo instanceof AbstractButton)
 				{
-					//»ñÈ¡aÖ¸ÊıÀïµÄÔªÊı¾İlistener(ËüÊÇÒ»¸ö¼àÌıÆ÷Àà)
+					//è·å–aæŒ‡æ•°é‡Œçš„å…ƒæ•°æ®listener(å®ƒæ˜¯ä¸€ä¸ªç›‘å¬å™¨ç±»)
 					Class<? extends ActionListener> listenerClazz=a.listener();
-					//Ê¹ÓÃ·´ÉäÀ´´´½¨listenerÀàµÄ¶ÔÏó
+					//ä½¿ç”¨åå°„æ¥åˆ›å»ºlistenerç±»çš„å¯¹è±¡
 					ActionListener a1=listenerClazz.newInstance();
 					AbstractButton ab=(AbstractButton)fo;
-					//Îªab°´Å¥Ìí¼ÓÊÂ¼ş¼àÌıÆ÷
+					//ä¸ºabæŒ‰é’®æ·»åŠ äº‹ä»¶ç›‘å¬å™¨
 					ab.addActionListener(a1);
 				}
 			}

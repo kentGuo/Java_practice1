@@ -5,16 +5,16 @@ import java.util.List;
 
 public class ListErr {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸öÖ½Ïä±£´æ×Ö·û´®µÄList¼¯ºÏ
+		//åˆ›å»ºä¸€ä¸ªçº¸ç®±ä¿å­˜å­—ç¬¦ä¸²çš„Listé›†åˆ
 		List strList = new ArrayList<>();
-		strList.add("ÇìÓàÄê");
-		strList.add("Ìì½¾ÎŞË«");
-		strList.add("²½²½ÉúÁ«");
-		//²»Ğ¡ĞÄ°ÑÒ»¸öInteger¶ÔÏó¶ª½øÁË¼¯ºÏ
+		strList.add("åº†ä½™å¹´");
+		strList.add("å¤©éª„æ— åŒ");
+		strList.add("æ­¥æ­¥ç”Ÿè²");
+		//ä¸å°å¿ƒæŠŠä¸€ä¸ªIntegerå¯¹è±¡ä¸¢è¿›äº†é›†åˆ
 		strList.add(5);
 		for (int i = 0; i < strList.size(); i++) {
-			//ÒòÎªListÀïÈ¡³öµÄÈ«²¿ÊÇObject£¬ËùÒÔ±ØĞë½øĞĞÇ¿ÖÆÀàĞÍ×ª»»
-			//×îºóÒ»¸öÔªËØ½«³öÏÖClassCastExceptionÒì³£
+			//å› ä¸ºListé‡Œå–å‡ºçš„å…¨éƒ¨æ˜¯Objectï¼Œæ‰€ä»¥å¿…é¡»è¿›è¡Œå¼ºåˆ¶ç±»å‹è½¬æ¢
+			//æœ€åä¸€ä¸ªå…ƒç´ å°†å‡ºç°ClassCastExceptionå¼‚å¸¸
 			String str = (String) strList.get(i);
 		}
 	}

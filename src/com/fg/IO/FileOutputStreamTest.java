@@ -6,17 +6,17 @@ import java.io.FileOutputStream;
 public class FileOutputStreamTest {
 	public static void main(String[] args) {
 		try (
-				// ´´½¨×Ö½ÚÊäÈëÁ÷
+				// åˆ›å»ºå­—èŠ‚è¾“å…¥æµ
 				FileInputStream fis = new FileInputStream(".\\src\\com\\fg\\IO\\FileOutputStreamTest.java");
-		// ´´½¨×Ö½ÚÊä³öÁ÷
+		// åˆ›å»ºå­—èŠ‚è¾“å‡ºæµ
 				FileOutputStream fos=new FileOutputStream("newFile.txt");
 		) {
 			byte[] bbuf=new byte[32];
 			int hasRead=0;
-			//Ñ­»·´ÓÊäÈëÁ÷ÖÐÈ¡³öÊý¾Ý
+			//å¾ªçŽ¯ä»Žè¾“å…¥æµä¸­å–å‡ºæ•°æ®
 			while((hasRead=(fis.read(bbuf)))>0)
 			{
-				//Ã¿¶ÁÒ»´Î,¼´Ð´ÈëÎÄ¼þÊä³öÁ÷,¶ÁÁË¶àÉÙ£¬Êä³ö¶àÉÙ
+				//æ¯è¯»ä¸€æ¬¡,å³å†™å…¥æ–‡ä»¶è¾“å‡ºæµ,è¯»äº†å¤šå°‘ï¼Œè¾“å‡ºå¤šå°‘
 				fos.write(bbuf, 0, hasRead);
 			}
 		} catch (Exception e) {

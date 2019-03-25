@@ -7,9 +7,9 @@ public class Person {
 	private String name;
 	@Property(column="person_age",type="integer")
 	private int age;
-	//无参数的构造器
+	//鏃犲弬鏁扮殑鏋勯�犲櫒
 	public Person() {}
-	//初始化全部成员变量的构造器
+	//鍒濆鍖栧叏閮ㄦ垚鍛樺彉閲忕殑鏋勯�犲櫒
 	public Person(int id,String name,int age) {
 		this.age=age;
 		this.name=name;

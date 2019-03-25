@@ -6,12 +6,12 @@ import java.io.ObjectOutputStream;
 public class WriteObject {
 	public static void main(String[] args) {
 		try(
-			//´´½¨Ò»¸öObjectOutputStreamÊä³öÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectOutputStreamè¾“å‡ºæµ
 			ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("object.txt"))
 			)
 		{
 			Person per=new Person("Kent", 11);
-			//½«per¶ÔÏóĞ´ÈëÊä³öÁ÷
+			//å°†perå¯¹è±¡å†™å…¥è¾“å‡ºæµ
 			oos.writeObject(per);
 		}catch (Exception e) {
 			e.printStackTrace();

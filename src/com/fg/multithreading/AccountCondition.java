@@ -4,14 +4,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class AccountCondition {
-	// ¶¨ÒåËø¶ÔÏó
+	// å®šä¹‰é”å¯¹è±¡
 	private final ReentrantLock lock = new ReentrantLock();
-	// »ñµÃÖ¸¶¨Lock¶ÔÏó¶ÔÓ¦µÄCondition
+	// è·å¾—æŒ‡å®šLockå¯¹è±¡å¯¹åº”çš„Condition
 	private final Condition cond = lock.newCondition();
-	// ·â×°ÕË»§±àºÅ£¬ÕË»§Óà¶îµÄÁ½¸ö³ÉÔ±±äÁ¿
+	// å°è£…è´¦æˆ·ç¼–å·ï¼Œè´¦æˆ·ä½™é¢çš„ä¸¤ä¸ªæˆå‘˜å˜é‡
 	private String accountNo;
 	private double balance;
-	// ±êÊ¶ÕË»§ÖĞÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±ê
+	// æ ‡è¯†è´¦æˆ·ä¸­æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡
 	private boolean flag = false;
 
 	public AccountCondition() {
@@ -35,60 +35,60 @@ public class AccountCondition {
 		return balance;
 	}
 
-	// Ìá¹©Ò»¸öÏß³Ì°²È«µÄdraw()·½·¨À´Íê³ÉÈ¡Ç®²Ù×÷
+	// æä¾›ä¸€ä¸ªçº¿ç¨‹å®‰å…¨çš„draw()æ–¹æ³•æ¥å®Œæˆå–é’±æ“ä½œ
 	public void draw(double drawAmount) {
-		// ¼ÓËø
+		// åŠ é”
 		lock.lock();
 		try {
-			// Èç¹ûflagÎª¼Ù£¬±íÃ÷ÕË»§ÖĞ»¹Ã»ÓĞÈË´æÇ®½øÈ¥£¬È¡Ç®·½·¨×èÈû
+			// å¦‚æœflagä¸ºå‡ï¼Œè¡¨æ˜è´¦æˆ·ä¸­è¿˜æ²¡æœ‰äººå­˜é’±è¿›å»ï¼Œå–é’±æ–¹æ³•é˜»å¡
 			if (!flag) {
 				cond.await();
 			} else {
-				// Ö´ĞĞÈ¡Ç®²Ù×÷
-				System.out.println(Thread.currentThread().getName() + " È¡Ç®:" + drawAmount);
+				// æ‰§è¡Œå–é’±æ“ä½œ
+				System.out.println(Thread.currentThread().getName() + " å–é’±:" + drawAmount);
 				balance -= drawAmount;
-				System.out.println("ÕË»§Óà¶îÎª:" + balance);
-				// ½«±êÊ¶ÕË»§ÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±êÉèÎªfalse
+				System.out.println("è´¦æˆ·ä½™é¢ä¸º:" + balance);
+				// å°†æ ‡è¯†è´¦æˆ·æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡è®¾ä¸ºfalse
 				flag = false;
-				// »½ĞÑÆäËûÏß³Ì
+				// å”¤é†’å…¶ä»–çº¿ç¨‹
 				cond.signalAll();
 			}
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
-			// ÊÍ·ÅËø
+			// é‡Šæ”¾é”
 			lock.unlock();
 		}
 	}
 
 	public void deposit(double depositAmount) {
-		// ¼ÓËø
+		// åŠ é”
 		lock.lock();
 		try {
-			// Èç¹ûflagÎªÕæ£¬±íÃ÷ÕË»§ÖĞÒÑÓĞÈË´æÇ®½øÈ¥£¬´æÇ®·½·¨×èÈû
+			// å¦‚æœflagä¸ºçœŸï¼Œè¡¨æ˜è´¦æˆ·ä¸­å·²æœ‰äººå­˜é’±è¿›å»ï¼Œå­˜é’±æ–¹æ³•é˜»å¡
 			if (flag) {
 				cond.await();
 			} else {
-				// Ö´ĞĞÈ¡Ç®²Ù×÷
-				System.out.println(Thread.currentThread().getName() + " ´æÇ®:" + depositAmount);
+				// æ‰§è¡Œå–é’±æ“ä½œ
+				System.out.println(Thread.currentThread().getName() + " å­˜é’±:" + depositAmount);
 				balance += depositAmount;
-				System.out.println("ÕË»§Óà¶îÎª:" + balance);
-				// ½«±êÊ¶ÕË»§ÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±êÉèÎªtrue
+				System.out.println("è´¦æˆ·ä½™é¢ä¸º:" + balance);
+				// å°†æ ‡è¯†è´¦æˆ·æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡è®¾ä¸ºtrue
 				flag = true;
-				// »½ĞÑÆäËûÏß³Ì
+				// å”¤é†’å…¶ä»–çº¿ç¨‹
 				cond.signalAll();
 			}
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		} finally {
-			// ÊÍ·ÅËø
+			// é‡Šæ”¾é”
 			lock.unlock();
 		}
 	}
 
-	// ÏÂÃæÁ½¸ö·½·¨¸ù¾İaccountNoÀ´ÖØĞ´hasCode()ºÍequals()·½·¨
+	// ä¸‹é¢ä¸¤ä¸ªæ–¹æ³•æ ¹æ®accountNoæ¥é‡å†™hasCode()å’Œequals()æ–¹æ³•
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub

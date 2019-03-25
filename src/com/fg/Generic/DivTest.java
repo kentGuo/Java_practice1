@@ -10,19 +10,19 @@ public class DivTest {
 			int a=Integer.parseInt(sc1.nextLine());
 			int b=Integer.parseInt(sc1.nextLine());
 			int c=a/b;
-			System.out.println("ÄúÊäÈëµÄÁ½¸öÊıÏà´¦µÄ½á¹ûÊÇ:"+c);
+			System.out.println("æ‚¨è¾“å…¥çš„ä¸¤ä¸ªæ•°ç›¸å¤„çš„ç»“æœæ˜¯:"+c);
 		} catch (IndexOutOfBoundsException ie) {
 			// TODO: handle exception
-			System.out.println("Êı×éÔ½½ç:ÔËĞĞ³ÌĞòÊ±ÊäÈëµÄ²ÎÊı¸öÊı²»¹»");
+			System.out.println("æ•°ç»„è¶Šç•Œ:è¿è¡Œç¨‹åºæ—¶è¾“å…¥çš„å‚æ•°ä¸ªæ•°ä¸å¤Ÿ");
 		}catch (NumberFormatException ne) {
 			// TODO: handle exception
-			System.out.println("Êı×Ö¸ñÊ½Òì³£:³ÌĞòÖ»ÄÜ½ÓÊÕÕûÊı");
+			System.out.println("æ•°å­—æ ¼å¼å¼‚å¸¸:ç¨‹åºåªèƒ½æ¥æ”¶æ•´æ•°");
 		}catch (ArithmeticException ae) {
 			// TODO: handle exception
-			System.out.println("ËãÊõÒì³£"+ae);
+			System.out.println("ç®—æœ¯å¼‚å¸¸"+ae);
 		}catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Î´ÖªÒì³£"+e);
+			System.out.println("æœªçŸ¥å¼‚å¸¸"+e);
 		}
 	}
 }

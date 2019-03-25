@@ -1,7 +1,7 @@
 package com.fg.Generic;
 
 public class Apple<T> {
-	//Ê¹ÓÃTÀàÐÍÐÎ²Î¶¨ÒåÊµÀý±äÁ¿
+	//ä½¿ç”¨Tç±»åž‹å½¢å‚å®šä¹‰å®žä¾‹å˜é‡
 	private T info;
 	
 	public T getInfo() {
@@ -11,17 +11,17 @@ public class Apple<T> {
 		this.info = info;
 	}
 	public Apple() {}
-	//ÏÂÃæ·½·¨ÖÐÊ¹ÓÃTÀàÐÎ²ÎÀ´¶¨Òå¹¹ÔìÆ÷
+	//ä¸‹é¢æ–¹æ³•ä¸­ä½¿ç”¨Tç±»å½¢å‚æ¥å®šä¹‰æž„é€ å™¨
 	public Apple(T info) {
 		this.info=info;
 	}
 	public static void main(String[] args) {
-		//ÒòÎª´«¸øTÐÎ²ÎµÄÊÇStringÊµ¼ÊÀàÐÍ
-		//ËùÒÔ¹¹ÔìÆ÷µÄ²ÎÊýÖ»ÄÜÊÇString
-		Apple<String> a1=new Apple<>("Æ»¹û");
+		//å› ä¸ºä¼ ç»™Tå½¢å‚çš„æ˜¯Stringå®žé™…ç±»åž‹
+		//æ‰€ä»¥æž„é€ å™¨çš„å‚æ•°åªèƒ½æ˜¯String
+		Apple<String> a1=new Apple<>("è‹¹æžœ");
 		System.out.println(a1.getInfo());
-		//ÒòÎª´«¸øTÐÎ²ÎµÄÊÇDoubleÊµ¼ÊÀàÐÍ
-		//ËùÒÔ¹¹ÔìÆ÷µÄ²ÎÊýÖ»ÄÜÊÇDouble»òÕßdouble
+		//å› ä¸ºä¼ ç»™Tå½¢å‚çš„æ˜¯Doubleå®žé™…ç±»åž‹
+		//æ‰€ä»¥æž„é€ å™¨çš„å‚æ•°åªèƒ½æ˜¯Doubleæˆ–è€…double
 		Apple<Double> a2=new Apple<>(5.67);
 		System.out.println(a2.getInfo());
 	}

@@ -18,30 +18,30 @@ public class CachedRowSetPage {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 		Class.forName(driver);
 	}
 	public CachedRowSet query(String sql,int pageSize,int page) throws Exception{
 		try(
-			//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+			//è·å–æ•°æ®åº“è¿æ¥
 				Connection conn=DriverManager.getConnection(url, user, pass);
 				Statement stmt=conn.createStatement();
 				ResultSet rs=stmt.executeQuery(sql)
 			){
-			//Ê¹ÓÃRowSetProvider´´½¨RowSetFactory
+			//ä½¿ç”¨RowSetProvideråˆ›å»ºRowSetFactory
 			RowSetFactory factory=RowSetProvider.newFactory();
-			//´´½¨Ä¬ÈÏµÄCachedRowSetÊµÀı
+			//åˆ›å»ºé»˜è®¤çš„CachedRowSetå®ä¾‹
 			CachedRowSet cachedRs=factory.createCachedRowSet();
-			//ÉèÖÃÃ¿Ò³ÏÔÊ¾pageSizeÌõ¼ÇÂ¼
+			//è®¾ç½®æ¯é¡µæ˜¾ç¤ºpageSizeæ¡è®°å½•
 			cachedRs.setPageSize(pageSize);
-			//Ê¹ÓÃResultSet×°ÌîRowSet,ÉèÖÃ´ÓµÚ¼¸Ìõ¼ÇÂ¼¿ªÊ¼
+			//ä½¿ç”¨ResultSetè£…å¡«RowSet,è®¾ç½®ä»ç¬¬å‡ æ¡è®°å½•å¼€å§‹
 			cachedRs.populate(rs, (page-1)*pageSize+1);
 			return cachedRs;
 			
@@ -51,7 +51,7 @@ public class CachedRowSetPage {
 		CachedRowSetPage cp=new CachedRowSetPage();
 		cp.initParam("mysql.ini");
 		CachedRowSet rs=cp.query("select * from student_table1", 3, 2);
-		//Ïòºó¹ö¶¯½á¹û¼¯
+		//å‘åæ»šåŠ¨ç»“æœé›†
 		while(rs.next()) {
 			System.out.println(rs.getString(1)+"\t"
 					+rs.getString(2)+"\t"+

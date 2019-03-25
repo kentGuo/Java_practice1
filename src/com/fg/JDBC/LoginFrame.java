@@ -20,15 +20,15 @@ import javax.swing.JTextField;
 public class LoginFrame {
 	private final String PROP_FILE="mysql.ini";
 	private String driver;
-	//urlÊÇÊı¾İ¿âµÄ·şÎñµØÖ·
+	//urlæ˜¯æ•°æ®åº“çš„æœåŠ¡åœ°å€
 	private String url;
 	private String user;
 	private String pass;
-	//µÇÂ¼½çÃæµÄGUI×é¼ş
-	private JFrame jf=new JFrame("µÇÂ¼");
+	//ç™»å½•ç•Œé¢çš„GUIç»„ä»¶
+	private JFrame jf=new JFrame("ç™»å½•");
 	private JTextField userField=new JTextField(20);
 	private JTextField passField=new JTextField(20);
-	private JButton loginBtn=new JButton("µÇÂ¼");
+	private JButton loginBtn=new JButton("ç™»å½•");
 	public void init() throws Exception{
 		Properties connPop=new Properties();
 		connPop.load(new FileInputStream(PROP_FILE));
@@ -36,22 +36,22 @@ public class LoginFrame {
 		url=connPop.getProperty("url");
 		user=connPop.getProperty("user");
 		pass=connPop.getProperty("pass");
-		//¼ÓÔØÇı¶¯
+		//åŠ è½½é©±åŠ¨
 		Class.forName(driver);
-		//ÎªµÇÂ¼°´Å¥Ìí¼ÓÊÂ¼ş¼àÌıÆ÷
+		//ä¸ºç™»å½•æŒ‰é’®æ·»åŠ äº‹ä»¶ç›‘å¬å™¨
 		loginBtn.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				//µÇÂ¼³É¹¦ÔòÏÔÊ¾"µÇÂ¼³É¹¦"
+				//ç™»å½•æˆåŠŸåˆ™æ˜¾ç¤º"ç™»å½•æˆåŠŸ"
 				if(validate(userField.getText(), passField.getText())) {
-					JOptionPane.showMessageDialog(jf, "µÇÂ¼³É¹¦");
+					JOptionPane.showMessageDialog(jf, "ç™»å½•æˆåŠŸ");
 					userField.setText("");
 					passField.setText("");
 				}else {
-					//·ñÔòÏÔÊ¾"µÇÂ¼Ê§°Ü"
-					JOptionPane.showMessageDialog(jf, "µÇÂ¼Ê§°Ü");
+					//å¦åˆ™æ˜¾ç¤º"ç™»å½•å¤±è´¥"
+					JOptionPane.showMessageDialog(jf, "ç™»å½•å¤±è´¥");
 					userField.setText("");
 					passField.setText("");
 				}
@@ -64,7 +64,7 @@ public class LoginFrame {
 		jf.setVisible(true);
 	}
 	private boolean validate(String userName,String userPass) {
-		//Ö´ĞĞ²éÑ¯µÄSQLÓï¾ä
+		//æ‰§è¡ŒæŸ¥è¯¢çš„SQLè¯­å¥
 		String sql="select * from jdbc_test "+
 				"where jdbc_name='"+userName+
 				"' and jdbc_desc='"+userPass+
@@ -83,7 +83,7 @@ public class LoginFrame {
 			psmt.setString(2, userPass);
 			try(
 					ResultSet rs=psmt.executeQuery()
-			//Èç¹û²éÑ¯µÄResultSetÀïÓĞ³¬¹ıÒ»ÌõµÄ¼ÇÂ¼,ÔòµÇÂ¼³É¹¦
+			//å¦‚æœæŸ¥è¯¢çš„ResultSeté‡Œæœ‰è¶…è¿‡ä¸€æ¡çš„è®°å½•,åˆ™ç™»å½•æˆåŠŸ
 					){
 				if(rs.next())
 				{

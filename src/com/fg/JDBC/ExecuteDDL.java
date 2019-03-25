@@ -13,25 +13,25 @@ public class ExecuteDDL {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 				Class.forName(driver);
 	}
 
 	public void createTable(String sql) throws Exception {
 		
 		try (
-				// »ñÈ¡Êı¾İ¿âÁ¬½Ó
+				// è·å–æ•°æ®åº“è¿æ¥
 				Connection conn = DriverManager.getConnection(url, user, pass);
-				// Ê¹ÓÃConnectionÀ´´´½¨Ò»¸öStatement¶ÔÏó
+				// ä½¿ç”¨Connectionæ¥åˆ›å»ºä¸€ä¸ªStatementå¯¹è±¡
 				Statement stmt = conn.createStatement()) {
-			// Ö´ĞĞDDL,´´½¨Êı¾İ±í
+			// æ‰§è¡ŒDDL,åˆ›å»ºæ•°æ®è¡¨
 			stmt.executeUpdate(sql);
 
 		}
@@ -42,6 +42,6 @@ public class ExecuteDDL {
 		ed.initParam("mysql.ini");
 		ed.createTable("create table jdbc_test" + "(jdbc_id int auto_increment primary key," + "jdbc_name varchar(255),"
 				+ "jdbc_desc text);");
-		System.out.println("½¨±í³É¹¦");
+		System.out.println("å»ºè¡¨æˆåŠŸ");
 	}
 }

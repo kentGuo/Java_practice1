@@ -5,19 +5,19 @@ import java.util.ArrayDeque;
 public class ArrayDequeTest {
 	public static void main(String[] args) {
 		ArrayDeque<String> stack=new ArrayDeque<>();
-		//ÒÀ´Î½«Èı¸öÔªËØpushÈëÕ»
-		stack.push("Ñ©ÖĞº·µ¶ĞĞ");
-		stack.push("¼ä¿Í");
-		stack.push("ÇìÓàÄê");
-		//Êä³ö[ÇìÓàÄê, ¼ä¿Í, Ñ©ÖĞº·µ¶ĞĞ]
+		//ä¾æ¬¡å°†ä¸‰ä¸ªå…ƒç´ pushå…¥æ ˆ
+		stack.push("é›ªä¸­æ‚åˆ€è¡Œ");
+		stack.push("é—´å®¢");
+		stack.push("åº†ä½™å¹´");
+		//è¾“å‡º[åº†ä½™å¹´, é—´å®¢, é›ªä¸­æ‚åˆ€è¡Œ]
 		System.out.println(stack);
-		//·ÃÎÊµÚÒ»¸öÔªËØ£¬µ«²¢²»½«Æäpop³öÕ»£¬Êä³ö[ÇìÓàÄê]
+		//è®¿é—®ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œä½†å¹¶ä¸å°†å…¶popå‡ºæ ˆï¼Œè¾“å‡º[åº†ä½™å¹´]
 		System.out.println(stack.peek());
-		//Êä³ö[ÇìÓàÄê, ¼ä¿Í, Ñ©ÖĞº·µ¶ĞĞ]
+		//è¾“å‡º[åº†ä½™å¹´, é—´å®¢, é›ªä¸­æ‚åˆ€è¡Œ]
 		System.out.println(stack);
-		//pop³öµÚÒ»¸öÔªËØ£¬Êä³ö:[ÇìÓàÄê]
+		//popå‡ºç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œè¾“å‡º:[åº†ä½™å¹´]
 		System.out.println(stack.pop());
-		//Êä³ö:[¼ä¿Í, Ñ©ÖĞº·µ¶ĞĞ]
+		//è¾“å‡º:[é—´å®¢, é›ªä¸­æ‚åˆ€è¡Œ]
 		System.out.println(stack);
 	}
 }

@@ -17,7 +17,7 @@ public class TreeSetTest4 {
 	public static void main(String[] args) {
 		@SuppressWarnings("unchecked")
 		TreeSet<M> ts=new TreeSet(new Comparator<Object>() {
-			//根据M对象的age属性来决定大小
+			//鏍规嵁M瀵硅薄鐨刟ge灞炴�ф潵鍐冲畾澶у皬
 			@Override
 			public int compare(Object o1, Object o2) {
 				// TODO Auto-generated method stub

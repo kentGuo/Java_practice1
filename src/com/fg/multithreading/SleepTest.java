@@ -5,8 +5,8 @@ import java.util.Date;
 public class SleepTest{
 	public static void main(String[] args) throws Exception{
 		for(int i=0;i<10;i++) {
-			System.out.println("当前时间:"+new Date());
-			//调用sleep()方法让当前线程睡眠一秒钟
+			System.out.println("褰撳墠鏃堕棿:"+new Date());
+			//璋冪敤sleep()鏂规硶璁╁綋鍓嶇嚎绋嬬潯鐪犱竴绉掗挓
 			Thread.sleep(1000);
 		}
 	}

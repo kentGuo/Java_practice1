@@ -7,16 +7,16 @@ import java.util.Properties;
 public class PropertiesTest {
 	public static void main(String[] args) throws Exception{
 		Properties props=new Properties();
-		//ÏòPropertiesÌí¼ÓÊôĞÔ
+		//å‘Propertiesæ·»åŠ å±æ€§
 		props.setProperty("username", "Kent");
 		props.setProperty("password", "123456");
-		//½«PropertiesÖĞµÄkey-value¶Ô±£´æµ½a.iniÎÄ¼şÖĞ
+		//å°†Propertiesä¸­çš„key-valueå¯¹ä¿å­˜åˆ°a.iniæ–‡ä»¶ä¸­
 		props.store(new FileOutputStream("a.ini"), "comments line");
-		//ĞÂ´´½¨Ò»¸öProperties¶ÔÏó
+		//æ–°åˆ›å»ºä¸€ä¸ªPropertieså¯¹è±¡
 		Properties props2=new Properties();
-		//ÏòPropertiesÖĞÌí¼ÓÊôĞÔ
+		//å‘Propertiesä¸­æ·»åŠ å±æ€§
 		props2.setProperty("gender", "male");
-		//½«a.iniÎÄ¼şÖĞµÄkey-value¶Ô×·¼Óµ½props2ÖĞ
+		//å°†a.iniæ–‡ä»¶ä¸­çš„key-valueå¯¹è¿½åŠ åˆ°props2ä¸­
 		props2.load(new FileInputStream("a.ini"));
 		System.out.println(props2);
 	}

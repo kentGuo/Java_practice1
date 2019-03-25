@@ -1,7 +1,7 @@
 package com.fg.multithreading;
 
 public class AccountSyn {
-	//·â×°ÕË»§±àºÅ£¬ÕË»§Óà¶îµÄÁ½¸ö³ÉÔ±±äÁ¿
+	//å°è£…è´¦æˆ·ç¼–å·ï¼Œè´¦æˆ·ä½™é¢çš„ä¸¤ä¸ªæˆå‘˜å˜é‡
 		private String accountNo;
 		private double balance;
 		public AccountSyn() {
@@ -20,27 +20,27 @@ public class AccountSyn {
 		public double getBalance() {
 			return balance;
 		}
-		//Ìá¹©Ò»¸öÏß³Ì°²È«µÄdraw()·½·¨À´Íê³ÉÈ¡Ç®²Ù×÷
+		//æä¾›ä¸€ä¸ªçº¿ç¨‹å®‰å…¨çš„draw()æ–¹æ³•æ¥å®Œæˆå–é’±æ“ä½œ
 		public synchronized void draw(double drawAmount)
 		{
-			//ÕË»§Óà¶î´óÓÚÈ¡Ç®ÊıÄ¿
+			//è´¦æˆ·ä½™é¢å¤§äºå–é’±æ•°ç›®
 			if(balance>=drawAmount) {
-				//³ö³®
-				System.out.println(Thread.currentThread().getName()+"È¡Ç®³É¹¦!ÍÂ³ö³®Æ±:"+drawAmount);
+				//å‡ºé’
+				System.out.println(Thread.currentThread().getName()+"å–é’±æˆåŠŸ!åå‡ºé’ç¥¨:"+drawAmount);
 				try {
 					Thread.sleep(1);
 				} catch (Exception e) {
 					e.printStackTrace();
 					// TODO: handle exception
 				}
-				//ĞŞ¸ÄÓà¶î
+				//ä¿®æ”¹ä½™é¢
 				balance-=drawAmount;
-				System.out.println("\tÓà¶îÎª:"+balance);
+				System.out.println("\tä½™é¢ä¸º:"+balance);
 			}else {
-				System.out.println(Thread.currentThread().getName()+"È¡Ç®Ê§°Ü!!Óà¶î²»×ã");
+				System.out.println(Thread.currentThread().getName()+"å–é’±å¤±è´¥!!ä½™é¢ä¸è¶³");
 			}
 		}
-		//ÏÂÃæÁ½¸ö·½·¨¸ù¾İaccountNoÀ´ÖØĞ´hasCode()ºÍequals()·½·¨
+		//ä¸‹é¢ä¸¤ä¸ªæ–¹æ³•æ ¹æ®accountNoæ¥é‡å†™hasCode()å’Œequals()æ–¹æ³•
 		@Override
 		public int hashCode() {
 			// TODO Auto-generated method stub

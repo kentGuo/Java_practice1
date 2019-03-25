@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class SynchroniedTest {
 	public static void main(String[] args) {
-		//ÏÂÃæ³ÌĞò´´½¨ÁË4¸öÍ¬²½µÄ¼¯ºÏ¶ÔÏó
+		//ä¸‹é¢ç¨‹åºåˆ›å»ºäº†4ä¸ªåŒæ­¥çš„é›†åˆå¯¹è±¡
 		Collection<Object> c=Collections.synchronizedCollection(new ArrayList<>());
 		List<Object> list=Collections.synchronizedList(new ArrayList<>());
 		Set<Object> s=Collections.synchronizedSet(new HashSet<>());

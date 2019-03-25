@@ -6,21 +6,21 @@ import java.util.Iterator;
 
 public class IteratorErrorTest {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸ö¼¯ºÏ
+		//åˆ›å»ºä¸€ä¸ªé›†åˆ
 				Collection<Object> books=new HashSet<>();
-				books.add("Ñ©ÖĞº·µ¶ĞĞ");
-				books.add("¼ä¿Í");
-				books.add("ÀÏ×ÓÊÇñ®¸òó¡");
-				//»ñÈ¡books¼¯ºÏ¶ÔÓ¦µÄµü´úÆ÷
+				books.add("é›ªä¸­æ‚åˆ€è¡Œ");
+				books.add("é—´å®¢");
+				books.add("è€å­æ˜¯ç™è›¤èŸ†");
+				//è·å–booksé›†åˆå¯¹åº”çš„è¿­ä»£å™¨
 				Iterator<Object> it=books.iterator();
 				while(it.hasNext()) {
-					//it.next()·½·¨·µ»ØµÄÊı¾İÀàĞÍÊÇObjectÀàĞÍ
-					//ĞèÒªÇ¿ÖÆ×ª»»ÀàĞÍ
+					//it.next()æ–¹æ³•è¿”å›çš„æ•°æ®ç±»å‹æ˜¯Objectç±»å‹
+					//éœ€è¦å¼ºåˆ¶è½¬æ¢ç±»å‹
 					String book=(String)it.next();
 					System.out.println(book);
-					if(book.equals("Ñ©ÖĞº·µ¶ĞĞ"))
+					if(book.equals("é›ªä¸­æ‚åˆ€è¡Œ"))
 					{
-						//Ê¹ÓÃIteratorµü´úÆ÷¹ı³ÌÖĞ£¬²»¿ÉĞŞ¸Ä¼¯ºÏÔªËØ£¬ÏÂÃæ´úÂëÒı·¢Òì³£
+						//ä½¿ç”¨Iteratorè¿­ä»£å™¨è¿‡ç¨‹ä¸­ï¼Œä¸å¯ä¿®æ”¹é›†åˆå…ƒç´ ï¼Œä¸‹é¢ä»£ç å¼•å‘å¼‚å¸¸
 						books.remove(book);
 					}
 				}

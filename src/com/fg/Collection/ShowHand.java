@@ -5,20 +5,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ShowHand {
-	//¶¨Òå¸ÃÓÎÏ·×î¶àÖ§³Ö¶àÉÙ¸öÍæ¼Ò
+	//å®šä¹‰è¯¥æ¸¸æˆæœ€å¤šæ”¯æŒå¤šå°‘ä¸ªç©å®¶
 	private final int PLAY_NUM=5;
-	//¶¨ÒåÆË¿ËÅÆµÄËùÓĞÑÕÉ«ºÍÊıÖµ
-	private String[] types= {"·½¿é","²İ»¨","ºìĞÄ","ºÚÌÒ"};
+	//å®šä¹‰æ‰‘å…‹ç‰Œçš„æ‰€æœ‰é¢œè‰²å’Œæ•°å€¼
+	private String[] types= {"æ–¹å—","è‰èŠ±","çº¢å¿ƒ","é»‘æ¡ƒ"};
 	private String[] values= {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-	//cardsÊÇÒ»¾ÖÓÎÏ·ÖĞÊ£ÏÂµÄÆË¿ËÅÆ
+	//cardsæ˜¯ä¸€å±€æ¸¸æˆä¸­å‰©ä¸‹çš„æ‰‘å…‹ç‰Œ
 	private List<String> cards=new LinkedList<String>();
-	//¶¨ÒåËùÓĞÍæ¼Ò
+	//å®šä¹‰æ‰€æœ‰ç©å®¶
 	private String[] players=new String[PLAY_NUM];
-	//ËùÓĞÍæ¼ÒÊÖÉÏµÄÆË¿ËÅÆ
+	//æ‰€æœ‰ç©å®¶æ‰‹ä¸Šçš„æ‰‘å…‹ç‰Œ
 	private List<String>[] playersCards=new List[PLAY_NUM];
 	/**
-	 * ³õÊ¼»¯ÆË¿ËÅÆ£¬·ÅÈë52ÕÅÆË¿ËÅÆ
-	 * ²¢ÇÒÊ¹ÓÃshuffle·½·¨½«ËüÃÇ°²Ëæ»úË³ĞòÅÅĞò
+	 * åˆå§‹åŒ–æ‰‘å…‹ç‰Œï¼Œæ”¾å…¥52å¼ æ‰‘å…‹ç‰Œ
+	 * å¹¶ä¸”ä½¿ç”¨shuffleæ–¹æ³•å°†å®ƒä»¬å®‰éšæœºé¡ºåºæ’åº
 	 */
 	public void initCards() {
 		for(int i=0;i<types.length;i++) {
@@ -26,29 +26,29 @@ public class ShowHand {
 				cards.add(types[i]+values[j]);
 			}
 		}
-		//Ëæ»úÅÅÁĞ
+		//éšæœºæ’åˆ—
 		Collections.shuffle(cards);
 	}
 	/**
-	 * ³õÊ¼»¯Íæ¼Ò£¬ÎªÃ¿¸öÍæ¼Ò·ÖÅÉÓÃ»§Ãû
+	 * åˆå§‹åŒ–ç©å®¶ï¼Œä¸ºæ¯ä¸ªç©å®¶åˆ†æ´¾ç”¨æˆ·å
 	 * @param names
 	 */
 	public void initPlayer(String...names) {
 		if(names.length>PLAY_NUM||names.length<2) {
-			//Ğ£ÑéÍæ¼ÒÊıÁ¿£¬´Ë´¦Ê¹ÓÃÒì³£»úÖÆ¸üºÏÀí
-			System.out.println("Íæ¼ÒÊıÁ¿²»¶Ô");
+			//æ ¡éªŒç©å®¶æ•°é‡ï¼Œæ­¤å¤„ä½¿ç”¨å¼‚å¸¸æœºåˆ¶æ›´åˆç†
+			System.out.println("ç©å®¶æ•°é‡ä¸å¯¹");
 			return;
 		}
 		else {
-			//³õÊ¼»¯Íæ¼ÒÓÃ»§Ãû
+			//åˆå§‹åŒ–ç©å®¶ç”¨æˆ·å
 			for(int i=0;i<names.length;i++) {
 				players[i]=names[i];
 			}
 		}
 	}
 	/**
-	 * ³õÊ¼»¯Íæ¼ÒÊÖÉÏµÄÆË¿ËÅÆ£¬¿ªÊ¼ÓÎÏ·Ê±Ã¿¸öÍæ¼ÒÊÖÉÏµÄÆË¿ËÅÆÎª¿Õ
-	 * ³ÌĞòÊ¹ÓÃÒ»¸ö³¤¶ÈÎª0µÄLinkedListÀ´±íÊ¾
+	 * åˆå§‹åŒ–ç©å®¶æ‰‹ä¸Šçš„æ‰‘å…‹ç‰Œï¼Œå¼€å§‹æ¸¸æˆæ—¶æ¯ä¸ªç©å®¶æ‰‹ä¸Šçš„æ‰‘å…‹ç‰Œä¸ºç©º
+	 * ç¨‹åºä½¿ç”¨ä¸€ä¸ªé•¿åº¦ä¸º0çš„LinkedListæ¥è¡¨ç¤º
 	 */
 	public void initPlayerCards() {
 		for(int i=0;i<players.length;i++) {
@@ -58,7 +58,7 @@ public class ShowHand {
 		}
 	}
 	/**
-	 * Êä³öÈ«²¿ÆË¿ËÅÆ£¬¸Ã·½·¨Ã»ÓĞÊµ¼Ê×÷ÓÃ£¬½öÓÃ×÷²âÊÔ
+	 * è¾“å‡ºå…¨éƒ¨æ‰‘å…‹ç‰Œï¼Œè¯¥æ–¹æ³•æ²¡æœ‰å®é™…ä½œç”¨ï¼Œä»…ç”¨ä½œæµ‹è¯•
 	 */
 	public void shouAllCards() {
 		for(String card:cards) {
@@ -67,14 +67,14 @@ public class ShowHand {
 	}
 	
 	/**
-	 * ÅÉÆË¿ËÅÆ
-	 * @param first ×îÏÈÅÉ¸øË­
+	 * æ´¾æ‰‘å…‹ç‰Œ
+	 * @param first æœ€å…ˆæ´¾ç»™è°
 	 */
 	public void deliverCard(String first) {
-		//µ÷ÓÃArrayUtils¹¤¾ßÀàµÄsearch·½·¨
-		//²éÑ¯³öÖ¸¶¨ÔªËØÔÚÊı×éÖĞµÄË÷Òı
+		//è°ƒç”¨ArrayUtilså·¥å…·ç±»çš„searchæ–¹æ³•
+		//æŸ¥è¯¢å‡ºæŒ‡å®šå…ƒç´ åœ¨æ•°ç»„ä¸­çš„ç´¢å¼•
 		int firstPos=ArrayUtils.Search(players, first);
-		//ÒÀ´Î¸øÎ»ÓÚ¸ÃÖ¸¶¨Íæ¼ÒÖ®ºóµÄÃ¿¸öÍæ¼ÒÅÉÆË¿ËÅÆ
+		//ä¾æ¬¡ç»™ä½äºè¯¥æŒ‡å®šç©å®¶ä¹‹åçš„æ¯ä¸ªç©å®¶æ´¾æ‰‘å…‹ç‰Œ
 		for(int i=firstPos;i<PLAY_NUM;i++) {
 			System.out.println(firstPos);
 			if(players[i]!=null) {
@@ -83,7 +83,7 @@ public class ShowHand {
 				cards.remove(0);
 			}
 		}
-		//ÒÀ´Î¸øÎ»ÓÚ¸ÃÖ¸¶¨Íæ¼ÒÖ®ºóµÄÃ¿¸öÍæ¼ÒÅÉÆË¿ËÅÆ
+		//ä¾æ¬¡ç»™ä½äºè¯¥æŒ‡å®šç©å®¶ä¹‹åçš„æ¯ä¸ªç©å®¶æ´¾æ‰‘å…‹ç‰Œ
 		for(int i=0;i<firstPos;i++) {
 			System.out.println(firstPos+1);
 			playersCards[i].add(cards.get(0));
@@ -92,16 +92,16 @@ public class ShowHand {
 	}
 	
 	/**
-	 * Êä³öÍæ¼ÒÊÖÉÏµÄÆË¿ËÅÆ
-	 * ÊµÏÖ¸Ã·½·¨Ê±£¬Ó¦¸Ã¿ØÖÆÃ¿¸öÍæ¼Ò¿´²»µ½±ğÈËµÄµÚÒ»ÕÅ ÅÆ£¬µ«´Ë´¦Ã»ÓĞÔö¼Ó¸Ã¹¦ÄÜ
+	 * è¾“å‡ºç©å®¶æ‰‹ä¸Šçš„æ‰‘å…‹ç‰Œ
+	 * å®ç°è¯¥æ–¹æ³•æ—¶ï¼Œåº”è¯¥æ§åˆ¶æ¯ä¸ªç©å®¶çœ‹ä¸åˆ°åˆ«äººçš„ç¬¬ä¸€å¼  ç‰Œï¼Œä½†æ­¤å¤„æ²¡æœ‰å¢åŠ è¯¥åŠŸèƒ½
 	 */
 	public void showPlayerCards() {
 		for(int i=0;i<PLAY_NUM;i++) {
-			//µ±¸ÃÍæ¼Ò²»Îª¿ÕÊ±
+			//å½“è¯¥ç©å®¶ä¸ä¸ºç©ºæ—¶
 			if(players[i]!=null) {
-				//Êä³öÍæ¼Ò
+				//è¾“å‡ºç©å®¶
 				System.out.println(players[i]+":");
-				//±ãÀûÊä³öÍæ¼ÒÊÖÉÏµÄÆË¿ËÅÆ
+				//ä¾¿åˆ©è¾“å‡ºç©å®¶æ‰‹ä¸Šçš„æ‰‘å…‹ç‰Œ
 				for(String card:playersCards[i]) {
 					System.out.println(card+"\t");
 				}
@@ -111,16 +111,16 @@ public class ShowHand {
 	}
 	public static void main(String[] args) {
 		ShowHand sh=new ShowHand();
-		sh.initPlayer("µçÄÔÍæ¼Ò","ËïÎò¿Õ");
+		sh.initPlayer("ç”µè„‘ç©å®¶","å­™æ‚Ÿç©º");
 		sh.initCards();
 		sh.initPlayerCards();
-		//ÏÂÃæ²âÊÔËùÓĞÆË¿ËÅÆ£¬Ã»ÓĞÊµ¼Ê×÷ÓÃ
+		//ä¸‹é¢æµ‹è¯•æ‰€æœ‰æ‰‘å…‹ç‰Œï¼Œæ²¡æœ‰å®é™…ä½œç”¨
 		sh.shouAllCards();
 		System.out.println("---------------");
-		//ÏÂÃæ´Ó ËïÎò¿Õ ¿ªÊ¼ÅÉÅÆ
-		sh.deliverCard("ËïÎò¿Õ");
+		//ä¸‹é¢ä» å­™æ‚Ÿç©º å¼€å§‹æ´¾ç‰Œ
+		sh.deliverCard("å­™æ‚Ÿç©º");
 		sh.showPlayerCards();
-		sh.deliverCard("µçÄÔÍæ¼Ò");
+		sh.deliverCard("ç”µè„‘ç©å®¶");
 		sh.showPlayerCards();
 	}
 }

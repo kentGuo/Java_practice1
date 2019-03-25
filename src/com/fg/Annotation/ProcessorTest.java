@@ -7,23 +7,23 @@ public class ProcessorTest {
 		int passed=0;
 		int faild=0;
 		//String s=clazz.toString();
-		//±éÀúclazz¶ÔÓ¦µÄÀàÀïµÄËùÓĞ·½·¨
+		//éå†clazzå¯¹åº”çš„ç±»é‡Œçš„æ‰€æœ‰æ–¹æ³•
 		for(Method m:Class.forName(clazz).getMethods()) {
-			//Èç¹û¸Ã·½·¨Ê¹ÓÃÁË@TesttableĞŞÊÎ
+			//å¦‚æœè¯¥æ–¹æ³•ä½¿ç”¨äº†@Testtableä¿®é¥°
 			if(m.isAnnotationPresent(Testtable.class)) {
 				try {
-					//µ÷ÓÃm·½·¨
+					//è°ƒç”¨mæ–¹æ³•
 					m.invoke(null);
-					//passed¼ÓÒ»
+					//passedåŠ ä¸€
 					passed++;
 				}catch(Exception e) {
-					System.out.println("·½·¨"+m+"ÔËĞĞÊ§°Ü£¬Òì³£:"+e.getCause());
+					System.out.println("æ–¹æ³•"+m+"è¿è¡Œå¤±è´¥ï¼Œå¼‚å¸¸:"+e.getCause());
 					faild++;
 				}
 			}
 		}
-		//Í³¼Æ²âÊÔ½á¹û
-		System.out.println("¹²ÔËĞĞÁË:"+(passed+faild)+"·½·¨,ÆäÖĞ:\n"+"Ê§°ÜÁË"+faild+"¸ö,\n"
-				+"³É¹¦ÁË:"+passed+"¸ö£¡");
+		//ç»Ÿè®¡æµ‹è¯•ç»“æœ
+		System.out.println("å…±è¿è¡Œäº†:"+(passed+faild)+"æ–¹æ³•,å…¶ä¸­:\n"+"å¤±è´¥äº†"+faild+"ä¸ª,\n"
+				+"æˆåŠŸäº†:"+passed+"ä¸ªï¼");
 	}
 }

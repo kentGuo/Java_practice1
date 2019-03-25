@@ -6,20 +6,20 @@ import java.util.Iterator;
 public class HashTableErrorTest {
 	public static void main(String[] args) {
 		Hashtable<Object, Object> ht=new Hashtable<>();
-		//´Ë´¦µÄA1ÀàÓëÇ°Ò»¸ö³ÌĞòµÄA1ÀàÊÇÍ¬Ò»¸öÀà
-		ht.put(new A1(60000),"·è¿ñJava½²Òå");
-		ht.put(new A1(87653),"ÇáÁ¿¼¶Java EEÆóÒµ¼¶Ó¦ÓÃÊµÕ½");
-		//»ñµÃHashTableµÄkey Set¼¯ºÏ¶ÔÓ¦µÄIteratorµü´úÆ÷
+		//æ­¤å¤„çš„A1ç±»ä¸å‰ä¸€ä¸ªç¨‹åºçš„A1ç±»æ˜¯åŒä¸€ä¸ªç±»
+		ht.put(new A1(60000),"ç–¯ç‹‚Javaè®²ä¹‰");
+		ht.put(new A1(87653),"è½»é‡çº§Java EEä¼ä¸šçº§åº”ç”¨å®æˆ˜");
+		//è·å¾—HashTableçš„key Seté›†åˆå¯¹åº”çš„Iteratorè¿­ä»£å™¨
 		Iterator<Object> it=ht.keySet().iterator();
-		//È¡³öMapÖĞµÚÒ»¸ökey
+		//å–å‡ºMapä¸­ç¬¬ä¸€ä¸ªkey
 		A1 first=(A1)it.next();
 		first.count=87563;
-		//Êä³ö{com.fg.Collection.A1@1560b=·è¿ñJava½²Òå, com.fg.Collection.A1@15665=ÇáÁ¿¼¶Java EEÆóÒµ¼¶Ó¦ÓÃÊµÕ½}
+		//è¾“å‡º{com.fg.Collection.A1@1560b=ç–¯ç‹‚Javaè®²ä¹‰, com.fg.Collection.A1@15665=è½»é‡çº§Java EEä¼ä¸šçº§åº”ç”¨å®æˆ˜}
 		System.out.println(ht);
-		//Ö»ÄÜÉ¾³ıÃ»ÓĞ±»ĞŞ¸Ä¹ıµÄkeyËù¶ÔÓ¦µÄkey-value¶Ô
+		//åªèƒ½åˆ é™¤æ²¡æœ‰è¢«ä¿®æ”¹è¿‡çš„keyæ‰€å¯¹åº”çš„key-valueå¯¹
 		ht.remove(new A1(87563));
 		System.out.println(ht);
-		//ÎŞ·¨»ñÈ¡Ê£ÏÂµÄvalue£¬ÏÂÃæÁ½ĞĞ´úÂë¶¼½«Êä³önull
+		//æ— æ³•è·å–å‰©ä¸‹çš„valueï¼Œä¸‹é¢ä¸¤è¡Œä»£ç éƒ½å°†è¾“å‡ºnull
 		System.out.println(ht.get(new A1(87563)));
 		System.out.println(ht.get(new A1(60000)));
 		

@@ -8,13 +8,13 @@ import java.io.ObjectOutputStream;
 public class TransientTest {
 	public static void main(String[] args) {
 		try (
-			//´´½¨Ò»¸öObjectOutputStreamÊä³öÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectOutputStreamè¾“å‡ºæµ
 			ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("transient.txt"));
-			//´´½¨Ò»¸öObjectInputStreamÊäÈëÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectInputStreamè¾“å…¥æµ
 			ObjectInputStream ois=new ObjectInputStream(new FileInputStream("transient.txt"))
 			){
-			Person1 per=new Person1("ËïÎò¿Õ", 500);
-			//ÏµÍ³½«per¶ÔÏó×ª»»³É×Ö½ÚÁ÷Êä³ö
+			Person1 per=new Person1("å­™æ‚Ÿç©º", 500);
+			//ç³»ç»Ÿå°†perå¯¹è±¡è½¬æ¢æˆå­—èŠ‚æµè¾“å‡º
 			oos.writeObject(per);
 			Person1 p=(Person1)ois.readObject();
 			System.out.println(p.getAge());

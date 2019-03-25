@@ -8,9 +8,9 @@ import java.io.ObjectOutputStream;
 public class ResolveTest {
 	public static void main(String[] args) {
 		try (
-			//´´½¨Ò»¸öObjectOutputStreamÊä³öÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectOutputStreamè¾“å‡ºæµ
 		ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("transient1.txt"));
-		//´´½¨Ò»¸öObjectInputStreamÊäÈëÁ÷
+		//åˆ›å»ºä¸€ä¸ªObjectInputStreamè¾“å…¥æµ
 		ObjectInputStream ois=new ObjectInputStream(new FileInputStream("transient1.txt"))
 			){
 			oos.writeObject(Orientation.HORIZONTAL);

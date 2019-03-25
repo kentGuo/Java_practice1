@@ -1,7 +1,7 @@
 package com.fg.multithreading;
 
 public class PriorityTest extends Thread{
-	//¶¨ÒåÒ»¸öÓĞ²ÎÊıµÄ¹¹ÔìÆ÷£¬ÓÃÓÚÉèÖÃÏß³ÌÃû³Æ
+	//å®šä¹‰ä¸€ä¸ªæœ‰å‚æ•°çš„æ„é€ å™¨ï¼Œç”¨äºè®¾ç½®çº¿ç¨‹åç§°
 	public PriorityTest(String name) {
 		super(name);
 		// TODO Auto-generated constructor stub
@@ -9,25 +9,25 @@ public class PriorityTest extends Thread{
 	@Override
 	public void run() {
 		for(int i=0;i<50;i++) {
-			System.out.println(getName()+",ÆäÓÅÏÈ¼¶ÊÇ:"+getPriority()+",Ñ­»·±äÁ¿µÄÖµÎª:"+i);
+			System.out.println(getName()+",å…¶ä¼˜å…ˆçº§æ˜¯:"+getPriority()+",å¾ªç¯å˜é‡çš„å€¼ä¸º:"+i);
 		}
 	}
 	public static void main(String[] args) {
-		//¸Ä±äÖ÷Ïß³ÌµÄÓÅÏÈ¼¶
+		//æ”¹å˜ä¸»çº¿ç¨‹çš„ä¼˜å…ˆçº§
 		Thread.currentThread().setPriority(6);
 		for(int i=0;i<30;i++) {
 			if(i==10) {
-				PriorityTest low=new PriorityTest("µÍ¼¶");
+				PriorityTest low=new PriorityTest("ä½çº§");
 				low.start();
-				System.out.println("´´½¨Ö®³õµÄÓÅÏÈ¼¶:"+low.getPriority());
-				//ÉèÖÃ¸ÃÏß³ÌµÄ×îµÍÓÅÏÈ¼¶
+				System.out.println("åˆ›å»ºä¹‹åˆçš„ä¼˜å…ˆçº§:"+low.getPriority());
+				//è®¾ç½®è¯¥çº¿ç¨‹çš„æœ€ä½ä¼˜å…ˆçº§
 				low.setPriority(MIN_PRIORITY);
 			}
 			if(i==20) {
-				PriorityTest high=new PriorityTest("¸ß¼¶");
+				PriorityTest high=new PriorityTest("é«˜çº§");
 				high.start();
-				System.out.println("´´½¨Ö®³õµÄÓÅÏÈ¼¶"+high.getPriority());
-				//ÉèÖÃ¸ÃÏß³ÌµÄ×î¸ßÓÅÏÈ¼¶
+				System.out.println("åˆ›å»ºä¹‹åˆçš„ä¼˜å…ˆçº§"+high.getPriority());
+				//è®¾ç½®è¯¥çº¿ç¨‹çš„æœ€é«˜ä¼˜å…ˆçº§
 				high.setPriority(MAX_PRIORITY);
 			}
 		}

@@ -13,7 +13,7 @@ public class PrintStackTraceTest1 {
 	}
 
 	public static void thirdMethod() {
-		throw new SefeException("×Ô¶¨ÒåÒì³£ĞÅÏ¢");
+		throw new SefeException("è‡ªå®šä¹‰å¼‚å¸¸ä¿¡æ¯");
 	}
 }
 

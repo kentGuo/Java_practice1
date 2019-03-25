@@ -13,12 +13,12 @@ class Banana<T extends Number>{
 }
 public class ErasureTest {
 	Banana<Integer> a=new Banana<Integer>(6);
-	//a的getSize()方法返回Integer对象
+	//a鐨刧etSize()鏂规硶杩斿洖Integer瀵硅薄
 	Integer as=a.getSize();
-	//把a对象赋值给Banana变量，丢失尖括号里的类型信息
+	//鎶奱瀵硅薄璧嬪�肩粰Banana鍙橀噺锛屼涪澶卞皷鎷彿閲岀殑绫诲瀷淇℃伅
 	Banana<Integer> b=a;
-	//b值知道size的类型是Number
+	//b鍊肩煡閬搒ize鐨勭被鍨嬫槸Number
 	Number size1=b.getSize();
-	//下面代码引起编译错误
+	//涓嬮潰浠ｇ爜寮曡捣缂栬瘧閿欒
 	//Integer size2=b.getSize();
 }

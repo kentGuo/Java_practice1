@@ -1,19 +1,19 @@
 package com.fg.multithreading;
 
 public class DepositThreadCondition extends Thread{
-	//Ä£ÄâÓÃ»§ÕË»§
+	//æ¨¡æ‹Ÿç”¨æˆ·è´¦æˆ·
 		private AccountCondition account;
-		//µ±Ç°È¡Ç®Ïß³ÌËùÏ£ÍûÈ¡µÄÇ®Êı
+		//å½“å‰å–é’±çº¿ç¨‹æ‰€å¸Œæœ›å–çš„é’±æ•°
 		private double depositAmount;
 		public DepositThreadCondition(String name,AccountCondition account, double depositAmount) {
 			super(name);
 			this.account = account;
 			this.depositAmount = depositAmount;
 		}
-		//µ±¶à¸öÏß³ÌĞŞ¸ÄÍ¬Ò»¸ö¹²ÏíÊı¾İÊ±£¬½«Éæ¼°Êı¾İ°²È«ÎÊÌâ
+		//å½“å¤šä¸ªçº¿ç¨‹ä¿®æ”¹åŒä¸€ä¸ªå…±äº«æ•°æ®æ—¶ï¼Œå°†æ¶‰åŠæ•°æ®å®‰å…¨é—®é¢˜
 		@Override
 		public  void run() {
-			//Ä£ÄâÈ¡Ç®£¬ÖØ¸´100´Î
+			//æ¨¡æ‹Ÿå–é’±ï¼Œé‡å¤100æ¬¡
 			for(int i=0;i<100;i++) {
 				account.deposit(depositAmount);
 			}

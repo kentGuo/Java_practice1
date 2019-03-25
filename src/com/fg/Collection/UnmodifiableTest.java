@@ -8,19 +8,19 @@ import java.util.Set;
 
 public class UnmodifiableTest {
 	public static void main(String[] args) {
-		//����һ�пյģ����ɸı��List����
+		//创建一盒空的，不可改变的List对象
 		List<Object> unmodifiableList=Collections.emptyList();
-		//����һ��ֻ��һ��Ԫ�أ��Ҳ��ɸı��set����
+		//创建一个只有一个元素，且不可改变的set对象
 		Set<Object> unmodifiableSet=Collections.singleton("Java");
-		//����һ����ͨ��Map����
+		//创建一个普通的Map对象
 		Map<Object, Object> source=new HashMap<>();
-		source.put("����", 80);
+		source.put("语文", 80);
 		source.put("C++", 82);
-		//������ͨ��Map�����Ӧ�Ĳ��ɱ�汾
+		//返回普通的Map对象对应的不可变版本
 		Map<Object, Object> unmodifiableMap=Collections.unmodifiableMap(source);
-		//��������һ�д��붼������UnsupportedOperationException�쳣
-		unmodifiableList.add("����Ԫ��");
-		unmodifiableSet.add("����Ԫ��");
-		unmodifiableMap.put("����", 90);
+		//下面任意一行代码都将引发UnsupportedOperationException异常
+		unmodifiableList.add("测试元素");
+		unmodifiableSet.add("测试元素");
+		unmodifiableMap.put("语文", 90);
 	}
 }

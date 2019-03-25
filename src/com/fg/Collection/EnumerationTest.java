@@ -7,12 +7,12 @@ import java.util.Vector;
 public class EnumerationTest {
 		public static void main(String[] args) {
 			Vector<Object> v=new Vector<>();
-			v.add("ÇìÓàÄê");
-			v.add("¶ñÄ§·¨Ôò");
-			v.add("³Â¶ş¹·µÄÑıÅ°ÈËÉú");
+			v.add("åº†ä½™å¹´");
+			v.add("æ¶é­”æ³•åˆ™");
+			v.add("é™ˆäºŒç‹—çš„å¦–è™äººç”Ÿ");
 			Hashtable<Object, Object> scores=new Hashtable<>();
-			scores.put("ÓïÎÄ", 78);
-			scores.put("ÊıÑ§", 88);
+			scores.put("è¯­æ–‡", 78);
+			scores.put("æ•°å­¦", 88);
 			Enumeration<Object> em=v.elements();
 			while(em.hasMoreElements()) {
 				System.out.println(em.nextElement());

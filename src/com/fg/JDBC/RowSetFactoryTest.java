@@ -14,7 +14,7 @@ public class RowSetFactoryTest {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
@@ -24,30 +24,30 @@ public class RowSetFactoryTest {
 		
 	}
 	public void update(String sql) throws Exception{
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 		Class.forName(driver);
-		//Ê¹ÓÃRowSetProvider´´½¨RowSetFactory
+		//ä½¿ç”¨RowSetProvideråˆ›å»ºRowSetFactory
 		RowSetFactory factory=RowSetProvider.newFactory();
 		try(
-			//´´½¨Ä¬ÈÏµÄJdbcRowSetÊµÀı
+			//åˆ›å»ºé»˜è®¤çš„JdbcRowSetå®ä¾‹
 			JdbcRowSet jdbcRs=factory.createJdbcRowSet();
 			){
-			//ÉèÖÃ±ØÒªµÄÁ¬½ÓĞÅÏ¢
+			//è®¾ç½®å¿…è¦çš„è¿æ¥ä¿¡æ¯
 			jdbcRs.setUrl(url);
 			jdbcRs.setUsername(user);
 			jdbcRs.setPassword(pass);
-			//ÉèÖÃSQL²éÑ¯Óï¾ä
+			//è®¾ç½®SQLæŸ¥è¯¢è¯­å¥
 			jdbcRs.setCommand(sql);
-			//Ö´ĞĞ²éÑ¯
+			//æ‰§è¡ŒæŸ¥è¯¢
 			jdbcRs.execute();
 			jdbcRs.afterLast();
-			//ÏòÇ°¹ö¶¯½á¹û¼¯
+			//å‘å‰æ»šåŠ¨ç»“æœé›†
 			while(jdbcRs.previous()) {
 				System.out.println(jdbcRs.getString(1)+"\t"
 			+jdbcRs.getString(2)+"\t"+
 			jdbcRs.getString(3));
 				if(jdbcRs.getInt("student_id")==3) {
-					//ĞŞ¸ÄÖ¸¶¨¼ÇÂ¼ĞĞ
+					//ä¿®æ”¹æŒ‡å®šè®°å½•è¡Œ
 					jdbcRs.updateString("student_name", "KKKK");
 					jdbcRs.updateRow();
 				}

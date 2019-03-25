@@ -6,15 +6,15 @@ import java.io.InputStreamReader;
 
 public class ReadFormProcess {
 	public static void main(String[] args) throws IOException {
-		//ÔËĞĞjavacÃüÁî£¬·µ»ØÔËĞĞ¸ÃÃüÁîµÄ×Ó½ø³Ì
+		//è¿è¡Œjavacå‘½ä»¤ï¼Œè¿”å›è¿è¡Œè¯¥å‘½ä»¤çš„å­è¿›ç¨‹
 		Process p=Runtime.getRuntime().exec("javac");
 		try(
-			//ÒÔp½ø³ÌµÄ´íÎóÁ÷´´½¨BufferReader¶ÔÏó
-			//Õâ¸ö´íÎóÁ÷¶Ô±¾³ÌĞò¾ÍÊÇÊäÈëÁ÷,¶Ôp½ø³Ì¾ÍÊÇÊä³öÁ÷
+			//ä»¥pè¿›ç¨‹çš„é”™è¯¯æµåˆ›å»ºBufferReaderå¯¹è±¡
+			//è¿™ä¸ªé”™è¯¯æµå¯¹æœ¬ç¨‹åºå°±æ˜¯è¾“å…¥æµ,å¯¹pè¿›ç¨‹å°±æ˜¯è¾“å‡ºæµ
 			BufferedReader br=new BufferedReader(new InputStreamReader(p.getErrorStream()))
 			){
 			String buff=null;
-			//²ÉÈ¡Ñ­»··½Ê½¶ÁÈ¡p½ø³ÌµÄ´íÎóÊä³ö
+			//é‡‡å–å¾ªç¯æ–¹å¼è¯»å–pè¿›ç¨‹çš„é”™è¯¯è¾“å‡º
 			while((buff=br.readLine())!=null) {
 				System.out.println(buff);
 			}

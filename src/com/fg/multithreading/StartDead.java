@@ -2,7 +2,7 @@ package com.fg.multithreading;
 
 public class StartDead extends Thread{
 	private int i;
-	//ÖØĞ´run()·½·¨,run()·½·¨µÄ·½·¨Ìå¾ÍÊÇÏß³ÌµÄÖ´ĞĞÌå
+	//é‡å†™run()æ–¹æ³•,run()æ–¹æ³•çš„æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹çš„æ‰§è¡Œä½“
 	@Override
 	public void run() {
 		for(;i<100;i++) {
@@ -10,21 +10,21 @@ public class StartDead extends Thread{
 		}
 	}
 	public static void main(String[] args) throws Exception {
-		//´´½¨Ïß³Ì¶ÔÏó
+		//åˆ›å»ºçº¿ç¨‹å¯¹è±¡
 		StartDead sd=new StartDead();
 		for(int i=0;i>300;i++) {
-			//µ÷ÓÃThread.currentThre().getName()×ÜÊÇ»ñÈ¡µ±Ç°Ïß³ÌµÄÃû×Ö
+			//è°ƒç”¨Thread.currentThre().getName()æ€»æ˜¯è·å–å½“å‰çº¿ç¨‹çš„åå­—
 			System.out.println(Thread.currentThread().getName()+""+i);
 			if(i==20) {
-				//Æô¶¯Ïß³Ì
+				//å¯åŠ¨çº¿ç¨‹
 				sd.start();
-				//ÅĞ¶ÏÆô¶¯ºóÏß³ÌµÄisAlive()Öµ£¬Êä³ötrue
+				//åˆ¤æ–­å¯åŠ¨åçº¿ç¨‹çš„isAlive()å€¼ï¼Œè¾“å‡ºtrue
 				System.out.println(sd.isAlive());
 			}
 			/**
-			 * µ±Ïß³Ì´¦ÓÚĞÂ½¨£¬ËÀÍöÁ½ÖÖ×´Ì¬Ê±£¬isAlive()·½·¨·µ»Øfalse
-			 * µ±i>20Ê±£¬¸ÃÏß³Ì¿Ï¶¨ÒÑ¾­Æô¶¯¹ıÁË£¬Èç¹ûsd.isAlive()ÎªfalseÊ±
-			 * ÄÇ¾ÍÊÇËÀÍö×´Ì¬ÁË
+			 * å½“çº¿ç¨‹å¤„äºæ–°å»ºï¼Œæ­»äº¡ä¸¤ç§çŠ¶æ€æ—¶ï¼ŒisAlive()æ–¹æ³•è¿”å›false
+			 * å½“i>20æ—¶ï¼Œè¯¥çº¿ç¨‹è‚¯å®šå·²ç»å¯åŠ¨è¿‡äº†ï¼Œå¦‚æœsd.isAlive()ä¸ºfalseæ—¶
+			 * é‚£å°±æ˜¯æ­»äº¡çŠ¶æ€äº†
 			 */
 			if(i>20&&sd.isAlive()==false) {
 				sd.start();

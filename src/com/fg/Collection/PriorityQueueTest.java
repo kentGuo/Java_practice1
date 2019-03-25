@@ -5,18 +5,18 @@ import java.util.PriorityQueue;
 public class PriorityQueueTest {
 	public static void main(String[] args) {
 		PriorityQueue<Integer> pq=new PriorityQueue<>();
-		//ÒÀ´ÎÏëpqÖĞ¼ÓÈëËÄ¸öÔªËØ
+		//ä¾æ¬¡æƒ³pqä¸­åŠ å…¥å››ä¸ªå…ƒç´ 
 		pq.offer(6);
 		pq.offer(-3);
 		pq.offer(9);
 		pq.offer(0);
 		pq.offer(3);
-		//Êä³öpq¶ÓÁĞ£¬²¢²»ÊÇ°´ÔªËØµÄ¼ÓÈëË³ĞòÅÅÁĞ
-		//¶øÊÇ°´ÔªËØµÄ´óĞ¡Ë³ĞòÅÅÁĞ£¬Êä³ö[-3,3,0,6,9]
+		//è¾“å‡ºpqé˜Ÿåˆ—ï¼Œå¹¶ä¸æ˜¯æŒ‰å…ƒç´ çš„åŠ å…¥é¡ºåºæ’åˆ—
+		//è€Œæ˜¯æŒ‰å…ƒç´ çš„å¤§å°é¡ºåºæ’åˆ—ï¼Œè¾“å‡º[-3,3,0,6,9]
 		System.out.println(pq);
-		//·ÃÎÊ¶ÓÁĞµÄµÚÒ»¸öÔªËØ£¬ÆäÊµ¾ÍÊÇ¶ÓÁĞÖĞ×îĞ¡µÄÔªËØ£º-3
+		//è®¿é—®é˜Ÿåˆ—çš„ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œå…¶å®å°±æ˜¯é˜Ÿåˆ—ä¸­æœ€å°çš„å…ƒç´ ï¼š-3
 		System.out.println(pq.poll());
-		//ÏÂÃæÈı¸öÒÀ´Î¼ÌĞø·ÃÎÊµÚÒ»¸öÔªËØ,ÒÑ¾­±»·ÃÎÊ¹ıµÄ¾Í²»ÔÙÊä³ö
+		//ä¸‹é¢ä¸‰ä¸ªä¾æ¬¡ç»§ç»­è®¿é—®ç¬¬ä¸€ä¸ªå…ƒç´ ,å·²ç»è¢«è®¿é—®è¿‡çš„å°±ä¸å†è¾“å‡º
 		System.out.println(pq.poll());
 		System.out.println(pq.poll());
 		System.out.println(pq.poll());

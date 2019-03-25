@@ -18,7 +18,7 @@ class MyFileNameFilter implements FilenameFilter {
 	@Override
 	public boolean accept(File arg0, String arg1) {
 		// TODO Auto-generated method stub
-		// Èç¹ûÎÄ¼şÃûÒÔ.java½áÎ²,»òÕßÎÄ¼ş¶ÔÓ¦Ò»¸öÂ·¾¶,Ôò·µ»Øtrue;
+		// å¦‚æœæ–‡ä»¶åä»¥.javaç»“å°¾,æˆ–è€…æ–‡ä»¶å¯¹åº”ä¸€ä¸ªè·¯å¾„,åˆ™è¿”å›true;
 		return arg1.endsWith(".java") || new File(arg1).isDirectory();
 	}
 

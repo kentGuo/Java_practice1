@@ -14,46 +14,46 @@ public class PreparedStatementTest {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 		Class.forName(driver);
 	}
 
 	public void insertUserStatement() throws Exception {
 		long start = System.currentTimeMillis();
 		try (
-				// »ñÈ¡Êı¾İ¿âÁ¬½Ó
+				// è·å–æ•°æ®åº“è¿æ¥
 				Connection conn = DriverManager.getConnection(url, user, pass);
-				// Ê¹ÓÃConnectionÀ´´´½¨Ò»¸öStatement¶ÔÏó
+				// ä½¿ç”¨Connectionæ¥åˆ›å»ºä¸€ä¸ªStatementå¯¹è±¡
 				Statement stmt = conn.createStatement()) {
-			// ĞèÒªÊ¹ÓÃ100ÌõSQLÓï¾äÀ´²åÈë100Ìõ¼ÇÂ¼
+			// éœ€è¦ä½¿ç”¨100æ¡SQLè¯­å¥æ¥æ’å…¥100æ¡è®°å½•
 			for (int i = 0; i < 100; i++) {
 				stmt.executeUpdate("insert into student_table1 values(" + " null,'name" + i + "',1)");
 			}
-			System.out.println("Ê¹ÓÃStatement·ÑÊ±:" + (System.currentTimeMillis() - start));
+			System.out.println("ä½¿ç”¨Statementè´¹æ—¶:" + (System.currentTimeMillis() - start));
 		}
 	}
 
 	public void insertUserPrepare() throws Exception {
 		long start = System.currentTimeMillis();
 		try (
-				// »ñÈ¡Êı¾İ¿âÁ¬½Ó
+				// è·å–æ•°æ®åº“è¿æ¥
 				Connection conn = DriverManager.getConnection(url, user, pass);
-		//Ê¹ÓÃConnection À´´´½¨Ò»¸öPreparedStatement¶ÔÏó
+		//ä½¿ç”¨Connection æ¥åˆ›å»ºä¸€ä¸ªPreparedStatementå¯¹è±¡
 				PreparedStatement pstmt=conn.prepareStatement("insert into student_table1 values(null,?,1)");
 		) {
-			//100´ÎÎªPreparedStatementµÄ²ÎÊıÉèÖµ,¾Í¿ÉÒÔ²åÈë100Ìõ¼ÇÂ¼
+			//100æ¬¡ä¸ºPreparedStatementçš„å‚æ•°è®¾å€¼,å°±å¯ä»¥æ’å…¥100æ¡è®°å½•
 			for(int i=0;i<100;i++) {
 				pstmt.setString(1, "name"+i);
 				pstmt.executeUpdate();
 			}
-			System.out.println("Ê¹ÓÃPreparedStatement·ÑÊ±:" + (System.currentTimeMillis() - start));
+			System.out.println("ä½¿ç”¨PreparedStatementè´¹æ—¶:" + (System.currentTimeMillis() - start));
 		}
 	}
 	public static void main(String[] args) throws Exception {

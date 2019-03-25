@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class TreeSetGenericTest {
 	public static void main(String[] args) {
-		//ComparatorµÄÊµ¼ÊÀàĞÍÊÇTreeSetÀïÊµ¼ÊÀàĞÍµÄ¸¸Àà£¬Âú×ã¸¸Àà
+		//Comparatorçš„å®é™…ç±»å‹æ˜¯TreeSeté‡Œå®é™…ç±»å‹çš„çˆ¶ç±»ï¼Œæ»¡è¶³çˆ¶ç±»
 		TreeSet<String> ts1=new TreeSet<>(new Comparator<Object>(
 				
 				) {

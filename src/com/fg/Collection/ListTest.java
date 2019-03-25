@@ -6,27 +6,27 @@ import java.util.ArrayList;
 public class ListTest {
 	public static void main(String[] args) {
 		List<String> books=new ArrayList<String>();
-		//Ïòbooks¼¯ºÏÖĞÌí¼ÓÈı¸öÔªËØ
+		//å‘booksé›†åˆä¸­æ·»åŠ ä¸‰ä¸ªå…ƒç´ 
 		books.add(new String("Java"));
 		books.add(new String("C"));
 		books.add(new String("C++"));
 		books.add(new String("C#"));
 		System.out.println(books);
-		//½«ĞÂ×Ö·û´®¶ÔÏó²åÈëÔÚµÚ¶ş¸öÎ»ÖÃ
+		//å°†æ–°å­—ç¬¦ä¸²å¯¹è±¡æ’å…¥åœ¨ç¬¬äºŒä¸ªä½ç½®
 		books.add(1,new String("Object C"));
 		for(int i=0;i<4;i++) {
 			System.out.println(books.get(i));
 		}
-		//É¾³ıµÚÈı¸öÔªËØ
+		//åˆ é™¤ç¬¬ä¸‰ä¸ªå…ƒç´ 
 		books.remove(2);
 		System.out.println(books);
-		//ÅĞ¶ÏÖ¸¶¨ÔªËØÔÚList¼¯ºÏÖĞµÄÎ»ÖÃ£ºÊä³ö1£¬±íÃ÷Î»ÓÚµÚ¶şÎ»
+		//åˆ¤æ–­æŒ‡å®šå…ƒç´ åœ¨Listé›†åˆä¸­çš„ä½ç½®ï¼šè¾“å‡º1ï¼Œè¡¨æ˜ä½äºç¬¬äºŒä½
 		System.out.println(books.indexOf(new String("Object C")));
-		//½«µÚ¶ş¸öÔªËØÌæ»»³ÉĞÂµÄ×Ö·û´®¶ÔÏó
+		//å°†ç¬¬äºŒä¸ªå…ƒç´ æ›¿æ¢æˆæ–°çš„å­—ç¬¦ä¸²å¯¹è±¡
 		books.set(1, new String("C"));
 		System.out.println(books);
-		//½«books¼¯ºÏµÄµÚ¶ş¸öÔªËØ(°üÀ¨)
-		//µ½µÚÈı¸öÔªËØ(²»°üÀ¨)½ØÈ¡³É×Ó¼¯ºÏ
+		//å°†booksé›†åˆçš„ç¬¬äºŒä¸ªå…ƒç´ (åŒ…æ‹¬)
+		//åˆ°ç¬¬ä¸‰ä¸ªå…ƒç´ (ä¸åŒ…æ‹¬)æˆªå–æˆå­é›†åˆ
 		System.out.println(books.subList(1, 2));
 	}
 }

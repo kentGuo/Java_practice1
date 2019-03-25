@@ -3,6 +3,6 @@
  */
 /**
  * @author Administrator
- *JDBC”ÎMySQL¡∑œ∞
+ *JDBC‰∏éMySQLÁªÉ‰π†
  */
 package com.fg.JDBC;

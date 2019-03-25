@@ -1,10 +1,10 @@
 package com.fg.multithreading;
 
 public class AccountSyn2{
-	//·â×°ÕË»§±àºÅ£¬ÕË»§Óà¶îµÄÁ½¸ö³ÉÔ±±äÁ¿
+	//å°è£…è´¦æˆ·ç¼–å·ï¼Œè´¦æˆ·ä½™é¢çš„ä¸¤ä¸ªæˆå‘˜å˜é‡
 	private String accountNo;
 	private double balance;
-	//±êÊ¶ÕË»§ÖĞÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±ê
+	//æ ‡è¯†è´¦æˆ·ä¸­æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡
 	private boolean flag=false;
 	
 	public AccountSyn2() {
@@ -23,7 +23,7 @@ public class AccountSyn2{
 	public double getBalance() {
 		return this.balance;
 	}
-	//ÏÂÃæÁ½¸ö·½·¨¸ù¾İaccountNoÀ´ÖØĞ´hasCode()ºÍequals()·½·¨
+	//ä¸‹é¢ä¸¤ä¸ªæ–¹æ³•æ ¹æ®accountNoæ¥é‡å†™hasCode()å’Œequals()æ–¹æ³•
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
@@ -41,18 +41,18 @@ public class AccountSyn2{
 	}
 	public synchronized void draw(double drawAmount) {
 		try {
-			//Èç¹ûflagÎª¼Ù£¬±íÃ÷ÕË»§ÖĞ»¹Ã»ÓĞÈË´æÇ®½øÈ¥£¬È¡Ç®·½·¨×èÈû
+			//å¦‚æœflagä¸ºå‡ï¼Œè¡¨æ˜è´¦æˆ·ä¸­è¿˜æ²¡æœ‰äººå­˜é’±è¿›å»ï¼Œå–é’±æ–¹æ³•é˜»å¡
 			if(!flag)
 			{
 				wait();
 			}else {
-				//Ö´ĞĞÈ¡Ç®²Ù×÷
-				System.out.println(Thread.currentThread().getName()+" È¡Ç®:"+drawAmount);
+				//æ‰§è¡Œå–é’±æ“ä½œ
+				System.out.println(Thread.currentThread().getName()+" å–é’±:"+drawAmount);
 				balance-=drawAmount;
-				System.out.println("ÕË»§Óà¶îÎª:"+balance);
-				//±êÊ¶ÕË»§ÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±êÉèÎªfalse
+				System.out.println("è´¦æˆ·ä½™é¢ä¸º:"+balance);
+				//æ ‡è¯†è´¦æˆ·æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡è®¾ä¸ºfalse
 				flag=false;
-				//»½ĞÑÆäËûÏß³Ì
+				//å”¤é†’å…¶ä»–çº¿ç¨‹
 				notifyAll();
 			}
 		} catch (InterruptedException e) {
@@ -62,18 +62,18 @@ public class AccountSyn2{
 	}
 	public synchronized void deposit(double depositAmount) {
 		try {
-			//Èç¹ûflagÎª¼Ù£¬±íÃ÷ÕË»§ÖĞ»¹Ã»ÓĞÈË´æÇ®½øÈ¥£¬È¡Ç®·½·¨×èÈû
+			//å¦‚æœflagä¸ºå‡ï¼Œè¡¨æ˜è´¦æˆ·ä¸­è¿˜æ²¡æœ‰äººå­˜é’±è¿›å»ï¼Œå–é’±æ–¹æ³•é˜»å¡
 			if(flag)
 			{
 				wait();
 			}else {
-				//Ö´ĞĞÈ¡Ç®²Ù×÷
-				System.out.println(Thread.currentThread().getName()+" ´æÇ®:"+depositAmount);
+				//æ‰§è¡Œå–é’±æ“ä½œ
+				System.out.println(Thread.currentThread().getName()+" å­˜é’±:"+depositAmount);
 				balance+=depositAmount;
-				System.out.println("ÕË»§Óà¶îÎª:"+balance);
-				//±êÊ¶ÕË»§ÊÇ·ñÒÑÓĞ´æ¿îµÄÆì±êÉèÎªfalse
+				System.out.println("è´¦æˆ·ä½™é¢ä¸º:"+balance);
+				//æ ‡è¯†è´¦æˆ·æ˜¯å¦å·²æœ‰å­˜æ¬¾çš„æ——æ ‡è®¾ä¸ºfalse
 				flag=true;
-				//»½ĞÑÆäËûÏß³Ì
+				//å”¤é†’å…¶ä»–çº¿ç¨‹
 				notifyAll();
 			}
 		} catch (InterruptedException e) {

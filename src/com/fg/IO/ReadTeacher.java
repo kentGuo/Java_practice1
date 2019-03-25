@@ -6,18 +6,18 @@ import java.io.ObjectInputStream;
 public class ReadTeacher {
 	public static void main(String[] args) {
 		try(
-			//´´½¨Ò»¸öObjectInputStreamÊäÈëÁ÷
+			//åˆ›å»ºä¸€ä¸ªObjectInputStreamè¾“å…¥æµ
 			ObjectInputStream ois=new ObjectInputStream(new FileInputStream("teacher.txt"))
 			) {
-			//ÒÀ´Î¶ÁÈ¡ObjectInputStreamÊäÈëÁ÷µÄ4¸ö¶ÔÏó
+			//ä¾æ¬¡è¯»å–ObjectInputStreamè¾“å…¥æµçš„4ä¸ªå¯¹è±¡
 			Teacher t1=(Teacher)ois.readObject();
 			Teacher t2=(Teacher)ois.readObject();
 			Person p=(Person)ois.readObject();
 			Teacher t3=(Teacher)ois.readObject();
-			//Êä³ötrue
-			System.out.println("t1µÄstudentÒıÓÃºÍpÊÇ·ñÏàÍ¬:"+(t1.getStudent()==p));
-			System.out.println("t1µÄstudentÒıÓÃºÍpÊÇ·ñÏàÍ¬:"+(t2.getStudent()==p));
-			System.out.println("t2ºÍt3ÊÇ²»ÊÇÍ¬Ò»¸ö¶ÔÏó:"+(t2==t3));
+			//è¾“å‡ºtrue
+			System.out.println("t1çš„studentå¼•ç”¨å’Œpæ˜¯å¦ç›¸åŒ:"+(t1.getStudent()==p));
+			System.out.println("t1çš„studentå¼•ç”¨å’Œpæ˜¯å¦ç›¸åŒ:"+(t2.getStudent()==p));
+			System.out.println("t2å’Œt3æ˜¯ä¸æ˜¯åŒä¸€ä¸ªå¯¹è±¡:"+(t2==t3));
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

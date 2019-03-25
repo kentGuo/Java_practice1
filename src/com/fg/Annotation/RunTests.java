@@ -2,7 +2,7 @@ package com.fg.Annotation;
 
 public class RunTests {
 	public static void main(String[] args) throws Exception {
-		//¥¶¿ÌMyTest¿‡
+		//Â§ÑÁêÜMyTestÁ±ª
 		ProcessorTest.process("com.fg.Annotation.MyTest");
 	}
 }

@@ -6,13 +6,13 @@ import java.util.Set;
 public class SetTest {
 	public static void main(String[] args) {
 		Set<Object> books=new HashSet<>();
-		//Ìí¼ÓÒ»¸ö×Ö·û´®¶ÔÏó
-		books.add(new String("Ñ©ÖÐº·µ¶ÐÐ"));
-		//ÔÙ´ÎÌí¼ÓÒ»¸ö×Ö·û´®¶ÔÏó
-		//ÒòÎªÁ½¸ö×Ö·û´®¶ÔÏóÍ¨¹ýequals·½·¨±È½ÏÏàµÈ
-		//ËùÒÔÌí¼ÓÊ§°Ü,·µ»Øfalse
-		boolean result=books.add(new String("Ñ©ÖÐº·µ¶ÐÐ"));
-		//´ÓÏÂÃæÊä³ö¿´µ½¼¯ºÏÖ»ÓÐÒ»¸öÔªËØ
+		//æ·»åŠ ä¸€ä¸ªå­—ç¬¦ä¸²å¯¹è±¡
+		books.add(new String("é›ªä¸­æ‚åˆ€è¡Œ"));
+		//å†æ¬¡æ·»åŠ ä¸€ä¸ªå­—ç¬¦ä¸²å¯¹è±¡
+		//å› ä¸ºä¸¤ä¸ªå­—ç¬¦ä¸²å¯¹è±¡é€šè¿‡equalsæ–¹æ³•æ¯”è¾ƒç›¸ç­‰
+		//æ‰€ä»¥æ·»åŠ å¤±è´¥,è¿”å›žfalse
+		boolean result=books.add(new String("é›ªä¸­æ‚åˆ€è¡Œ"));
+		//ä»Žä¸‹é¢è¾“å‡ºçœ‹åˆ°é›†åˆåªæœ‰ä¸€ä¸ªå…ƒç´ 
 		System.out.println(result+"------->"+books);
 	}
 }

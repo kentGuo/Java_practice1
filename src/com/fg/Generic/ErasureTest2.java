@@ -9,11 +9,11 @@ public class ErasureTest2 {
 		li.add(5);
 		li.add(2);
 		List list=li;
-		//ÏÂÃæ´úÂëÒıÆğ'Î´¾­¼ì²éµÄ×ª»»'¾¯¸æ£¬±àÒë£¬ÔËĞĞÊ±ÍêÈ«Õı³£
+		//ä¸‹é¢ä»£ç å¼•èµ·'æœªç»æ£€æŸ¥çš„è½¬æ¢'è­¦å‘Šï¼Œç¼–è¯‘ï¼Œè¿è¡Œæ—¶å®Œå…¨æ­£å¸¸
 		System.out.println(list.get(0));
 		List<String> ls=new ArrayList<>();
 		ls=list;
-		//Ö»Òª·ÃÎÊlsÀïµÄÔªËØ£¬ÏÂÃæ´úÂë½«Òı·¢ClassCastExceptionÒì³£
+		//åªè¦è®¿é—®lsé‡Œçš„å…ƒç´ ï¼Œä¸‹é¢ä»£ç å°†å¼•å‘ClassCastExceptionå¼‚å¸¸
 		System.out.println(ls.get(0));
 	}
 }

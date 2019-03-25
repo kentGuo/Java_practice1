@@ -1,11 +1,11 @@
 package com.fg.multithreading;
 
 public class JoinThreadTest extends Thread{
-	//Ìá¹©Ò»¸öÓĞ²ÎÊıµÄ¹¹ÔìÆ÷£¬±ãÓÚÉèÖÃÏß³ÌÃû×Ö
+	//æä¾›ä¸€ä¸ªæœ‰å‚æ•°çš„æ„é€ å™¨ï¼Œä¾¿äºè®¾ç½®çº¿ç¨‹åå­—
 	public JoinThreadTest(String t) {
 		super(t);
 	}
-	//ÖØĞ´run()·½·¨£¬¶¨ÒåÏß³ÌÖ´ĞĞÌå
+	//é‡å†™run()æ–¹æ³•ï¼Œå®šä¹‰çº¿ç¨‹æ‰§è¡Œä½“
 	@Override
 	public void run() {
 		for(int i=0;i<100;i++) {
@@ -13,14 +13,14 @@ public class JoinThreadTest extends Thread{
 		}
 	}
 	public static void main(String[] args) throws InterruptedException {
-		//Æô¶¯×ÓÏß³Ì
-		new JoinThreadTest("ĞÂÏß³Ì").start();
+		//å¯åŠ¨å­çº¿ç¨‹
+		new JoinThreadTest("æ–°çº¿ç¨‹").start();
 		for(int i=0;i<100;i++) {
 			if(i==20) {
-				JoinThreadTest jt=new JoinThreadTest("±»joinµÄÏß³Ì");
+				JoinThreadTest jt=new JoinThreadTest("è¢«joinçš„çº¿ç¨‹");
 				jt.start();
-				//mainÏß³Ìµ÷ÓÃÁËjtÏß³Ì µÄjoin()·½·¨£¬mainÏß³Ì
-				//±ØĞëµÈjtÖ´ĞĞ½áÊø²Å»áÏòÏÂÖ´ĞĞ
+				//mainçº¿ç¨‹è°ƒç”¨äº†jtçº¿ç¨‹ çš„join()æ–¹æ³•ï¼Œmainçº¿ç¨‹
+				//å¿…é¡»ç­‰jtæ‰§è¡Œç»“æŸæ‰ä¼šå‘ä¸‹æ‰§è¡Œ
 				jt.join();
 			}
 			System.out.println(Thread.currentThread().getName()+""+i);

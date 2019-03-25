@@ -1,29 +1,29 @@
 package com.fg.multithreading;
 
-//Í¨¹ı¼Ì³ĞThreadÀàÀ´´´½¨Ïß³ÌÀà
+//é€šè¿‡ç»§æ‰¿Threadç±»æ¥åˆ›å»ºçº¿ç¨‹ç±»
 public class FirstThread extends Thread{
 	private int i;
-	//ÖØĞ´run() ·½·¨£¬run()·½·¨Ìå¾ÍÊÇÏß³ÌÖ´ĞĞÌå
+	//é‡å†™run() æ–¹æ³•ï¼Œrun()æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹æ‰§è¡Œä½“
 	@Override
 	public void run() {
 		for(;i<100;i++)
 		{
 			/**
-			 * µ±Ïß³ÌÀà¼Ì³ĞThreadÀàÊ±£¬Ö±½ÓÊ¹ÓÃthis¼´¿É»ñÈ¡µ±Ç°Ïß³Ì
-			 * Thread¶ÔÏóµÄgetName()·µ»Øµ±Ç°Ïß³ÌµÄÃû×Ö
-			 * Òò´Ë¿ÉÒÔÖ±½Óµ÷ÓÃgetName()·½·¨·µ»Øµ±Ç°Ïß³ÌµÄÃû×Ö
+			 * å½“çº¿ç¨‹ç±»ç»§æ‰¿Threadç±»æ—¶ï¼Œç›´æ¥ä½¿ç”¨thiså³å¯è·å–å½“å‰çº¿ç¨‹
+			 * Threadå¯¹è±¡çš„getName()è¿”å›å½“å‰çº¿ç¨‹çš„åå­—
+			 * å› æ­¤å¯ä»¥ç›´æ¥è°ƒç”¨getName()æ–¹æ³•è¿”å›å½“å‰çº¿ç¨‹çš„åå­—
 			 */
 			System.out.println(getName()+""+i);
 		}
 	}
 	public static void main(String[] args) {
 		for(int i=0;i<100;i++) {
-			//µ÷ÓÃThreadµÄcurrentThread()·½·¨»ñÈ¡µ±Ç°Ïß³Ì
+			//è°ƒç”¨Threadçš„currentThread()æ–¹æ³•è·å–å½“å‰çº¿ç¨‹
 			System.out.println(Thread.currentThread().getName()+"+i");
 			if(i==20) {
-				//´´½¨²¢Æô¶¯µÚÒ»¸öÏß³Ì
+				//åˆ›å»ºå¹¶å¯åŠ¨ç¬¬ä¸€ä¸ªçº¿ç¨‹
 				new FirstThread().start();
-				//´´½¨²¢Æô¶¯µÚ¶ş¸öÏß³Ì
+				//åˆ›å»ºå¹¶å¯åŠ¨ç¬¬äºŒä¸ªçº¿ç¨‹
 				new FirstThread().start();
 			}
 		}

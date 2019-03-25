@@ -9,16 +9,16 @@ public class RandomAccessFileTest {
 		try(
 			RandomAccessFile raf=new RandomAccessFile(".\\\\src\\\\com\\\\fg\\\\IO\\\\RandomAccessFileTest.java", "r");	
 			){
-			//»ñÈ¡RandomAccessFile¶ÔÏóÎÄ¼şÖ¸ÕëµÄÎ»ÖÃ,³õÊ¼Î»ÖÃÎª0
-			System.out.println("RandomAccessFileµÄÎÄ¼şÖ¸ÕëµÄ³õÊ¼Î»ÖÃÎª:"+raf.getFilePointer());
-			//ÒÆ¶¯rafµÄÎÄ¼ş¼ÇÂ¼Ö¸ÕëµÄÎ»ÖÃ
+			//è·å–RandomAccessFileå¯¹è±¡æ–‡ä»¶æŒ‡é’ˆçš„ä½ç½®,åˆå§‹ä½ç½®ä¸º0
+			System.out.println("RandomAccessFileçš„æ–‡ä»¶æŒ‡é’ˆçš„åˆå§‹ä½ç½®ä¸º:"+raf.getFilePointer());
+			//ç§»åŠ¨rafçš„æ–‡ä»¶è®°å½•æŒ‡é’ˆçš„ä½ç½®
 			raf.seek(100);
 			byte[] bbuf=new byte[1024];
-			//ÓÃÓÚ±£´æÊµ¼Ê¶ÁÈ¡µÄ×Ö½ÚÊı
+			//ç”¨äºä¿å­˜å®é™…è¯»å–çš„å­—èŠ‚æ•°
 			int hasRead=0;
-			//Ê¹ÓÃÑ­»··½Ê½¶ÁÈ¡Á÷
+			//ä½¿ç”¨å¾ªç¯æ–¹å¼è¯»å–æµ
 			while((hasRead=raf.read(bbuf))>0) {
-				//È¡³ö×Ö½ÚÁ÷£¬½«×Ö½ÚÊı×é×ª»»³É×Ö·û´®ÊäÈë
+				//å–å‡ºå­—èŠ‚æµï¼Œå°†å­—èŠ‚æ•°ç»„è½¬æ¢æˆå­—ç¬¦ä¸²è¾“å…¥
 				System.out.println(new String(bbuf,0,hasRead));
 			}
 		}catch (Exception e) {

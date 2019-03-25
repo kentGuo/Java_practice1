@@ -5,10 +5,10 @@ import java.util.IdentityHashMap;
 public class IdentityHashMapTest {
 	public static void main(String[] args) {
 		IdentityHashMap<Object, Object> ihm=new IdentityHashMap<>();
-		//ÏÂÃæÁ½ĞĞ´úÂë½«ÏòIdentityHashMap¶ÔÏóÖĞÌí¼ÓÁ½¸ökey-value¶Ô
-		ihm.put(new String("ÓïÎÄ"), 89);
-		ihm.put(new String("ÓïÎÄ"), 78);
-		//ÏÂÃæÁ½ĞĞ´úÂë½«ÏòIdentityHashMap¶ÔÏóÖĞÌí¼ÓÒ»¸ökey-value¶Ô
+		//ä¸‹é¢ä¸¤è¡Œä»£ç å°†å‘IdentityHashMapå¯¹è±¡ä¸­æ·»åŠ ä¸¤ä¸ªkey-valueå¯¹
+		ihm.put(new String("è¯­æ–‡"), 89);
+		ihm.put(new String("è¯­æ–‡"), 78);
+		//ä¸‹é¢ä¸¤è¡Œä»£ç å°†å‘IdentityHashMapå¯¹è±¡ä¸­æ·»åŠ ä¸€ä¸ªkey-valueå¯¹
 		ihm.put("java", 93);
 		ihm.put("java", 98);
 		System.out.println(ihm);

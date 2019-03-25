@@ -5,14 +5,14 @@ import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueTest {
 	public static void main(String[] args) throws InterruptedException {
-		//¶¨ÒåÒ»¸ö³¤¶ÈÎª2µÄ×èÈû¶ÓÁĞ
+		//å®šä¹‰ä¸€ä¸ªé•¿åº¦ä¸º2çš„é˜»å¡é˜Ÿåˆ—
 		BlockingQueue<String> bq=new ArrayBlockingQueue<>(2);
-//		bq.put("Java");//Óëbq.add("Java"),bq.offer("Java")ÏàÍ¬
-//		bq.put("Java");//Óëbq.add("Java"),bq.offer("Java")ÏàÍ¬
-//		bq.put("Java");//×èÈûÏß³Ì
+//		bq.put("Java");//ä¸bq.add("Java"),bq.offer("Java")ç›¸åŒ
+//		bq.put("Java");//ä¸bq.add("Java"),bq.offer("Java")ç›¸åŒ
+//		bq.put("Java");//é˜»å¡çº¿ç¨‹
 		System.out.println(bq.add("bq"));
-		System.out.println(bq.offer("bq"));//·µ»Øtrue
-		System.out.println(bq.add("bq"));//Å×³öÒì³£
-		System.out.println(bq.offer("bq"));//·µ»Øfalse
+		System.out.println(bq.offer("bq"));//è¿”å›true
+		System.out.println(bq.add("bq"));//æŠ›å‡ºå¼‚å¸¸
+		System.out.println(bq.offer("bq"));//è¿”å›false
 	}
 }

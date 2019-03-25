@@ -3,14 +3,14 @@ package com.fg.Generic;
 import java.util.ArrayList;
 import java.util.List;
 
-//×Ô¶¨ÒåÒ»¸öStrList¼¯ºÏÀà£¬Ê¹ÓÃ×éºÏµÄ·½Ê½À´¸´ÓÃArrayListÀà
+//è‡ªå®šä¹‰ä¸€ä¸ªStrListé›†åˆç±»ï¼Œä½¿ç”¨ç»„åˆçš„æ–¹å¼æ¥å¤ç”¨ArrayListç±»
 class StrList{
 	private List<Object> strList=new ArrayList<>();
-	//¶¨ÒåstrListµÄadd·½·¨
+	//å®šä¹‰strListçš„addæ–¹æ³•
 	public boolean add(String ele) {
 		return strList.add(ele);
 	}
-	//ÖØĞ´get()·½·¨£¬½«get()·½·¨µÄ·µ»ØÖµÀàĞÍ¸ÄÎªStringÀàĞÍ
+	//é‡å†™get()æ–¹æ³•ï¼Œå°†get()æ–¹æ³•çš„è¿”å›å€¼ç±»å‹æ”¹ä¸ºStringç±»å‹
 	public String get(int index) {
 		return (String)strList.get(index);
 	}
@@ -20,17 +20,17 @@ class StrList{
 }
 public class CheckType {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸öÖ»Ïë±£´æ×Ö·û´®µÄList¼¯ºÏ
+		//åˆ›å»ºä¸€ä¸ªåªæƒ³ä¿å­˜å­—ç¬¦ä¸²çš„Listé›†åˆ
 		StrList strList=new StrList();
-		strList.add("ÇìÓàÄê");
-		strList.add("Ìì½¾ÎŞË«");
-		strList.add("²½²½ÉúÁ«");
-		//ÏÂÃæÓæ¾ß²»ÄÜ°ÑInteger¶ÔÏó¶ª½ø¼¯ºÏÖĞ£¬·ñÔò½«ÒıÆğ±àÒë´íÎó
+		strList.add("åº†ä½™å¹´");
+		strList.add("å¤©éª„æ— åŒ");
+		strList.add("æ­¥æ­¥ç”Ÿè²");
+		//ä¸‹é¢æ¸”å…·ä¸èƒ½æŠŠIntegerå¯¹è±¡ä¸¢è¿›é›†åˆä¸­ï¼Œå¦åˆ™å°†å¼•èµ·ç¼–è¯‘é”™è¯¯
 		//strList.add(5);
 		System.out.println(strList);
 		for(int i=0;i<strList.size();i++) {
-			//ÒòÎªStrListÀïÔªËØµÄÀàĞÍ¾ÍÊÇStringÀàĞÍ
-			//ËùÒÔÎŞĞè½øĞĞÇ¿ÖÆÀàĞÍ×ª»»
+			//å› ä¸ºStrListé‡Œå…ƒç´ çš„ç±»å‹å°±æ˜¯Stringç±»å‹
+			//æ‰€ä»¥æ— éœ€è¿›è¡Œå¼ºåˆ¶ç±»å‹è½¬æ¢
 			String str=strList.get(i);
 			System.out.println(str+"\n");
 		}

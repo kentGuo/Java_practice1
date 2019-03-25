@@ -2,15 +2,15 @@ package com.fg.Generic;
 
 public class GenericConstructor {
 	public static void main(String[] args) {
-		//·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªStringÀàĞÍ
-		new Foo("Ğì·ïÄê");
-		//·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªIntegerÀàĞÍ
+		//æ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºStringç±»å‹
+		new Foo("å¾å‡¤å¹´");
+		//æ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºIntegerç±»å‹
 		new Foo(200);
-		//ÏÔÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªStringÀàĞÍ
-		//´«¸øFoo¹¹ÔìÆ÷µÄÊµ²ÎÒ²ÊÇStringÀàĞÍ£¬ÍêÈ«ÕıÈ·
-		new <String> Foo("Àî´¾î¸");
-		//ÏÔÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞµÄTÎªStringÀàĞÍ¡¢
-		//´«¸øFoo¹¹ÔìÆ÷µÄÊµ²ÎÊÇDoubleÀàĞÍ£¬ËùÒÔ´úÂë³ö´í
+		//æ˜¾å¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºStringç±»å‹
+		//ä¼ ç»™Fooæ„é€ å™¨çš„å®å‚ä¹Ÿæ˜¯Stringç±»å‹ï¼Œå®Œå…¨æ­£ç¡®
+		new <String> Foo("ææ·³ç½¡");
+		//æ˜¾å¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­çš„Tä¸ºStringç±»å‹ã€
+		//ä¼ ç»™Fooæ„é€ å™¨çš„å®å‚æ˜¯Doubleç±»å‹ï¼Œæ‰€ä»¥ä»£ç å‡ºé”™
 		new <String> Foo(1.2+"1");
 		System.out.println(1.2+"2");
 	}

@@ -6,20 +6,20 @@ import java.io.InputStreamReader;
 public class KeyInTest {
 	public static void main(String[] args) {
 		try(
-			//½«System.in¶ÔÏó×ª»»³ÉReader¶ÔÏó
+			//å°†System.inå¯¹è±¡è½¬æ¢æˆReaderå¯¹è±¡
 			InputStreamReader reader=new InputStreamReader(System.in);
-			//½«ÆÕÍ¨µÄReader°ü×°³ÓBufferedReader
+			//å°†æ™®é€šçš„ReaderåŒ…è£…ç§¤BufferedReader
 				BufferedReader br=new BufferedReader(reader);
 			){
 			String buffer=null;
-			//²ÉÓÃÑ­»··½Ê½À´ÖğĞĞ¶ÁÈ¡
+			//é‡‡ç”¨å¾ªç¯æ–¹å¼æ¥é€è¡Œè¯»å–
 			while((buffer=br.readLine())!=null) {
-				//Èç¹û¶ÁÈ¡µÄ×Ö·û´®Îª'exit',Ôò³ÌĞòÍË³ö
+				//å¦‚æœè¯»å–çš„å­—ç¬¦ä¸²ä¸º'exit',åˆ™ç¨‹åºé€€å‡º
 				if(buffer.equals("exit")) {
 					System.exit(1);
 				}
-			//´òÓ¡¶ÁÈ¡µÄÄÚÈİ
-				System.out.println("ÊäÈëµÄÄÚÈİÎª:"+buffer);
+			//æ‰“å°è¯»å–çš„å†…å®¹
+				System.out.println("è¾“å…¥çš„å†…å®¹ä¸º:"+buffer);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

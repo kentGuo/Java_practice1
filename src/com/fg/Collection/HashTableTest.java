@@ -7,7 +7,7 @@ class A1{
 	public A1(int count) {
 		this.count=count;
 	}
-	//¸ù¾İcountµÄÖµÀ´ÅĞ¶ÏÁ½¸ö¶ÔÏóÊÇ·ñÏàµÈ
+	//æ ¹æ®countçš„å€¼æ¥åˆ¤æ–­ä¸¤ä¸ªå¯¹è±¡æ˜¯å¦ç›¸ç­‰
 	@Override
 	public boolean equals(Object obj) {
 		if(obj==this)return true;
@@ -18,13 +18,13 @@ class A1{
 		return false;
 		
 	}
-	//¸ù¾İcountÀ´¼ÆËãhashCodeÖµ
+	//æ ¹æ®countæ¥è®¡ç®—hashCodeå€¼
 	@Override
 	public int hashCode() {
 		return this.count;
 	}
 }
-//ÖØĞ´equals·½·¨£¬B1¶ÔÏóÓëÈÎºÎ¶ÔÏóÍ¨¹ıequals()·½·¨±È½ÏÏàµÈ
+//é‡å†™equalsæ–¹æ³•ï¼ŒB1å¯¹è±¡ä¸ä»»ä½•å¯¹è±¡é€šè¿‡equals()æ–¹æ³•æ¯”è¾ƒç›¸ç­‰
 class B1{
 	@Override
 	public boolean equals(Object obj) {
@@ -34,21 +34,21 @@ class B1{
 public class HashTableTest {
 	public static void main(String[] args) {
 		Hashtable<Object, Object> ht=new Hashtable<>();
-		ht.put(new A1(60000), "·è¿ñjava½²Òå");
-		ht.put(new A1(87653), "ÇáÁ¿¼¶Java EEÆóÒµ¼¶Ó¦ÓÃÊµÕ½");
+		ht.put(new A1(60000), "ç–¯ç‹‚javaè®²ä¹‰");
+		ht.put(new A1(87653), "è½»é‡çº§Java EEä¼ä¸šçº§åº”ç”¨å®æˆ˜");
 		ht.put(new A1(1232), new B1());
 		System.out.println(ht);
-		//Ö»ÒªÁ½¸ö¶ÔÏóÍ¨¹ıequals()·½·¨±È½Ï·µ»Øtrue
-		//HashTable¾ÍÈÏÎªËûÃÇÊÇÏàµÈµÄvalue
-		//ÓÉÓÚHashTableÖĞÓĞÒ»¸öB1¶ÔÏó
-		//ËüÓëÈÎºÎ¶ÔÏóÍ¨¹ıequals()·½·¨±È½Ï¶¼ÏàµÈ£¬ËùÒÔÏÂÃæÊä³ötrue
-		System.out.println(ht.contains("²âÊÔ×Ö·û´®"));
-		//Ö»ÒªÁ¬¸öA1¶ÔÏóµÄcountÏàµÈ£¬ËüÃÇÍ¨¹ıequals()·½·¨±È½Ï·µ»Øtrue£¬ÇÒHashCodeÖµÏàµÈ
+		//åªè¦ä¸¤ä¸ªå¯¹è±¡é€šè¿‡equals()æ–¹æ³•æ¯”è¾ƒè¿”å›true
+		//HashTableå°±è®¤ä¸ºä»–ä»¬æ˜¯ç›¸ç­‰çš„value
+		//ç”±äºHashTableä¸­æœ‰ä¸€ä¸ªB1å¯¹è±¡
+		//å®ƒä¸ä»»ä½•å¯¹è±¡é€šè¿‡equals()æ–¹æ³•æ¯”è¾ƒéƒ½ç›¸ç­‰ï¼Œæ‰€ä»¥ä¸‹é¢è¾“å‡ºtrue
+		System.out.println(ht.contains("æµ‹è¯•å­—ç¬¦ä¸²"));
+		//åªè¦è¿ä¸ªA1å¯¹è±¡çš„countç›¸ç­‰ï¼Œå®ƒä»¬é€šè¿‡equals()æ–¹æ³•æ¯”è¾ƒè¿”å›trueï¼Œä¸”HashCodeå€¼ç›¸ç­‰
 		System.out.println(ht.contains(new A1(87653)));
-		//ÏßÃæÓæ¾ß¿ÉÒÔÉ¾³ı×îºóÒ»¸ökey-value¶Ô
+		//çº¿é¢æ¸”å…·å¯ä»¥åˆ é™¤æœ€åä¸€ä¸ªkey-valueå¯¹
 		ht.remove(new A1(1232));
-		//Í¨¹ı·µ»ØHashTableµÄËùÓĞkey×é³ÉµÄSet¼¯ºÏ
-		//´Ó¶ø±ãÀûHashTableµÄÃ¿¸öKey-value¶Ô
+		//é€šè¿‡è¿”å›HashTableçš„æ‰€æœ‰keyç»„æˆçš„Seté›†åˆ
+		//ä»è€Œä¾¿åˆ©HashTableçš„æ¯ä¸ªKey-valueå¯¹
 		for(Object key:ht.keySet()) {
 			System.out.println(key+"--------->");
 			System.out.println(ht.get(key)+"\n");

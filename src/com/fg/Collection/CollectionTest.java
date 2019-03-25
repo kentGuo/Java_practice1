@@ -8,28 +8,28 @@ public class CollectionTest {
 	public static void main(String[] args) {
 		@SuppressWarnings("rawtypes")
 		Collection<Comparable> c=new ArrayList<Comparable>();
-		//Ìí¼ÓÔªËØ
-		c.add("ËïÎò¿Õ");
+		//æ·»åŠ å…ƒç´ 
+		c.add("å­™æ‚Ÿç©º");
 		c.add(6);
-		System.out.println("c¼¯ºÏµÄÔªËØ¸öÊıÎª:"+c.size());
-		//É¾³ıÖ¸¶¨ÔªËØ
+		System.out.println("cé›†åˆçš„å…ƒç´ ä¸ªæ•°ä¸º:"+c.size());
+		//åˆ é™¤æŒ‡å®šå…ƒç´ 
 		c.remove(6);
-		System.out.println("c¼¯ºÏµÄÔªËØ¸öÊıÎª:"+c.size());
-		//ÅĞ¶ÏÊÇ·ñ°üº¬Ö¸¶¨×Ö·û´®
-		System.out.println("c¼¯ºÏÊÇ·ñ°üº¬\"ËïÎò¿Õ\"×Ö·û´®:"+c.contains("ËïÎò¿Õ"));
-		c.add("ÇáÁ¿¼¶Java EEÆóÒµÓ¦ÓÃÊµÕ½");
-		System.out.println("c¼¯ºÏµÄÔªËØ:"+c);
+		System.out.println("cé›†åˆçš„å…ƒç´ ä¸ªæ•°ä¸º:"+c.size());
+		//åˆ¤æ–­æ˜¯å¦åŒ…å«æŒ‡å®šå­—ç¬¦ä¸²
+		System.out.println("cé›†åˆæ˜¯å¦åŒ…å«\"å­™æ‚Ÿç©º\"å­—ç¬¦ä¸²:"+c.contains("å­™æ‚Ÿç©º"));
+		c.add("è½»é‡çº§Java EEä¼ä¸šåº”ç”¨å®æˆ˜");
+		System.out.println("cé›†åˆçš„å…ƒç´ :"+c);
 		Collection<String> books=new HashSet<String>();
-		books.add("ÇáÁ¿¼¶Java EEÆóÒµÓ¦ÓÃÊµÕ½");
-		books.add("·è¿ñJava½²Òå");
-		System.out.println("c¼¯ºÏÊÇ·ñÍêÈ«°üº¬books¼¯ºÏ£¿"+c.containsAll(books));
-		System.out.println("c¼¯ºÏµÄÔªËØ:"+c);
-		//É¾³ıc¼¯ºÏÀïµÄËùÓĞÔªËØ
+		books.add("è½»é‡çº§Java EEä¼ä¸šåº”ç”¨å®æˆ˜");
+		books.add("ç–¯ç‹‚Javaè®²ä¹‰");
+		System.out.println("cé›†åˆæ˜¯å¦å®Œå…¨åŒ…å«booksé›†åˆï¼Ÿ"+c.containsAll(books));
+		System.out.println("cé›†åˆçš„å…ƒç´ :"+c);
+		//åˆ é™¤cé›†åˆé‡Œçš„æ‰€æœ‰å…ƒç´ 
 		c.clear();
-		System.out.println("c¼¯ºÏµÄÔªËØ:"+c);
-		//books¼¯ºÏÓëc¼¯ºÏµÄ½»¼¯
+		System.out.println("cé›†åˆçš„å…ƒç´ :"+c);
+		//booksé›†åˆä¸cé›†åˆçš„äº¤é›†
 		books.retainAll(c);
-		System.out.println("books¼¯ºÏµÄÔªËØ:"+books);
+		System.out.println("booksé›†åˆçš„å…ƒç´ :"+books);
 		
 	}
 }

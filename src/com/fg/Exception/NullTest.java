@@ -8,11 +8,11 @@ public class NullTest {
 		try {
 		System.out.println(time.after(new Date()));	
 		}catch (NullPointerException e) {
-		System.out.println("��ָ���쳣"+e.getMessage());
+		System.out.println("空指针异常"+e.getMessage());
 		}
 		catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("δ֪�쳣"+e.getMessage());
+			System.out.println("未知异常"+e.getMessage());
 		}
 	}
 }

@@ -2,25 +2,25 @@ package com.fg.multithreading;
 
 public class InvokeRun extends Thread{
 	private int i;
-	//ÖØĞ´run()·½·¨,run()·½·¨µÄ·½·¨Ìå¾ÍÊÇÏß³ÌµÄÖ´ĞĞÌå
+	//é‡å†™run()æ–¹æ³•,run()æ–¹æ³•çš„æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹çš„æ‰§è¡Œä½“
 	@Override
 	public void run() {
-		//Ö±½Óµ÷ÓÃrun()·½·¨Ê±£¬ThreadµÄthis.getName()·µ»ØµÄÊÇ¸Ã¶ÔÏóµÄÃû×Ö
-		//¶ø²»ÊÇµ±Ç°Ïß³ÌµÄÃû×Ö
-		//Ê¹ÓÃThread.currentThre().getName()×ÜÊÇ»ñÈ¡µ±Ç°Ïß³ÌµÄÃû×Ö
+		//ç›´æ¥è°ƒç”¨run()æ–¹æ³•æ—¶ï¼ŒThreadçš„this.getName()è¿”å›çš„æ˜¯è¯¥å¯¹è±¡çš„åå­—
+		//è€Œä¸æ˜¯å½“å‰çº¿ç¨‹çš„åå­—
+		//ä½¿ç”¨Thread.currentThre().getName()æ€»æ˜¯è·å–å½“å‰çº¿ç¨‹çš„åå­—
 		for(;i<100;i++) {
 			System.out.println(Thread.currentThread().getName()+""+i);
 		}
 	}
 	public static void main(String[] args) {
 		for(int i=0;i<100;i++) {
-			//µ÷ÓÃThreadµÄcurrentThread()·½·¨»ñÈ¡µ±Ç°Ïß³Ì
+			//è°ƒç”¨Threadçš„currentThread()æ–¹æ³•è·å–å½“å‰çº¿ç¨‹
 			System.out.println(Thread.currentThread().getName()+""+i);
 			if(i==20) {
 				/**
-				 * Ö±½Óµ÷ÓÃÏß³Ì¶ÔÏóµÄrun()·½·¨
-				 * ÏµÍ³»á°ÑÏß³Ì¶ÔÏóµ±³ÉÆÕÍ¨¶ÔÏó£¬°Ñrun()·½·¨µ±³ÉÆÕÍ¨·½·¨
-				 * ËùÒÔÏÂÃæÁ½ĞĞ´úÂë²¢²»»áÆô¶¯Á½¸öÏß³Ì£¬¶øÊÇÒÀ´ÎÖ´ĞĞÁ½¸örun()·½·¨
+				 * ç›´æ¥è°ƒç”¨çº¿ç¨‹å¯¹è±¡çš„run()æ–¹æ³•
+				 * ç³»ç»Ÿä¼šæŠŠçº¿ç¨‹å¯¹è±¡å½“æˆæ™®é€šå¯¹è±¡ï¼ŒæŠŠrun()æ–¹æ³•å½“æˆæ™®é€šæ–¹æ³•
+				 * æ‰€ä»¥ä¸‹é¢ä¸¤è¡Œä»£ç å¹¶ä¸ä¼šå¯åŠ¨ä¸¤ä¸ªçº¿ç¨‹ï¼Œè€Œæ˜¯ä¾æ¬¡æ‰§è¡Œä¸¤ä¸ªrun()æ–¹æ³•
 				 */
 				new InvokeRun().run();
 				new InvokeRun().run();

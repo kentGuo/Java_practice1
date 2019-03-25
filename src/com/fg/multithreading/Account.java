@@ -1,7 +1,7 @@
 package com.fg.multithreading;
 
 public class Account {
-	//封装账户编号，账户余额的两个成员变量
+	//灏佽璐︽埛缂栧彿锛岃处鎴蜂綑棰濈殑涓や釜鎴愬憳鍙橀噺
 	private String accountNo;
 	private double balance;
 	public Account() {
@@ -23,7 +23,7 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	//下面两个方法根据accountNo来重写hasCode()和equals()方法
+	//涓嬮潰涓や釜鏂规硶鏍规嵁accountNo鏉ラ噸鍐檋asCode()鍜宔quals()鏂规硶
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub

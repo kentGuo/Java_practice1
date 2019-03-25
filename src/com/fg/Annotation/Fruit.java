@@ -3,7 +3,7 @@ package com.fg.Annotation;
 public class Fruit {
 	public void info() {
 		//@Deprecated
-		System.out.println("水果的info方法...");
+		System.out.println("姘存灉鐨刬nfo鏂规硶...");
 	}
 	public static void main(String[] args) {
 		new Apple().info();
@@ -14,7 +14,7 @@ class Apple extends Fruit{
 	@Override
 	public void info() {
 		// TODO Auto-generated method stub
-		System.out.println("苹果重写水果的info方法....");
+		System.out.println("鑻规灉閲嶅啓姘存灉鐨刬nfo鏂规硶....");
 		super.info();
 	}
 	

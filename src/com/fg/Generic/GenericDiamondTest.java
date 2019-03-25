@@ -2,21 +2,21 @@ package com.fg.Generic;
 
 public class GenericDiamondTest {
 	public static void main(String[] args) {
-		//MyClassÀàÉùÃ÷ÖĞµÄEĞÎ²ÎÊÇStringÀàĞÍ
-		//·ºĞÍ¹¹ÔìÆ÷ÖĞÉùÃ÷µÄTĞÎ²ÎÊÇIntegerÀàĞÍ
+		//MyClassç±»å£°æ˜ä¸­çš„Eå½¢å‚æ˜¯Stringç±»å‹
+		//æ³›å‹æ„é€ å™¨ä¸­å£°æ˜çš„Tå½¢å‚æ˜¯Integerç±»å‹
 		MyClass<String> m1=new MyClass<>(5);
-		//ÏÔÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞÉùÃ÷µÄTĞÎ²ÎÊÇIntegerÀàĞÍ
+		//æ˜¾å¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­å£°æ˜çš„Tå½¢å‚æ˜¯Integerç±»å‹
 		//
 		MyClass<String> m2=new <Integer> MyClass<String>(5);
 		
-		//MyClassÀàÉùÃ÷ÖĞµÄEĞÎ²ÎÊÇStringÀàĞÍ
-		//Èç¹ûÏÔÊ½Ö¸¶¨·ºĞÍ¹¹ÔìÆ÷ÖĞÉùÃ÷µÄTĞÎ²ÎÊÇIntegerÀàĞÍ
-		//´ËÊ±¾Í²»ÄÜÊ¹ÓÃ"ÁâĞÎ"Óï·¨£¬ÏÂÃæ´úÂëÊÇ´íÎóµÄ
+		//MyClassç±»å£°æ˜ä¸­çš„Eå½¢å‚æ˜¯Stringç±»å‹
+		//å¦‚æœæ˜¾å¼æŒ‡å®šæ³›å‹æ„é€ å™¨ä¸­å£°æ˜çš„Tå½¢å‚æ˜¯Integerç±»å‹
+		//æ­¤æ—¶å°±ä¸èƒ½ä½¿ç”¨"è±å½¢"è¯­æ³•ï¼Œä¸‹é¢ä»£ç æ˜¯é”™è¯¯çš„
 		//MyClass<String> m3=new <Integer> MyClass<>(5);
 	}
 }
 class MyClass<E>{
 	public <T> MyClass(T t){
-		System.out.println("tµÄ²ÎÊıµÄÖµÎª:"+t);
+		System.out.println("tçš„å‚æ•°çš„å€¼ä¸º:"+t);
 	}
 }

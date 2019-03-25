@@ -1,41 +1,41 @@
 package com.fg.multithreading;
 
 public class DrawThreadSyn extends Thread{
-		//Ä£ÄâÓÃ»§ÕË»§
+		//æ¨¡æ‹Ÿç”¨æˆ·è´¦æˆ·
 		private Account account;
-		//µ±Ç°È¡Ç®Ïß³ÌËùÏ£ÍûÈ¡µÄÇ®Êı
+		//å½“å‰å–é’±çº¿ç¨‹æ‰€å¸Œæœ›å–çš„é’±æ•°
 		private double drawAmount;
 		public DrawThreadSyn(String name,Account account, double drawAmount) {
 			super(name);
 			this.account = account;
 			this.drawAmount = drawAmount;
 		}
-		//µ±¶à¸öÏß³ÌĞŞ¸ÄÍ¬Ò»¸ö¹²ÏíÊı¾İÊ±£¬½«Éæ¼°Êı¾İ°²È«ÎÊÌâ
+		//å½“å¤šä¸ªçº¿ç¨‹ä¿®æ”¹åŒä¸€ä¸ªå…±äº«æ•°æ®æ—¶ï¼Œå°†æ¶‰åŠæ•°æ®å®‰å…¨é—®é¢˜
 		@Override
 		public  void run() {
 			/**
-			 * Ê¹ÓÃaccount×÷ÎªÍ¬²½¼àÊÓÆ÷£¬ÈÎºÎÏß³Ì½øÈëÏÂÃæÍ¬²½´úÂëÖ®Ç°
-			 * ±ØĞëÏÈ»ñµÃ¶ÔaccountÕË»§µÄËø¶¨--ÆäËûÏß³ÌÎŞ·¨»ñµÃËø£¬Ò²¾ÍÎŞ·¨ĞŞ¸ÄËü
-			 * ÕâÖÖ×ö·¨·ûºÏ:"¼ÓËø-ĞŞ¸Ä-ÊÍ·ÅËø"µÄÂß¼­
+			 * ä½¿ç”¨accountä½œä¸ºåŒæ­¥ç›‘è§†å™¨ï¼Œä»»ä½•çº¿ç¨‹è¿›å…¥ä¸‹é¢åŒæ­¥ä»£ç ä¹‹å‰
+			 * å¿…é¡»å…ˆè·å¾—å¯¹accountè´¦æˆ·çš„é”å®š--å…¶ä»–çº¿ç¨‹æ— æ³•è·å¾—é”ï¼Œä¹Ÿå°±æ— æ³•ä¿®æ”¹å®ƒ
+			 * è¿™ç§åšæ³•ç¬¦åˆ:"åŠ é”-ä¿®æ”¹-é‡Šæ”¾é”"çš„é€»è¾‘
 			 */
 			synchronized (account) {
-				// ÕË»§Óà¶î´óÓÚÈ¡Ç®ÊıÄ¿
+				// è´¦æˆ·ä½™é¢å¤§äºå–é’±æ•°ç›®
 				if(account.getBalance()>=drawAmount) {
-					//ÍÂ³ö³®Æ±
-					System.out.println(getName()+"È¡Ç®³É¹¦!Ò»¹²:"+drawAmount+"Ôª");
+					//åå‡ºé’ç¥¨
+					System.out.println(getName()+"å–é’±æˆåŠŸ!ä¸€å…±:"+drawAmount+"å…ƒ");
 				
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				//ĞŞ¸ÄÓà¶î
+				//ä¿®æ”¹ä½™é¢
 				account.setBalance(account.getBalance()-drawAmount);
-				System.out.println("\tÓà¶îÎª:"+account.getBalance());
+				System.out.println("\tä½™é¢ä¸º:"+account.getBalance());
 				}else {
-					System.out.println(getName()+"È¡Ç®Ê§°Ü£¬Óà¶î²»×ã!");
+					System.out.println(getName()+"å–é’±å¤±è´¥ï¼Œä½™é¢ä¸è¶³!");
 				}
 			}
-			//Í¬²½´úÂë½áÊø£¬¸ÃÏß³ÌÊÍ·ÅÍ¬²½Ëø
+			//åŒæ­¥ä»£ç ç»“æŸï¼Œè¯¥çº¿ç¨‹é‡Šæ”¾åŒæ­¥é”
 		}
 	}

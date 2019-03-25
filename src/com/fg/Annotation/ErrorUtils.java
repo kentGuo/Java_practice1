@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class ErrorUtils {
 	public void faultyMethod(List<String>...lists) {
-		//javaÓíÑÒ²»ÔÊĞí´´½¨·ºĞÍÊı×é£¬Òò´ËlistsÖ»ÄÜ±»µ±³ÉList
-		//´ËÊ±Ïàµ±ÓÚ°ÑList<String>¸³¸øÁËList,ÒÑ¾­·¢ÉúÁË"¶ÑÎÛÈ¾"
+		//javaç¦¹å²©ä¸å…è®¸åˆ›å»ºæ³›å‹æ•°ç»„ï¼Œå› æ­¤listsåªèƒ½è¢«å½“æˆList
+		//æ­¤æ—¶ç›¸å½“äºæŠŠList<String>èµ‹ç»™äº†List,å·²ç»å‘ç”Ÿäº†"å †æ±¡æŸ“"
 		List[] list=lists;
 		List<Integer> myList=new ArrayList<Integer>();
 		myList.add(new Random().nextInt(100));
-		//°ÑlistsµÄµÚÒ»¸öÔªËØ¸³ÎªmyArray
+		//æŠŠlistsçš„ç¬¬ä¸€ä¸ªå…ƒç´ èµ‹ä¸ºmyArray
 		list[0]=myList;
 		String s=lists[0].get(0);
 		System.out.println(s);

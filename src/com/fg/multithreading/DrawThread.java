@@ -1,22 +1,22 @@
 package com.fg.multithreading;
 
 public class DrawThread extends Thread{
-	//Ä£ÄâÓÃ»§ÕË»§
+	//æ¨¡æ‹Ÿç”¨æˆ·è´¦æˆ·
 	private AccountLock account;
-	//µ±Ç°È¡Ç®Ïß³ÌËùÏ£ÍûÈ¡µÄÇ®Êı
+	//å½“å‰å–é’±çº¿ç¨‹æ‰€å¸Œæœ›å–çš„é’±æ•°
 	private double drawAmount;
 	public DrawThread(String name,AccountLock account, double drawAmount) {
 		super(name);
 		this.account = account;
 		this.drawAmount = drawAmount;
 	}
-	//µ±¶à¸öÏß³ÌĞŞ¸ÄÍ¬Ò»¸ö¹²ÏíÊı¾İÊ±£¬½«Éæ¼°Êı¾İ°²È«ÎÊÌâ
+	//å½“å¤šä¸ªçº¿ç¨‹ä¿®æ”¹åŒä¸€ä¸ªå…±äº«æ•°æ®æ—¶ï¼Œå°†æ¶‰åŠæ•°æ®å®‰å…¨é—®é¢˜
 	@Override
 	public  void run() {
 		/**
-		 * Ö±½Óµ÷ÓÃaccount¶ÔÏóµÄdraw()·½·¨À´Ö´ĞĞÈ¡Ç®²Ù×÷
-		 * Í¬²½·½·¨µÄÍ¬²½¼àÊÓÆ÷ÊÇthis,this´ú±íµ÷ÓÃdraw()·½·¨µÄ¶ÔÏó
-		 * Ò²¾ÍÊÇËµ£¬Ïß³Ì½øÈëdraw()·½·¨Ö®Ç°£¬±ØĞëÏÈ¶Ôaccount¶ÔÏó¼ÓËø
+		 * ç›´æ¥è°ƒç”¨accountå¯¹è±¡çš„draw()æ–¹æ³•æ¥æ‰§è¡Œå–é’±æ“ä½œ
+		 * åŒæ­¥æ–¹æ³•çš„åŒæ­¥ç›‘è§†å™¨æ˜¯this,thisä»£è¡¨è°ƒç”¨draw()æ–¹æ³•çš„å¯¹è±¡
+		 * ä¹Ÿå°±æ˜¯è¯´ï¼Œçº¿ç¨‹è¿›å…¥draw()æ–¹æ³•ä¹‹å‰ï¼Œå¿…é¡»å…ˆå¯¹accountå¯¹è±¡åŠ é”
 		 */
 		account.draw(drawAmount);
 	}

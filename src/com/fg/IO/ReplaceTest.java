@@ -9,15 +9,15 @@ import java.util.ArrayList;
 public class ReplaceTest {
 	public static void main(String[] args) {
 		try (
-			//´´½¨Ò»¸öObjectOutputStream¶ÔÏó
+			//åˆ›å»ºä¸€ä¸ªObjectOutputStreamå¯¹è±¡
 			ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("replace.txt"));
-			//´´½¨Ò»¸öObjectInputStream¶ÔÏó
+			//åˆ›å»ºä¸€ä¸ªObjectInputStreamå¯¹è±¡
 			ObjectInputStream ois=new ObjectInputStream(new FileInputStream("replace.txt"))
 			){
-			Person3 per=new Person3("ËïÎò¿Õ", 500);
-			//ÏµÍ³½«per¶ÔÏó×ª»»³É×Ö½ÚÏµÁĞ²¢Êä³ö
+			Person3 per=new Person3("å­™æ‚Ÿç©º", 500);
+			//ç³»ç»Ÿå°†perå¯¹è±¡è½¬æ¢æˆå­—èŠ‚ç³»åˆ—å¹¶è¾“å‡º
 			oos.writeObject(per);
-			//·´ĞòÁĞ¶ÁÈ¡µÃµ½µÄÊÇArrayList
+			//ååºåˆ—è¯»å–å¾—åˆ°çš„æ˜¯ArrayList
 			ArrayList list=(ArrayList)ois.readObject();
 			System.out.println(list);
 		} catch (Exception e) {

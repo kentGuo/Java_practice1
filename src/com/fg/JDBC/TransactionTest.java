@@ -14,35 +14,35 @@ public class TransactionTest {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		// ¼ÓÔØÇı¶¯
+		// åŠ è½½é©±åŠ¨
 				Class.forName(driver);
 	}
 	public void insertTransaction(String[] sqls,String sqlt) throws Exception{
 		try(
 			Connection conn=DriverManager.getConnection(url, user, pass);
 			){
-			//±£´æµ±Ç°µÄ×Ô¶¯Ìá½»Ä£Ê½
+			//ä¿å­˜å½“å‰çš„è‡ªåŠ¨æäº¤æ¨¡å¼
 			boolean autoCommit=conn.getAutoCommit();
-			//¹Ø±Õ×Ô¶¯Ìá½»£¬¿ªÆôÊÂÎñ
+			//å…³é—­è‡ªåŠ¨æäº¤ï¼Œå¼€å¯äº‹åŠ¡
 			conn.setAutoCommit(false);
 			try(
-				//Ê¹ÓÃConnectionÀ´´´½¨Ò»¸öStatement¶ÔÏó
+				//ä½¿ç”¨Connectionæ¥åˆ›å»ºä¸€ä¸ªStatementå¯¹è±¡
 				Statement stmt=conn.createStatement();
 				){
-				//Ñ­»·¶à´ÎÖ´ĞĞSQLÓï¾ä
+				//å¾ªç¯å¤šæ¬¡æ‰§è¡ŒSQLè¯­å¥
 				for(String sql:sqls) {
 					stmt.addBatch(sql);
 				}
-				//Í¬Ê±Ö´ĞĞËùÓĞµÄSQLÓï¾ä
+				//åŒæ—¶æ‰§è¡Œæ‰€æœ‰çš„SQLè¯­å¥
 				int[] count=stmt.executeBatch();
-				System.out.println("¹²ÓĞ"+count.length+"ÌõSQLÓï¾ä");
+				System.out.println("å…±æœ‰"+count.length+"æ¡SQLè¯­å¥");
 				ResultSet rs=stmt.executeQuery(sqlt);
 				while(rs.next()) {
 					System.out.println(rs.getString(1)+"\t"+
@@ -50,9 +50,9 @@ public class TransactionTest {
 							+rs.getString(3));
 				}
 			}
-			//Ìá½»ÊÂÎñ
+			//æäº¤äº‹åŠ¡
 			conn.commit();
-			//»Ö¸´Ô­ÓĞµÄ×Ô¶¯Ìá½»Ä£Ê½
+			//æ¢å¤åŸæœ‰çš„è‡ªåŠ¨æäº¤æ¨¡å¼
 			conn.setAutoCommit(autoCommit);
 		}
 	}
@@ -64,10 +64,10 @@ public class TransactionTest {
 				"insert into student_table VALUES(null,'bbb',1);",
 				"insert into student_table VALUES(null,'ccc',1);",
 				"delete from student_table where java_teacher=1",
-				//²»ÄÜÊ¹ÓÃselectÓï¾ä,ÏÂÃæ»á³öÏÖÒì³£
+				//ä¸èƒ½ä½¿ç”¨selectè¯­å¥,ä¸‹é¢ä¼šå‡ºç°å¼‚å¸¸
 				//"select * from student_table;",
-				//ÏÂÃæÕâÌõSQLÓï¾ä½«»áÎ¥·´Íâ¼üÔ¼Êø
-				//ÒòÎªteacher_table±íÖĞÃ»ÓĞIDÎª5µÄ¼ÇÂ¼¡£
+				//ä¸‹é¢è¿™æ¡SQLè¯­å¥å°†ä¼šè¿åå¤–é”®çº¦æŸ
+				//å› ä¸ºteacher_tableè¡¨ä¸­æ²¡æœ‰IDä¸º5çš„è®°å½•ã€‚
 				"insert into student_table VALUES(null,'ddd',8);"
 		};
 		String sqlt="select * from student_table;";

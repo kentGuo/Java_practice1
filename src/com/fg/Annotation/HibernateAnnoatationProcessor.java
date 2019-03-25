@@ -16,26 +16,26 @@ import javax.lang.model.element.TypeElement;
 
 
 
-//Ö¸¶¨¿É´¦Àí@Persistent,@Id,@PropertyÈı¸öAnnotation
+//æŒ‡å®šå¯å¤„ç†@Persistent,@Id,@Propertyä¸‰ä¸ªAnnotation
 @SupportedAnnotationTypes({"Persistent","Id","Property"})
 public class HibernateAnnoatationProcessor extends AbstractProcessor{
-	//Ñ­»·´¦ÀíÃ¿¸öĞèÒª´¦ÀíµÄ³ÌĞò¶ÔÏó
+	//å¾ªç¯å¤„ç†æ¯ä¸ªéœ€è¦å¤„ç†çš„ç¨‹åºå¯¹è±¡
 	@Override
 	public boolean process(Set<? extends TypeElement> arg0, RoundEnvironment arg1) {
 		// TODO Auto-generated method stub
-		//¶¨ÒåÒ»¸öÎÄ¼şÊä³öÁ÷£¬ÓÃÓÚÉú³É¶îÍâµÄÎÄ¼ş
+		//å®šä¹‰ä¸€ä¸ªæ–‡ä»¶è¾“å‡ºæµï¼Œç”¨äºç”Ÿæˆé¢å¤–çš„æ–‡ä»¶
 		PrintStream ps=null;
 		try {
-			//±éÀúÃ¿¸ö±»@PersistentĞŞÊÎµÄclassÎÄ¼ş
+			//éå†æ¯ä¸ªè¢«@Persistentä¿®é¥°çš„classæ–‡ä»¶
 			for(Element t:arg1.getElementsAnnotatedWith(Persistent.class))
 			{
-				//»ñÈ¡ÕıÔÚ´¦ÀíµÄÀàÃû
+				//è·å–æ­£åœ¨å¤„ç†çš„ç±»å
 				Name clazzName=t.getSimpleName();
-				//»ñÈ¡Àà¶¨ÒåÇ°µÄ@Persistent Annotation
+				//è·å–ç±»å®šä¹‰å‰çš„@Persistent Annotation
 				Persistent per=t.getAnnotation(Persistent.class);
-				//´´½¨ÎÄ¼şÊä³öÁ÷
+				//åˆ›å»ºæ–‡ä»¶è¾“å‡ºæµ
 				ps=new PrintStream(new FileOutputStream(clazzName+".hbm.xml"));
-				//Ö´ĞĞÊä³ö
+				//æ‰§è¡Œè¾“å‡º
 				ps.println("<?xml version=\"1.0\"?>");
 				ps.println("<!DOCTYPE hibernate-mapping PUBLIC");
 				ps.println("	\"-//Hibernate/Hibernate "
@@ -45,11 +45,11 @@ public class HibernateAnnoatationProcessor extends AbstractProcessor{
 				ps.println("<hibernate-mapping>");
 				ps.print("	<class name=\"" + t);
 				for(Element f:t.getEnclosedElements()) {
-					//Ö»´¦ÀíFieldÉÏµÄAnnotation
+					//åªå¤„ç†Fieldä¸Šçš„Annotation
 					if(f.getKind()==ElementKind.FIELD) {
-						//»ñÈ¡Field¶¨ÒåÇ°µÄ@Id Annotation
+						//è·å–Fieldå®šä¹‰å‰çš„@Id Annotation
 						Id id=f.getAnnotation(Id.class);
-						//µ±@Id Annotation´æÔÚÊ±Êä³ö<id.../>ÔªËØ
+						//å½“@Id Annotationå­˜åœ¨æ—¶è¾“å‡º<id.../>å…ƒç´ 
 						if(id!=null) {
 							ps.println("		<id name=\""
 									+ f.getSimpleName()
@@ -60,9 +60,9 @@ public class HibernateAnnoatationProcessor extends AbstractProcessor{
 									+ id.generator() + "\"/>");
 								ps.println("		</id>");
 						}
-						//»ñÈ¡Field¶¨ÒåÇ°µÄ@Property Annotation
+						//è·å–Fieldå®šä¹‰å‰çš„@Property Annotation
 						Property p=f.getAnnotation(Property.class);
-						//µ±@Property Annotation´æÔÚÊ±Êä³ö<property.../>ÔªËØ
+						//å½“@Property Annotationå­˜åœ¨æ—¶è¾“å‡º<property.../>å…ƒç´ 
 						if(p!=null) {
 							ps.println("		<property name=\""
 									+ f.getSimpleName()

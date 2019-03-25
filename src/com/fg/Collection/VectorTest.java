@@ -5,19 +5,19 @@ import java.util.Stack;
 public class VectorTest {
 	public static void main(String[] args) {
 		Stack<Object> v=new Stack<>();
-		//ÒÀ´Î½«Èı¸öÔªËØ"push"ÈëÕ»
+		//ä¾æ¬¡å°†ä¸‰ä¸ªå…ƒç´ "push"å…¥æ ˆ
 		v.push("1");
 		v.push("2");
 		v.push("3");
-		//Êä³ö:[1,2,3]
+		//è¾“å‡º:[1,2,3]
 		System.out.println(v);
-		//·ÃÎÊµÚÒ»¸öÔªËØ£¬µ«²¢²»½«Æä"pop"³öÕ»£¬Êä³ö:3
+		//è®¿é—®ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œä½†å¹¶ä¸å°†å…¶"pop"å‡ºæ ˆï¼Œè¾“å‡º:3
 		System.out.println(v.peek());
-		//ÒÀÈ»Êä³ö:[1,2,3]
+		//ä¾ç„¶è¾“å‡º:[1,2,3]
 		System.out.println(v);
-		//"pop"³öÕ»µÚÒ»¸öÔªËØ£¬Êä³ö:3
+		//"pop"å‡ºæ ˆç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œè¾“å‡º:3
 		System.out.println(v.pop());
-		//Êä³ö:[1,2]
+		//è¾“å‡º:[1,2]
 		System.out.println(v);
 	}
 }

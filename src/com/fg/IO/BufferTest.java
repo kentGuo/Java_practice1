@@ -4,26 +4,26 @@ import java.nio.CharBuffer;
 
 public class BufferTest {
 	public static void main(String[] args) {
-		//´´½¨Buffer
+		//åˆ›å»ºBuffer
 		CharBuffer buff=CharBuffer.allocate(8);
 		System.out.println("capacity:"+buff.capacity());
 		System.out.println("limit:"+buff.limit());
 		System.out.println("position:"+buff.position());
-		//·ÅÈëÔªËØ
+		//æ”¾å…¥å…ƒç´ 
 		buff.put('a');
 		buff.put('b');
 		buff.put('c');
-		System.out.println("¼ÓÈëÈı¸öÔªËØºó,position="+buff.position());
-		//µ÷ÓÃflip()·½·¨
+		System.out.println("åŠ å…¥ä¸‰ä¸ªå…ƒç´ å,position="+buff.position());
+		//è°ƒç”¨flip()æ–¹æ³•
 		buff.flip();
-		System.out.println("Ö´ĞĞflip()ºó,limit="+buff.limit());
+		System.out.println("æ‰§è¡Œflip()å,limit="+buff.limit());
 		System.out.println("position="+buff.position());
-		//µ÷ÓÃclear()·½·¨
+		//è°ƒç”¨clear()æ–¹æ³•
 		buff.clear();
-		System.out.println("Ö´ĞĞclear()ºó,limit="+buff.limit());
-		System.out.println("Ö´ĞĞclear()ºó,position="+buff.position());
-		System.out.println("Ö´ĞĞclear()ºó,»º³åÇøÄÚÈİ²¢Ã»ÓĞ±»Çå³ı:="+"µÚÈı¸öÔªËØÎª:"+buff.get(0));
-		System.out.println("Ö´ĞĞ¾ø¶Ô¶ÁÈ¡ºó,position="+buff.position());
+		System.out.println("æ‰§è¡Œclear()å,limit="+buff.limit());
+		System.out.println("æ‰§è¡Œclear()å,position="+buff.position());
+		System.out.println("æ‰§è¡Œclear()å,ç¼“å†²åŒºå†…å®¹å¹¶æ²¡æœ‰è¢«æ¸…é™¤:="+"ç¬¬ä¸‰ä¸ªå…ƒç´ ä¸º:"+buff.get(0));
+		System.out.println("æ‰§è¡Œç»å¯¹è¯»å–å,position="+buff.position());
 		
 	}
 }

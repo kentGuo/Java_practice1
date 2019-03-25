@@ -6,15 +6,15 @@ public class FileReaderTest {
 	public static void main(String[] args) {
 
 		try (
-				// ´´½¨×Ö½ÚÊäÈëÁ÷
+				// åˆ›å»ºå­—èŠ‚è¾“å…¥æµ
 				FileReader fis = new FileReader(".\\src\\com\\fg\\IO\\FileReaderTest.java");) {
-			// ´´½¨Ò»¸ö³¤¶ÈÎª32µÄÖñÍ²
+			// åˆ›å»ºä¸€ä¸ªé•¿åº¦ä¸º32çš„ç«¹ç­’
 			char[] bbuf = new char[32];
-			// ÓÃÓÚ±£´æÊµ¼Ê¶ÁÈ¡µÄ×Ö½ÚÊý
+			// ç”¨äºŽä¿å­˜å®žé™…è¯»å–çš„å­—èŠ‚æ•°
 			int hasRead = 0;
-			// Ê¹ÓÃÑ­»·À´ÖØ¸´ ¶ÁÈ¡ µÄ¹ý³Ì
+			// ä½¿ç”¨å¾ªçŽ¯æ¥é‡å¤ è¯»å– çš„è¿‡ç¨‹
 			while ((hasRead = fis.read(bbuf)) > 0) {
-				// È¡³ö¶ÁÈ¡µÄ×Ö½Ú,½«×Ö½ÚÊý×é×ª»»³É×Ö·û´®ÊäÈë
+				// å–å‡ºè¯»å–çš„å­—èŠ‚,å°†å­—èŠ‚æ•°ç»„è½¬æ¢æˆå­—ç¬¦ä¸²è¾“å…¥
 				System.out.println(new String(bbuf, 0, hasRead));
 			}
 		} catch (Exception e) {

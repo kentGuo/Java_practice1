@@ -22,14 +22,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class QueryExecutor {
-	JFrame jf=new JFrame("²éÑ¯Ö´ĞĞÆ÷");
+	JFrame jf=new JFrame("æŸ¥è¯¢æ‰§è¡Œå™¨");
 	private JScrollPane scrollPane;
-	private JButton execBtn=new JButton("²éÑ¯");
-	//ÓÃÓÚÊäÈë²éÑ¯Óï¾äµÄÎÄ±¾¿ò
+	private JButton execBtn=new JButton("æŸ¥è¯¢");
+	//ç”¨äºè¾“å…¥æŸ¥è¯¢è¯­å¥çš„æ–‡æœ¬æ¡†
 	private JTextField sqlField=new JTextField(45);
 	private static Connection conn;
 	private static Statement stmt;
-	//²ÉÓÃ¾²Ì¬³õÊ¼»¯À´³õÊ¼»¯Connection,Statement¶ÔÏó
+	//é‡‡ç”¨é™æ€åˆå§‹åŒ–æ¥åˆå§‹åŒ–Connection,Statementå¯¹è±¡
 	static {
 		try {
 			Properties p=new Properties();
@@ -38,9 +38,9 @@ public class QueryExecutor {
 			 String url=p.getProperty("url");
 			 String user=p.getProperty("user");
 			 String pass=p.getProperty("pass");
-			 //¼ÓÔØÊı¾İ¿âÇı¶¯
+			 //åŠ è½½æ•°æ®åº“é©±åŠ¨
 			 Class.forName(driver);
-			 //È¡µÃÊı¾İ¿âÁ¬½Ó
+			 //å–å¾—æ•°æ®åº“è¿æ¥
 			 conn=DriverManager.getConnection(url,user,pass);
 			 stmt=conn.createStatement();
 		} catch (Exception e) {
@@ -49,10 +49,10 @@ public class QueryExecutor {
 	}
 	public void init() {
 		JPanel top=new JPanel();
-		top.add(new JLabel("ÊäÈë²éÑ¯Óï¾ä"));
+		top.add(new JLabel("è¾“å…¥æŸ¥è¯¢è¯­å¥"));
 		top.add(sqlField);
 		top.add(execBtn,BorderLayout.EAST);
-		//ÎªÖ´ĞĞ°´Å¥,µ¥ĞĞÎÄ±¾¿òÌí¼ÓÊÂ¼ş¼àÌıÆ÷
+		//ä¸ºæ‰§è¡ŒæŒ‰é’®,å•è¡Œæ–‡æœ¬æ¡†æ·»åŠ äº‹ä»¶ç›‘å¬å™¨
 		execBtn.addActionListener(new ExceListener());
 		sqlField.addActionListener(new ExceListener());
 		jf.add(top,BorderLayout.NORTH);
@@ -60,29 +60,29 @@ public class QueryExecutor {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);
 	}
-	//¶¨Òå¼àÌıÆ÷
+	//å®šä¹‰ç›‘å¬å™¨
 	class ExceListener implements ActionListener{
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			//É¾³ıÔ­À´µÄJtable(JTableÊ¹ÓÃscrollPaneÀ´°ü×°)
+			//åˆ é™¤åŸæ¥çš„Jtable(JTableä½¿ç”¨scrollPaneæ¥åŒ…è£…)
 			if(scrollPane!=null)
 			{
 				jf.remove(scrollPane);
 			}
 			try(
-				//¸ù¾İÓÃ»§ÊäÈëµÄSQLÓï¾äÖ´ĞĞ²éÑ¯
+				//æ ¹æ®ç”¨æˆ·è¾“å…¥çš„SQLè¯­å¥æ‰§è¡ŒæŸ¥è¯¢
 				ResultSet rs=stmt.executeQuery(sqlField.getText());
 				){
-				//È¡³öResultSetµÄMetaData
+				//å–å‡ºResultSetçš„MetaData
 				ResultSetMetaData rsmd=rs.getMetaData();
 				Vector<String> columnNames=new Vector<>();
 				Vector<Vector<String>> data=new Vector<>();
-				//°ÑResultSetµÄËùÓĞÁĞÃûÌí¼Óµ½VectorÀï
+				//æŠŠResultSetçš„æ‰€æœ‰åˆ—åæ·»åŠ åˆ°Vectoré‡Œ
 				for(int i=0;i<rsmd.getColumnCount();i++) {
 					columnNames.add(rsmd.getColumnName(i+1));
 				}
-				//°ÑResultSetµÄËùÓĞ¼ÇÂ¼Ìí¼Óµ½VectorÀï
+				//æŠŠResultSetçš„æ‰€æœ‰è®°å½•æ·»åŠ åˆ°Vectoré‡Œ
 				while(rs.next()) {
 					Vector<String> v=new Vector<>();
 					for(int i=0;i<rsmd.getColumnCount();i++) {
@@ -90,10 +90,10 @@ public class QueryExecutor {
 					}
 					data.add(v);
 				}
-				//´´½¨ĞÂµÄJtable
+				//åˆ›å»ºæ–°çš„Jtable
 				JTable table=new JTable(data,columnNames);
 				scrollPane=new JScrollPane(table);
-				//Ìí¼ÓĞÂµÄTable
+				//æ·»åŠ æ–°çš„Table
 				jf.add(scrollPane);
 				jf.validate();
 				

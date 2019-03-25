@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 class Z implements Comparable<Object>{
 
-	//ÖØĞ´compareTo(Object o)·½·¨£¬×ÜÊÇ·µ»ØÕıÕûÊı
+	//é‡å†™compareTo(Object o)æ–¹æ³•ï¼Œæ€»æ˜¯è¿”å›æ­£æ•´æ•°
 	@Override
 	public int compareTo(Object o) {
 		// TODO Auto-generated method stub
@@ -14,7 +14,7 @@ class Z implements Comparable<Object>{
 	public Z(int age) {
 		this.age=age;
 	}
-	//ÖØĞ´equals()·½·¨£¬×ÜÊÇ·µ»Øtrue
+	//é‡å†™equals()æ–¹æ³•ï¼Œæ€»æ˜¯è¿”å›true
 	@Override
 	public boolean equals(Object obj) {
 		return true;
@@ -26,13 +26,13 @@ public class TreeSetTest2 {
 		TreeSet<Object> set=new TreeSet<>();
 		Z z1=new Z(6);
 		set.add(z1);
-		//Êä³ötrue£¬±íÃ÷Ìí¼Ó³É¹¦
+		//è¾“å‡ºtrueï¼Œè¡¨æ˜æ·»åŠ æˆåŠŸ
 		System.out.println(set.add(z1));
-		//ÏÂÃæÊä³öset¼¯ºÏ£¬½«¿´µ½ÓĞÁ½¸öÔªËØ
+		//ä¸‹é¢è¾“å‡ºseté›†åˆï¼Œå°†çœ‹åˆ°æœ‰ä¸¤ä¸ªå…ƒç´ 
 		System.out.println(set);
-		//ĞŞ¸Äset¼¯ºÏµÄµÚÒ»¸öÔªËØµÄage±äÁ¿
+		//ä¿®æ”¹seté›†åˆçš„ç¬¬ä¸€ä¸ªå…ƒç´ çš„ageå˜é‡
 		((Z)(set.first())).age=9;
-		//Êä³öset¼¯ºÏµÄ×îºóÒ»¸öÔªËØµÄage±äÁ¿£¬½«¿´µ½Ò²±ä³ÉÁË9
+		//è¾“å‡ºseté›†åˆçš„æœ€åä¸€ä¸ªå…ƒç´ çš„ageå˜é‡ï¼Œå°†çœ‹åˆ°ä¹Ÿå˜æˆäº†9
 		System.out.println(((Z)(set.last())).age);
 	}
 }

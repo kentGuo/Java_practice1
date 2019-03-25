@@ -12,21 +12,21 @@ public class JdbcRowSetTest {
 	private String pass;
 
 	public void initParam(String paramFile) throws Exception {
-		// Ê¹ÓÃpropertiesÀàÀ´¼ÓÔØÊôĞÔÎÄ¼ş
+		// ä½¿ç”¨propertiesç±»æ¥åŠ è½½å±æ€§æ–‡ä»¶
 		Properties props = new Properties();
 		props.load(new FileInputStream(paramFile));
 		driver = props.getProperty("driver");
 		url = props.getProperty("url");
 		user = props.getProperty("user");
 		pass = props.getProperty("pass");
-		//¼ÓÔØÇı¶¯
+		//åŠ è½½é©±åŠ¨
 		Class.forName(driver);
 	}
 	public void update(String sql) throws Exception{
 		try(
-			//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+			//è·å–æ•°æ®åº“è¿æ¥
 				Connection conn=DriverManager.getConnection(url, user, pass);
-				//´´½¨JdbcRowSetImpl¶ÔÏó
+				//åˆ›å»ºJdbcRowSetImplå¯¹è±¡
 			//	JdbcRowSet jdbcRs=new JdbcRowSetImpl(conn)
 			){}
 	}

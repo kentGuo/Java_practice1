@@ -6,34 +6,34 @@ import java.util.LinkedList;
 
 public class PerformanceTest {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸ö×Ö·û´®Êı×é
+		//åˆ›å»ºä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„
 		String[] ts1=new String[900000];
-		//¶¯Ì¬³õÊ¼»¯Êı×éÔªËØ
+		//åŠ¨æ€åˆå§‹åŒ–æ•°ç»„å…ƒç´ 
 		for(int i=0;i<900000;i++) {
 			ts1[i]=String.valueOf(i);
 		}
 		ArrayList<Object> a1=new ArrayList<>();
-		//½«ËùÓĞµÄÊı×éÔªËØ¼ÓÈëArrayList¼¯ºÏÖĞ
+		//å°†æ‰€æœ‰çš„æ•°ç»„å…ƒç´ åŠ å…¥ArrayListé›†åˆä¸­
 		for(int i=0;i<900000;i++) {
 			a1.add(ts1[i]);
 		}
 		LinkedList<Object> ll=new LinkedList<>();
-		//½«ËùÓĞµÄÊı×éÔªËØ¼ÓÈëLinkedList¼¯ºÏÖĞ
+		//å°†æ‰€æœ‰çš„æ•°ç»„å…ƒç´ åŠ å…¥LinkedListé›†åˆä¸­
 		for(int i=0;i<900000;i++) {
 			ll.add(ts1[i]);
 		}
-		//µü´ú·ÃÎÊArrayList¼¯ºÏµÄËùÓĞÔªËØ£¬²¢Êä³öµü´úÊ±¼ä
+		//è¿­ä»£è®¿é—®ArrayListé›†åˆçš„æ‰€æœ‰å…ƒç´ ï¼Œå¹¶è¾“å‡ºè¿­ä»£æ—¶é—´
 		long start=System.currentTimeMillis();
 		for(Iterator<Object> it=a1.iterator();it.hasNext();) {
 			it.next();
 		}
-		System.out.println("µü´úArrayList¼¯ºÏÔªËØ µÄÊ±¼ä:"+(System.currentTimeMillis()-start));
-		//µü´ú·ÃÎÊLinedList¼¯ºÏµÄËùÓĞÔªËØ£¬²¢Êä³öµü´úÊ±¼ä
+		System.out.println("è¿­ä»£ArrayListé›†åˆå…ƒç´  çš„æ—¶é—´:"+(System.currentTimeMillis()-start));
+		//è¿­ä»£è®¿é—®LinedListé›†åˆçš„æ‰€æœ‰å…ƒç´ ï¼Œå¹¶è¾“å‡ºè¿­ä»£æ—¶é—´
 		start=System.currentTimeMillis();
 		for(Iterator<Object> it=ll.iterator();it.hasNext();) {
 			it.next();
 		}
-		System.out.println("µü´úLinedList¼¯ºÏÔªËØµÄÊ±¼ä:"+
+		System.out.println("è¿­ä»£LinedListé›†åˆå…ƒç´ çš„æ—¶é—´:"+
 		(System.currentTimeMillis()-start));
 	}
 }

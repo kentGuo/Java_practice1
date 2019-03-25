@@ -1,36 +1,36 @@
 package com.fg.multithreading;
 
 class MyThread extends Thread{
-	//Ìá¹©Ö¸µ¼Ïß³ÌÃûµÄ¹¹ÔìÆ÷
+	//æä¾›æŒ‡å¯¼çº¿ç¨‹åçš„æ„é€ å™¨
 		public MyThread(String name) {
 			super(name);
 			// TODO Auto-generated constructor stub
 		}
-		//Ìá¹©Ö¸¶¨Ïß³ÌÃû£¬Ïß³Ì×éµÄ¹¹ÔìÆ÷
+		//æä¾›æŒ‡å®šçº¿ç¨‹åï¼Œçº¿ç¨‹ç»„çš„æ„é€ å™¨
 		public MyThread(ThreadGroup group,String name) {
 			super(group,name);
 		}
 		@Override
 		public void run() {
 			for(int i=0;i<20;i++) {
-				System.out.println(getName()+"Ïß³ÌµÄi±äÁ¿"+i);
+				System.out.println(getName()+"çº¿ç¨‹çš„iå˜é‡"+i);
 			}
 		}
 }
 public class ThreadGroupTest
 {
 	public static void main(String[] args) {
-		//»ñÈ¡Ö÷Ïß³ÌËùÔÚµÄÏß³Ì×é£¬ÕâÊÇËùÓĞÏß³ÌÄ¬ÈÏµÄÏß³Ì×é
+		//è·å–ä¸»çº¿ç¨‹æ‰€åœ¨çš„çº¿ç¨‹ç»„ï¼Œè¿™æ˜¯æ‰€æœ‰çº¿ç¨‹é»˜è®¤çš„çº¿ç¨‹ç»„
 		ThreadGroup mainGroup=Thread.currentThread().getThreadGroup();
-		System.out.println("Ïß³Ì×éµÄÃû×Ö:"+mainGroup.getName());
-		System.out.println("Ö÷Ïß³Ì×éÊÇ·ñÊÇºóÌ¨Ïß³Ì×é:"+mainGroup.isDaemon());
-		new MyThread("Ö÷Ïß³Ì×éµÄÏß³Ì").start();
-		ThreadGroup tg=new ThreadGroup("ĞÂÏß³Ì×é");
+		System.out.println("çº¿ç¨‹ç»„çš„åå­—:"+mainGroup.getName());
+		System.out.println("ä¸»çº¿ç¨‹ç»„æ˜¯å¦æ˜¯åå°çº¿ç¨‹ç»„:"+mainGroup.isDaemon());
+		new MyThread("ä¸»çº¿ç¨‹ç»„çš„çº¿ç¨‹").start();
+		ThreadGroup tg=new ThreadGroup("æ–°çº¿ç¨‹ç»„");
 		tg.setDaemon(true);
-		System.out.println("tgĞÂÏß³Ì×éÊÇ·ñÊÇºóÌ¨Ïß³Ì×é:"+tg.isDaemon());
-		MyThread tt=new MyThread(tg, "tgĞÂÏß³Ì¼×");
+		System.out.println("tgæ–°çº¿ç¨‹ç»„æ˜¯å¦æ˜¯åå°çº¿ç¨‹ç»„:"+tg.isDaemon());
+		MyThread tt=new MyThread(tg, "tgæ–°çº¿ç¨‹ç”²");
 		tt.start();
-		new MyThread(tg,"tg×éµÄÏß³ÌÒÒ").start();
+		new MyThread(tg,"tgç»„çš„çº¿ç¨‹ä¹™").start();
 	}
 	
 }

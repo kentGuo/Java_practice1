@@ -5,17 +5,17 @@ import java.util.HashSet;
 
 public class ForeachTest {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸ö¼¯ºÏ
+		//åˆ›å»ºä¸€ä¸ªé›†åˆ
 		Collection<Object> books=new HashSet<>();
-		books.add("Ñ©ÖĞº·µ¶ĞĞ");
-		books.add("¼ä¿Í");
-		books.add("ÀÏ×ÓÊÇñ®¸òó¡");
+		books.add("é›ªä¸­æ‚åˆ€è¡Œ");
+		books.add("é—´å®¢");
+		books.add("è€å­æ˜¯ç™è›¤èŸ†");
 		for(Object obj:books) {
-			//´Ë´¦µÄbook±äÁ¿Ò²²»ÊÇ¼¯ºÏÔªËØ±¾Éí
+			//æ­¤å¤„çš„bookå˜é‡ä¹Ÿä¸æ˜¯é›†åˆå…ƒç´ æœ¬èº«
 			String book=(String)obj;
 			System.out.println(book);
-			if(book.equals("Ñ©ÖĞº·µ¶ĞĞ")) {
-				//ÏÂÃæ´úÂë½«Òı·¢ConcurrentModificationExceptionÒì³£
+			if(book.equals("é›ªä¸­æ‚åˆ€è¡Œ")) {
+				//ä¸‹é¢ä»£ç å°†å¼•å‘ConcurrentModificationExceptionå¼‚å¸¸
 				books.remove(book);
 			}
 		}

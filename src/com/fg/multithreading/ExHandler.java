@@ -1,19 +1,19 @@
 package com.fg.multithreading;
-//¶¨Òå×Ô¼ºµÄÒì³£´¦ÀíÆ÷
+//å®šä¹‰è‡ªå·±çš„å¼‚å¸¸å¤„ç†å™¨
 class MyExHandler implements Thread.UncaughtExceptionHandler{
-	//ÊµÏÖuncaughtException()·½·¨£¬¸Ã·½·¨½«´¦ÀíÏß³ÌµÄÎ´´¦ÀíÒì³£ 
+	//å®ç°uncaughtException()æ–¹æ³•ï¼Œè¯¥æ–¹æ³•å°†å¤„ç†çº¿ç¨‹çš„æœªå¤„ç†å¼‚å¸¸ 
 	@Override
 	public void uncaughtException(Thread t, Throwable e) {
 		// TODO Auto-generated method stub
-		System.out.println(t+" Ïß³Ì³öÏÖÁËÒì³£:"+e);
+		System.out.println(t+" çº¿ç¨‹å‡ºç°äº†å¼‚å¸¸:"+e);
 	}
 	
 }
 public class ExHandler {
 	public static void main(String[] args) {
-		//ÉèÖÃÖ÷Ïß³ÌµÄÒì³£´¦ÀíÆ÷
+		//è®¾ç½®ä¸»çº¿ç¨‹çš„å¼‚å¸¸å¤„ç†å™¨
 		Thread.currentThread().setUncaughtExceptionHandler(new MyExHandler());
 		int a=5/0;
-		System.out.println("³ÌĞòÕı³£½áÊø");
+		System.out.println("ç¨‹åºæ­£å¸¸ç»“æŸ");
 	}
 }

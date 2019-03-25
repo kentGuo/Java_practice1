@@ -5,11 +5,11 @@ import java.util.LinkedHashMap;
 public class LinkedHashMapTest {
 	public static void main(String[] args) {
 		LinkedHashMap<Object, Object> scores=new LinkedHashMap<>();
-		scores.put("ÓïÎÄ", 80);
-		scores.put("ÊýÑ§", 82);
-		scores.put("Ó¢Óï", 79);
-		scores.put("»¯Ñ§", 90);
-		//±éÀúscoresÀïµÄËùÓÐkey-value¶Ô
+		scores.put("è¯­æ–‡", 80);
+		scores.put("æ•°å­¦", 82);
+		scores.put("è‹±è¯­", 79);
+		scores.put("åŒ–å­¦", 90);
+		//éåŽ†scoresé‡Œçš„æ‰€æœ‰key-valueå¯¹
 		for(Object key:scores.keySet()) {
 			System.out.println(key+"------>"+scores.get(key));
 		}

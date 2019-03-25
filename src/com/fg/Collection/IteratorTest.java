@@ -6,25 +6,25 @@ import java.util.Iterator;
 
 public class IteratorTest {
 	public static void main(String[] args) {
-		//´´½¨Ò»¸ö¼¯ºÏ
+		//åˆ›å»ºä¸€ä¸ªé›†åˆ
 		Collection<Object> books=new HashSet<>();
-		books.add("Ñ©ÖĞº·µ¶ĞĞ");
-		books.add("¼ä¿Í");
-		books.add("ÀÏ×ÓÊÇñ®¸òó¡");
-		//»ñÈ¡books¼¯ºÏ¶ÔÓ¦µÄµü´úÆ÷
+		books.add("é›ªä¸­æ‚åˆ€è¡Œ");
+		books.add("é—´å®¢");
+		books.add("è€å­æ˜¯ç™è›¤èŸ†");
+		//è·å–booksé›†åˆå¯¹åº”çš„è¿­ä»£å™¨
 		Iterator<Object> it=books.iterator();
 		while(it.hasNext()) {
-			//it.next()·½·¨·µ»ØµÄÊı¾İÀàĞÍÊÇObjectÀàĞÍ
-			//ĞèÒªÇ¿ÖÆ×ª»»ÀàĞÍ
+			//it.next()æ–¹æ³•è¿”å›çš„æ•°æ®ç±»å‹æ˜¯Objectç±»å‹
+			//éœ€è¦å¼ºåˆ¶è½¬æ¢ç±»å‹
 			String book=(String)it.next();
 			System.out.println(book);
-			if(book.equals("Ñ©ÖĞº·µ¶ĞĞ"))
+			if(book.equals("é›ªä¸­æ‚åˆ€è¡Œ"))
 			{
-				//´Ó¼¯ºÏÖĞÉ¾³ıÉÏÒ»´Înext·½·¨·µ»ØµÄÔªËØ
+				//ä»é›†åˆä¸­åˆ é™¤ä¸Šä¸€æ¬¡nextæ–¹æ³•è¿”å›çš„å…ƒç´ 
 				it.remove();
 			}
-			//¶Ôbook±äÁ¿¸³Öµ£¬²»»á¸Ä±ä¼¯ºÏÔªËØ±¾Éí
-			book="²âÊÔ×Ö·û´®";
+			//å¯¹bookå˜é‡èµ‹å€¼ï¼Œä¸ä¼šæ”¹å˜é›†åˆå…ƒç´ æœ¬èº«
+			book="æµ‹è¯•å­—ç¬¦ä¸²";
 		}
 		System.out.println(books);
 	}

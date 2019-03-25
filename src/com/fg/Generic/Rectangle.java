@@ -6,7 +6,7 @@ public class Rectangle extends Shape{
 	@Override
 	public void draw(Canvas c) {
 		// TODO Auto-generated method stub
-		System.out.println("ÔÚ»­²¼"+c+"ÉÏ»­Ò»¸ö¾ØÐÎ");
+		System.out.println("åœ¨ç”»å¸ƒ"+c+"ä¸Šç”»ä¸€ä¸ªçŸ©å½¢");
 	}
 
 }

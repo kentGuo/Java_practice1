@@ -6,35 +6,35 @@ import java.io.PushbackReader;
 public class PushbackTest {
 	public static void main(String[] args) {
 		try(
-			//´´½¨Ò»¸öPushbackReader¶ÔÏó£¬Ö¸¶¨ÍÆ»Ø»º³åÇøµÄ³¤¶ÈÎª64
+			//åˆ›å»ºä¸€ä¸ªPushbackReaderå¯¹è±¡ï¼ŒæŒ‡å®šæ¨å›ç¼“å†²åŒºçš„é•¿åº¦ä¸º64
 				PushbackReader pr=new PushbackReader(new FileReader(".\\src\\com\\fg\\IO\\PushbackTest.java"), 64);
 				){
 			char[] buf=new char[32];
-			//ÓÃÒÔ±£´æÉÏÒ»´Î¶ÁÈ¡µÄ×Ö·û´®ÄÚÈİ
+			//ç”¨ä»¥ä¿å­˜ä¸Šä¸€æ¬¡è¯»å–çš„å­—ç¬¦ä¸²å†…å®¹
 			String lastContent="";
 			int hasRead=0;
-			//Ñ­»·¶ÁÈ¡ÎÄ¼şÄÚÈİ
+			//å¾ªç¯è¯»å–æ–‡ä»¶å†…å®¹
 			while((hasRead=pr.read(buf))>0) {
-				//½«¶ÁÈ¡µÄÄÚÈİ×ª»»³É×Ö·û´®
+				//å°†è¯»å–çš„å†…å®¹è½¬æ¢æˆå­—ç¬¦ä¸²
 				String content=new String(buf,0,hasRead);
 				int targetIndex=0;
-				//½«ÉÏ´Î¶ÁÈ¡µÄ×Ö·û´®ºÍ±¾´Î¶ÁÈ¡µÄ×Ö·û´®Æ´½ÓÆğÀ´
-				//²é¿´ÊÇ·ñ°üº¬Ä¿±ê×Ö·û´®.Èç¹û°üº¬Ä¿±ê×Ö·û´®
+				//å°†ä¸Šæ¬¡è¯»å–çš„å­—ç¬¦ä¸²å’Œæœ¬æ¬¡è¯»å–çš„å­—ç¬¦ä¸²æ‹¼æ¥èµ·æ¥
+				//æŸ¥çœ‹æ˜¯å¦åŒ…å«ç›®æ ‡å­—ç¬¦ä¸².å¦‚æœåŒ…å«ç›®æ ‡å­—ç¬¦ä¸²
 				if((targetIndex=(lastContent+content).indexOf("new PushbackReader"))>0)
 				{
-					//½«±¾´ÎÄÚÈİºÍÉÏÒ»´ÎÄÚÈİÒ»ÆğÍÆ»Øµ½»º³åÇø
+					//å°†æœ¬æ¬¡å†…å®¹å’Œä¸Šä¸€æ¬¡å†…å®¹ä¸€èµ·æ¨å›åˆ°ç¼“å†²åŒº
 					pr.unread((lastContent+content).toCharArray());
-					//Ö¸¶¨¶ÁÈ¡Ç°ÃæµÄlen¸ö×Ö·û´®
+					//æŒ‡å®šè¯»å–å‰é¢çš„lenä¸ªå­—ç¬¦ä¸²
 					int len=targetIndex>32?32:targetIndex;
-					//ÔÙ´Î¶ÁÈ¡Ö¸¶¨³¤¶ÈµÄÄÚÈİ(¾ÍÊÇÄ¿±ê×Ö·û´®Ö®Ç°µÄÄÚÈİ)
+					//å†æ¬¡è¯»å–æŒ‡å®šé•¿åº¦çš„å†…å®¹(å°±æ˜¯ç›®æ ‡å­—ç¬¦ä¸²ä¹‹å‰çš„å†…å®¹)
 					pr.read(buf,0,len);
-					//´òÓ¡¶ÁÈ¡µÄÄÚÈİ
-					System.out.println("Õâ´Î¶ÁÈ¡µÄÄÚÈİ:"+new String(buf,0,len));
+					//æ‰“å°è¯»å–çš„å†…å®¹
+					System.out.println("è¿™æ¬¡è¯»å–çš„å†…å®¹:"+new String(buf,0,len));
 					System.exit(0);
 				}else {
-					//´òÓ¡ÉÏ´Î¶ÁÈ¡µÄÄÚÈİ
-					System.out.println("ÉÏ´Î¶ÁÈ¡µÄÄÚÈİ:"+lastContent);
-					//½«±¾´ÎÄÚÈİÉèÎªÉÏ´Î¶ÁÈ¡µÄÄÚÈİ
+					//æ‰“å°ä¸Šæ¬¡è¯»å–çš„å†…å®¹
+					System.out.println("ä¸Šæ¬¡è¯»å–çš„å†…å®¹:"+lastContent);
+					//å°†æœ¬æ¬¡å†…å®¹è®¾ä¸ºä¸Šæ¬¡è¯»å–çš„å†…å®¹
 					lastContent=content;
 				}
 			

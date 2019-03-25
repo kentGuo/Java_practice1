@@ -12,7 +12,7 @@ class J implements Comparable<Object>
 	public String toString() {
 		return "R[count:"+count+"]";
 	}
-	//ÖØĞ´equals()·½·¨£¬¸ù¾İcountÀ´ÅĞ¶ÏÊÇ·ñÏàµÈ
+	//é‡å†™equals()æ–¹æ³•ï¼Œæ ¹æ®countæ¥åˆ¤æ–­æ˜¯å¦ç›¸ç­‰
 	@Override
 	public boolean equals(Object obj) {
 		if(this==obj)return true;
@@ -23,7 +23,7 @@ class J implements Comparable<Object>
 		}
 		return false;
 	}
-	//ÖØĞ´compareTo()·½·¨£¬¸ù¾İcountÀ´±È½Ï´óĞ¡
+	//é‡å†™compareTo()æ–¹æ³•ï¼Œæ ¹æ®countæ¥æ¯”è¾ƒå¤§å°
 	@Override
 	public int compareTo(Object obj) {
 		// TODO Auto-generated method stub
@@ -38,22 +38,22 @@ public class TreeSetTest3 {
 		ts.add(new J(-3));
 		ts.add(new J(9));
 		ts.add(new J(-2));
-		//´òÓ¡TreeSet¼¯ºÏ£¬¼¯ºÏÔªËØ¶¼ÊÇÓĞĞòÅÅÁĞµÄ
+		//æ‰“å°TreeSeté›†åˆï¼Œé›†åˆå…ƒç´ éƒ½æ˜¯æœ‰åºæ’åˆ—çš„
 		System.out.println(ts);
-		//È¡³öµÚÒ»¸öÔªËØ
+		//å–å‡ºç¬¬ä¸€ä¸ªå…ƒç´ 
 		J first=(J)ts.first();
-		//¶ÔµÚÒ»¸öÔªËØµÄcount¸³Öµ
+		//å¯¹ç¬¬ä¸€ä¸ªå…ƒç´ çš„countèµ‹å€¼
 		first.count=20;
-		//È¡³ö×îºóÒ»¸öÔªËØ
+		//å–å‡ºæœ€åä¸€ä¸ªå…ƒç´ 
 		J last=(J)ts.last();
-		//¶Ô×îºóÒ»¸öÔªËØµÄcount¸³Öµ£¬ÓëµÚ¶ş¸öÔªËØµÄcountÏàÍ¬
+		//å¯¹æœ€åä¸€ä¸ªå…ƒç´ çš„countèµ‹å€¼ï¼Œä¸ç¬¬äºŒä¸ªå…ƒç´ çš„countç›¸åŒ
 		last.count=-2;
-		//ÔÙ´ÎÊä³ö½«¿´µ½TreeSetÀïµÄÔªËØ´¦ÓÚÎŞĞò×´Ì¬£¬ÇÒÓĞÖØ¸´ÔªËØ
+		//å†æ¬¡è¾“å‡ºå°†çœ‹åˆ°TreeSeté‡Œçš„å…ƒç´ å¤„äºæ— åºçŠ¶æ€ï¼Œä¸”æœ‰é‡å¤å…ƒç´ 
 		System.out.println(ts);
-		//É¾³ıField±»¸Ä±äµÄÔªËØ£¬É¾³ıÊ§°Ü
+		//åˆ é™¤Fieldè¢«æ”¹å˜çš„å…ƒç´ ï¼Œåˆ é™¤å¤±è´¥
 		System.out.println(ts.remove(new J(-2)));
 		System.out.println(ts);
-		//É¾³ıFieldÃ»ÓĞ¸Ä±äµÄÔªËØ£¬É¾³ı³É¹¦
+		//åˆ é™¤Fieldæ²¡æœ‰æ”¹å˜çš„å…ƒç´ ï¼Œåˆ é™¤æˆåŠŸ
 		System.out.println(ts.remove(new J(5)));
 		System.out.println(ts);
 	}

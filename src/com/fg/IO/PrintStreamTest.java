@@ -9,9 +9,9 @@ public class PrintStreamTest {
 			FileOutputStream fos=new FileOutputStream("test.txt");
 			PrintStream ps=new PrintStream(fos);
 			){
-			//使用PrintStream执行输出
-			ps.println("普通字符串");
-			//直接使用PrintSteam输出对象
+			//浣跨敤PrintStream鎵ц杈撳嚭
+			ps.println("鏅�氬瓧绗︿覆");
+			//鐩存帴浣跨敤PrintSteam杈撳嚭瀵硅薄
 			ps.print(new PrintStreamTest());
 		} catch (Exception e) {
 			// TODO: handle exception

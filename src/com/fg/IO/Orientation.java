@@ -17,7 +17,7 @@ public class Orientation implements Serializable{
 		// TODO Auto-generated constructor stub
 		this.i=i;
 	}
-	//为枚举类增加readResolve()方法
+	//涓烘灇涓剧被澧炲姞readResolve()鏂规硶
 	private Object readResolve() throws ObjectStreamException{
 		if(i==1) {return HORIZONTAL;}
 		if(i==2) {return VERTICAL;}

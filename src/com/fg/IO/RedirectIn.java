@@ -9,16 +9,16 @@ public class RedirectIn {
 		try(
 			FileInputStream fis=new FileInputStream(".\\\\src\\\\com\\\\fg\\\\IO\\\\RedirectIn.java");	
 			) {
-			//½«±ê×¼ÊäÈëÖØ¶¨Ïòµ½fisÊäÈëÁ÷
+			//å°†æ ‡å‡†è¾“å…¥é‡å®šå‘åˆ°fisè¾“å…¥æµ
 			System.setIn(fis);
-			//Ê¹ÓÃSystem.in´´½¨Scanner¶ÔÏó£¬ÓÃÓÚ»ñÈ¡±ê×¼ÊäÈë
+			//ä½¿ç”¨System.inåˆ›å»ºScannerå¯¹è±¡ï¼Œç”¨äºè·å–æ ‡å‡†è¾“å…¥
 			Scanner sc=new Scanner(System.in);
-			//Ôö¼ÓÏÂÃæÒ»ĞĞÖ»°Ñ»Ø³µ×÷Îª·Ö¸ô·û
+			//å¢åŠ ä¸‹é¢ä¸€è¡ŒåªæŠŠå›è½¦ä½œä¸ºåˆ†éš”ç¬¦
 			sc.useDelimiter("\n");
-			//ÅĞ¶ÏÊÇ·ñ»¹ÓĞÏÂÒ»¸öÊäÈëÏî
+			//åˆ¤æ–­æ˜¯å¦è¿˜æœ‰ä¸‹ä¸€ä¸ªè¾“å…¥é¡¹
 			while(sc.hasNext()) {
-				//ÊäÈëÊä³öÏî
-				System.out.println("¼üÅÌÊäÈëµÄÄÚÈİÊÇ:"+sc.next());
+				//è¾“å…¥è¾“å‡ºé¡¹
+				System.out.println("é”®ç›˜è¾“å…¥çš„å†…å®¹æ˜¯:"+sc.next());
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

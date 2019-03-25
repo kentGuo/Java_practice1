@@ -2,10 +2,10 @@ package com.fg.multithreading;
 
 public class DrawTest {
 	public static void main(String[] args) {
-		//´´½¨ÕË»§
+		//åˆ›å»ºè´¦æˆ·
 		AccountLock acct=new AccountLock("k", 1000);
-		//Ä£ÄâÁ½¸öÏß³Ì¶ÔÍ¬Ò»¸öÕË»§È¡Ç®
-		new DrawThread("¼×",acct, 800).start();
-		new DrawThread("ÒÒ",acct, 800).start();
+		//æ¨¡æ‹Ÿä¸¤ä¸ªçº¿ç¨‹å¯¹åŒä¸€ä¸ªè´¦æˆ·å–é’±
+		new DrawThread("ç”²",acct, 800).start();
+		new DrawThread("ä¹™",acct, 800).start();
 	}
 }

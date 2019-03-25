@@ -1,6 +1,6 @@
 package com.fg.multithreading;
 /**
- * Ïß³ÌËÀËø
+ * çº¿ç¨‹æ­»é”
  * @author Administrator
  *
  */
@@ -8,57 +8,57 @@ public class DeadLock implements Runnable{
 	A a=new A();
 	B b=new B();
 	public void init() {
-		Thread.currentThread().setName("Ö÷Ïß³Ì");
-		//µ÷ÓÃa¶ÔÏóµÄfoo()·½·¨
+		Thread.currentThread().setName("ä¸»çº¿ç¨‹");
+		//è°ƒç”¨aå¯¹è±¡çš„foo()æ–¹æ³•
 		a.foo(b);
-		System.out.println("½øÈëÁËÖ÷Ïß³ÌÖ®ºó");
+		System.out.println("è¿›å…¥äº†ä¸»çº¿ç¨‹ä¹‹å");
 	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		Thread.currentThread().setName("¸±Ïß³Ì");
-		//µ÷ÓÃb¶ÔÏóµÄbar()·½·¨
+		Thread.currentThread().setName("å‰¯çº¿ç¨‹");
+		//è°ƒç”¨bå¯¹è±¡çš„bar()æ–¹æ³•
 		b.bar(a);
-		System.out.println("½øÈë¸±Ïß³ÌÖ®ºó");
+		System.out.println("è¿›å…¥å‰¯çº¿ç¨‹ä¹‹å");
 	}
 	public static void main(String[] args) {
 		DeadLock dl=new DeadLock();
-		//ÒÔdlÎªtargetÆô¶¯ĞÂÏß³Ì
+		//ä»¥dlä¸ºtargetå¯åŠ¨æ–°çº¿ç¨‹
 		new Thread(dl).start();
-		//µ÷ÓÃinit()·½·¨
+		//è°ƒç”¨init()æ–¹æ³•
 		dl.init();
 	}
 
 }
 class A{
 	public synchronized void foo(B b) {
-		System.out.println("µ±Ç°Ïß³ÌÃû:"+Thread.currentThread().getName()+" ½øÈëÁËAÊµÀıµÄfoo()·½·¨");
+		System.out.println("å½“å‰çº¿ç¨‹å:"+Thread.currentThread().getName()+" è¿›å…¥äº†Aå®ä¾‹çš„foo()æ–¹æ³•");
 		try {
 			Thread.sleep(200);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception
 		}
-		System.out.println("µ±Ç°Ïß³ÌÃû:"+Thread.currentThread().getName()+" ÆóÍ¼µ÷ÓÃBÊµÀıµÄlast()·½·¨");
+		System.out.println("å½“å‰çº¿ç¨‹å:"+Thread.currentThread().getName()+" ä¼å›¾è°ƒç”¨Bå®ä¾‹çš„last()æ–¹æ³•");
 		b.last();
 	}
 	public synchronized void last() {
-		System.out.println("½øÈëÁËAÀàµÄlast()·½·¨µÄÄÚ²¿");
+		System.out.println("è¿›å…¥äº†Aç±»çš„last()æ–¹æ³•çš„å†…éƒ¨");
 	}
 }
 class B{
 	public synchronized void bar(A a) {
-		System.out.println("µ±Ç°Ïß³ÌÃû:"+Thread.currentThread().getName()+" ½øÈëÁËBÊµÀıµÄbar()·½·¨");
+		System.out.println("å½“å‰çº¿ç¨‹å:"+Thread.currentThread().getName()+" è¿›å…¥äº†Bå®ä¾‹çš„bar()æ–¹æ³•");
 		try {
 			Thread.sleep(200);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception
 		}
-		System.out.println("µ±Ç°Ïß³ÌÃû:"+Thread.currentThread().getName()+" ÆóÍ¼µ÷ÓÃAÊµÀıµÄlast()·½·¨");
+		System.out.println("å½“å‰çº¿ç¨‹å:"+Thread.currentThread().getName()+" ä¼å›¾è°ƒç”¨Aå®ä¾‹çš„last()æ–¹æ³•");
 		a.last();
 	}
 	public synchronized void last() {
-		System.out.println("½øÈëÁËBÀàµÄlast()·½·¨µÄÄÚ²¿");
+		System.out.println("è¿›å…¥äº†Bç±»çš„last()æ–¹æ³•çš„å†…éƒ¨");
 	}
 }

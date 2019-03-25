@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class MyUtils {
-		//ÏÂÃædest¼¯ºÏÔªËØµÄÀàĞÍ±ØĞëÓësrc¼¯ºÏÔªËØµÄÀàĞÍÏàÍ¬£¬»òÊÇÆä¸¸Àà
+		//ä¸‹é¢desté›†åˆå…ƒç´ çš„ç±»å‹å¿…é¡»ä¸srcé›†åˆå…ƒç´ çš„ç±»å‹ç›¸åŒï¼Œæˆ–æ˜¯å…¶çˆ¶ç±»
 	public static <T> T copy(Collection<? super T> dest,Collection<T> src){
 		T last=null;
 		for(T ele:src) {
@@ -26,8 +26,8 @@ public class MyUtils {
 		in.add(54);
 		in.add(15);
 		in.add(53);
-		//´Ë´¦¿É×¼È·µØÖªµÀ×îºóÒ»¸ö±»¸´ÖÆµÄÔªËØÊÇIntegerÀàĞÍ
-		//Óësrc¼¯ºÏÔªËØµÄÀàĞÍÏàÍ¬
+		//æ­¤å¤„å¯å‡†ç¡®åœ°çŸ¥é“æœ€åä¸€ä¸ªè¢«å¤åˆ¶çš„å…ƒç´ æ˜¯Integerç±»å‹
+		//ä¸srcé›†åˆå…ƒç´ çš„ç±»å‹ç›¸åŒ
 		Integer last=copy(ln,in);
 		System.out.println(last);
 		

@@ -8,7 +8,7 @@ public class Person implements Serializable{
 	public Person(String name,int age) {
 		this.age=age;
 		this.name=name;
-		System.out.println("有构造的参数");
+		System.out.println("鏈夋瀯閫犵殑鍙傛暟");
 	}
 	public String getName() {
 		return name;

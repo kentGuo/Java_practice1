@@ -6,13 +6,13 @@ import java.util.List;
 public class FixedSizeList {
 	public static void main(String[] args) {
 		List<Object> fixedList=Arrays.asList("1","2","3");
-		//»ñÈ¡fixedListµÄÊµÏÖÀà£¬½«Êä³öArrays$ArrayList
+		//è·å–fixedListçš„å®ç°ç±»ï¼Œå°†è¾“å‡ºArrays$ArrayList
 		System.out.println(fixedList.getClass());
-		//±ãÀûfixedListµÄ¼¯ºÏÔªËØ
+		//ä¾¿åˆ©fixedListçš„é›†åˆå…ƒç´ 
 		for(int i=0;i<fixedList.size();i++) {
 			System.out.println(fixedList.get(i));
 		}
-		//ÊÔÍ¼Ôö¼Ó£¬É¾³ıÔªËØ¶¼»áÒı·¢UnsupportedOperationExceptionÒì³£
+		//è¯•å›¾å¢åŠ ï¼Œåˆ é™¤å…ƒç´ éƒ½ä¼šå¼•å‘UnsupportedOperationExceptionå¼‚å¸¸
 		fixedList.add("4");
 		fixedList.remove("4");
 	}
